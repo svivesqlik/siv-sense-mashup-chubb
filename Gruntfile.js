@@ -15,7 +15,6 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
-  grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-contrib-compress');
 
 
@@ -31,16 +30,6 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
-
-  html2js: {
-    options: {
-      // custom options, see below
-    },
-    main: {
-      src: ['app/templates/**/*.html'],
-      dest: 'app/templates.js'
-    },
-  },  
 
   compress: {
       main: {
@@ -67,13 +56,6 @@ module.exports = function (grunt) {
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all'],
-        options: {
-          livereload: '<%= connect.options.livereload %>'
-        }
-      },
-      html: {
-        files: ['<%= yeoman.app %>/templates/{,*/}*.html'],
-        tasks: ['html2js'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -107,11 +89,11 @@ module.exports = function (grunt) {
         port: 80,
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: '127.0.0.1',
-        livereload: 35735
+        livereload: 35745
       },
       livereload: {
         options: {
-          port: 9002,
+          port: 9003,
           open: true,
           middleware: function (connect) {
             return [
@@ -481,7 +463,6 @@ module.exports = function (grunt) {
     'uglify',
     'filerev',
     'usemin',
-    'html2js',
     'compress:main'
   ]);
 
