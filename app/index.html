@@ -1,0 +1,39 @@
+﻿<!--  Embed code -->
+<div id="qlikEmbedContainer">
+	<div ui-view="menu"></div>
+	<section ui-view="main"></section>
+</div>
+<script>
+	try {
+		// Put here the ticket for the authentication (alphanumeric character).
+		var qlik_ticket_from_authentication = '';
+		
+		// Fill in the language for embed if provided, if not it will be 
+		// read from the cookie. The format is 'ISO 639-1' 2 letter code
+		// UPPERCASE!
+		var qlik_embed_language = '';
+
+		/*
+			This is the configuration used in this script to embed:
+			@host, @protocol: the host (no protocol) and the protocol http or https
+			@prefix: The virtual proxy being targeted such as 'cportal'
+			@extension_name: What QS extension being used (celsa_test or celsa for example)
+			@default_language:  What language to fallback to if cookie language fails ('EN', 'ES')
+			@environment: Set the environment (where we are calling from to load the appropiate app and pages)
+            @start_state: (Optional) The start page (state) that will be loaded when opened.
+		*/
+		var embed_config = {
+	        host: 's006-0174.gcelsa.com',
+			protocol: 'https',
+			prefix: '/',
+			extension_name: 'celsa',
+			default_language: 'EN',
+            environment: 'CELSA_TEST_CRM_QSS',
+            start_state: 'dashboard'
+		};
+
+		function qlikEmbedGetCookieLanguage(){if(qlik_embed_language&&""!=qlik_embed_language)return qlik_embed_language;var a=embed_config.default_language;if(document.cookie){var b="; "+document.cookie,c=b.split("; _culture=");2==c.length&&(a=c.pop().split(";").shift().toUpperCase())}return a}function qlikEmbedRequestTicket(a){var b=embed_config.protocol+"://"+embed_config.host+embed_config.prefix+"resources/img/core/dark_noise_16x16.png?qlikTicket="+qlik_ticket_from_authentication,c=document.createElement("img"),d=document.createAttribute("src"),e=document.createAttribute("style");d.value=b,e.value="height: 1px; width: 1px; opacity: 0;",c.setAttributeNode(d),c.setAttributeNode(e),document.body.appendChild(c),c.onload=a}function qlikEmbedLoadConfigAndKickstart(){var a=embed_config.protocol+"://"+embed_config.host+embed_config.prefix+"extensions/"+embed_config.extension_name;embed_config.root&&(a=embed_config.root);var b=document.createElement("script");b.type="text/javascript",b.src=a+"/config/config.js",document.body.appendChild(b),b.onload=function(b){senseConnection.setEnvironment(embed_config),senseConnection.setUserLanguage(qlikEmbedGetCookieLanguage()),senseConnection.kickStart(a)}}
+		qlikEmbedRequestTicket(qlikEmbedLoadConfigAndKickstart());
+	} catch (e) {if (window.console) { console.error('Could not retrieve the QS charts from the server.', e);}}
+</script>
+<!-- / Embed code -->

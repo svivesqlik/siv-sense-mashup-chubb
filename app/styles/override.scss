@@ -1,0 +1,72 @@
+
+.qv-object .qv-object-subtitle {
+    float: right !important;
+}
+
+.qv-object h1, 
+.qv-object h2,
+.qv-object .qv-object-title .qv-object-title-text,
+.qv-object .qv-object-subtitle, .qv-object .qv-object-footnote
+{
+    font-family: 'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif !important;
+    color: #777777;
+}
+
+.qv-object .qv-object-header {
+    flex: none;
+    display: block !important;
+}
+
+.qv-object .qv-object-header h1 {
+    display: inline-block;
+    flex: none;
+    font-weight: normal;
+    color: #777777;
+}
+
+.qv-object .qv-object-header h1 > div {
+    float: left;
+}
+
+.qv-object .qv-object-header h2 {
+    display: inline-block;
+    flex: none;
+    color: #4A4A4A;
+}
+
+.qv-object .qv-object-header h1,
+.qv-object .qv-object-header h2 {
+    padding: 5px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.qv-object .qv-object-header h1 {
+    padding-top: 10px;
+}
+
+.with-bottom .qvt-visualization {
+    border-bottom: 1px solid #D8D8D8;
+    margin-right: 10px;
+}
+
+.qv-layout-medium .qv-object-header h2 {
+    font-size: 22px;
+}
+.qv-layout-medium .qv-object-header h1 {
+    font-size: 18px;
+} 
+
+.qv-layout-small .qv-object-header h2 {
+    font-size: 15px;
+}
+.qv-layout-small .qv-object-header h1 {
+    font-size: 12px;
+}
+
+.qv-layout-xsmall .qv-object-header h2 {
+    font-size: 13px;
+}
+.qv-layout-xsmall .qv-object-header h1 {
+    font-size: 10px;
+}

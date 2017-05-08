@@ -1,0 +1,23 @@
+#qlikEmbedContainer {
+    ul.embed-list {
+        li {
+            $border_height: 3px;
+            display: inline-block;            
+            margin-bottom: 5px;
+            
+            a {
+                padding: 15px 25px;
+                display: block;
+                border-bottom: $border_height transparent;
+                cursor: pointer;
+                color: #B7B7B7;
+
+                &.active {
+                    color: #777555;
+                    border-bottom: $border_height solid #F00000;
+                }
+            }
+        }
+    }
+
+}
