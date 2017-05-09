@@ -1,0 +1,26 @@
+.nav-wrapper {
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    padding: 25px 0;
+    vertical-align: middle;
+
+    nav {
+        float: right;
+    }
+
+    .nav-logo {
+        float: left;
+    }
+
+    a {
+        color: white;
+        display: inline-block;
+        padding: 0 15px;
+        font-weight: bold;
+        &.active {
+            border-bottom: 1px solid $scheme_section_color;
+        }
+    }
+}
+
+ 

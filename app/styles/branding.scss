@@ -1,23 +1,34 @@
-#qlikEmbedContainer {
-    ul.embed-list {
-        li {
-            $border_height: 3px;
-            display: inline-block;            
-            margin-bottom: 5px;
-            
-            a {
-                padding: 15px 25px;
-                display: block;
-                border-bottom: $border_height transparent;
-                cursor: pointer;
-                color: #B7B7B7;
 
-                &.active {
-                    color: #777555;
-                    border-bottom: $border_height solid #F00000;
-                }
-            }
-        }
-    }
+$link_color: #21C8D9;
 
-}
+$logo_turquoise: #21C8D7;
+$logo_purple: #801BC3;
+$logo_red: #FD0D1B;
+
+$scheme_orange: #FD4B1E;
+$scheme_orange_over: #D85421;
+$scheme_purple: #801BC3;
+$scheme_blue: #2A1094;
+$scheme_yellow: #FEB82B;
+$scheme_turquoise: #21C8D7;
+$scheme_green: #50D837;
+$scheme_red: #FD0D1B;
+$scheme_pink: #FD1892;
+$scheme_gray: #B1B1B1;
+$scheme_dark_gray: #494D51;
+$scheme_black: #000000;
+$scheme_white: #fafafa;
+
+$scheme_section_color: #20C1D4;
+$scheme_section_head_background: #A7A7A7;
+$footer_gray: #4B4D52;
+
+$scheme_content_body_bkg:#EBEBEB;
+
+$paragraph_size: 1.1em;
+
+$footer_size: 200px;
+
+$main_font: "Chubb Web Font";
+
+:focus {outline:none;}

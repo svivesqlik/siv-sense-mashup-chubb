@@ -1,16 +1,119 @@
-body {
-    overflow: auto !important;
+@import "branding";
+
+#contentwrap {
+    margin-bottom: $footer_size;
 }
 
-/*.celsa-qs-chart {
-    margin-right: 3.5%;
-    width: 48%;
-    display: inline-block;
-    background: white;
-    margin-bottom: 10px;
-    vertical-align: top;
+#contentBody {
+    background:  white;
+
+    #containerMainView {
+        article {
+            background: $scheme_content_body_bkg;
+            min-height: 50vh;
+        }
+
+        .section-intro {
+            width: 100%;
+            background-color: $scheme_section_head_background;
+
+            .container {
+                background-image: url('../images/sections/1.jpg');
+                background-origin: center center;
+                background-size: cover;
+            }
+
+             .section-cover {
+                //  http://www.colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.10+100
+                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 85%);
+                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 85%);
+                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 85%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .section-headers-wrapper {
+                padding-left: 15px;
+                border-left: 5px solid $scheme_section_color;
+            }
+
+            h1, h2 {
+                color: white;
+                line-height: 1.5em;
+            }
+
+            h1 {
+                margin-top: 4vh;
+                font-size: 3em;
+                font-weight: 800;
+            }
+
+            h2 {
+                margin-top: 1vh;
+                font-size: 1.25em;
+                font-weight: normal;
+            }
+
+            .container {
+                height: 25vh;
+            }
+        }
+
+        article {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .panel {
+                background: white;
+                padding: 10px;
+                border-top: 4px solid $scheme_section_color;
+            }
+        }
+    }
 }
-.celsa-qs-chart.clearfix {
-    margin-right: 0;
+
+body {
+    background-color: $scheme_black;
 }
-*/
+
+p {
+    font-size: $paragraph_size;
+    line-height: 125%;
+}
+
+button {
+    font-family: $main_font;
+    font-size: $paragraph_size;
+    padding: 0 80px;
+    vertical-align: middle;
+    height: 50px;
+    border: none;
+    color: white;
+
+    &.chubb-orange {
+        background-color: $scheme_orange;
+
+        &:hover {
+            background-color: #D85421;
+        }
+    }
+    
+    &.short {
+        height: 35px;
+    }
+
+    &.tall {
+        height: 80px;
+    }
+
+}

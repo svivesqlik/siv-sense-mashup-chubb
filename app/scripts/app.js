@@ -1,0 +1,338 @@
+'use strict';
+
+//to avoid errors in workbench: you can remove this when you have added an app
+var senseApp;
+
+require.config({
+    baseUrl: (senseConnection.isSecure ? "https://" : "http://") + senseConnection.host + (senseConnection.port ? ":" + senseConnection.port : "") + senseConnection.prefix + "resources",
+    'paths': {
+        'uirouter': basePath + '/lib/angular-ui-router.min',
+        'templates': basePath + '/templates'
+    },
+    'shim': {
+        'uirouter': ['angular'],
+        'templates': ['angular']
+    }
+});
+
+
+function loadTheme(name) {
+    return $.get('themes/' + name + '.json')
+        .then(function (data) {
+            require.undef("text!themes/sense/theme.json");
+            require.undef("text!themes/old/sense/theme.json");
+            define("text!themes/old/sense/theme.json", [], function () {
+                return JSON.stringify(data);
+            });
+            define("text!themes/sense/theme.json", [], function () {
+                return JSON.stringify(data);
+            });
+        })
+        .fail(function fail(err) {
+            if (window.console) console.log(err);
+        });
+}
+
+
+
+/***
+ * Opens the applicaiton and bootstraps the angular app
+ * that should be the last step in the process.
+ */
+function loadApp() {
+    require([
+        'js/qlik'
+    ], function (qlik) {
+
+        var $injector = angular.bootstrap(document, ["qMashup", "qlik-angular"]);
+
+        qlik.setOnError(function (problem) {
+            if (window.console) {
+                console.log(problem);
+            }
+        });
+
+        if (window.console) console.info('Opening app with id : ' + senseConnection.appName);
+
+        senseApp = qlik.openApp(senseConnection.appName, senseConnection);
+
+        senseApp.model.waitForOpen.promise.then(function () {
+            $injector.invoke(function ($rootScope) {
+                $rootScope.senseAppIsLoaded = true;
+                $rootScope.qlik = qlik;
+                $rootScope.$broadcast('senseapp-loaded');
+            });
+        });
+    });
+}
+
+
+// Avoid Qlik to automatically bootstrap the application.
+$('html').attr('qva-bootstrap', 'false');
+$('body').addClass('loading');
+
+require([],
+    function () {
+        loadTheme('chubb').then(function () {
+            loadApp();
+        });
+    }
+);
+
+var app = angular
+    .module('qMashup', [
+        'ngRoute',
+        'ui.router',
+        'templates-main'
+    ]);
+
+var app_dependencies = [
+    'uirouter',
+    'templates',
+    'scripts/directives/directives.js',
+    'scripts/services/routeServices.js',
+    'scripts/controllers/globalRouteController.js',
+    'scripts/controllers/splashController.js'
+];
+
+var $routeProviderReference = null;
+var mode = 'ROUTE_BASED'; //'STATE_BASED';
+
+require(app_dependencies,
+    function () {
+
+        if (mode === 'ROUTE_BASED') {
+            app.config(['$routeProvider',
+                function ($routeProvider) {
+                    $routeProviderReference = $routeProvider;
+                }
+            ]);
+        }
+
+
+        if (mode === 'STATE_BASED') {
+
+            app.config(function ($stateProvider) {
+
+                $stateProvider.state('intro', {
+                    abstract: true,
+                });
+
+                var states_read = senseConnection.statesConfig[senseConnection.states];
+
+                for (var key in states_read) {
+                    var state_name = senseConnection.states + '_' + key;
+
+                    if (Array.isArray(states_read[key])) {
+                        for (var i = 0; i < states_read[key].length; ++i) {
+                            var lang = states_read[key][i].languages;
+                            var include_state = false;
+
+                            if (Array.isArray(lang) && lang.indexOf(senseConnection.userLanguage) > -1) {
+                                include_state = true;
+                            } else if (lang === senseConnection.userLanguage ||
+                                lang === '*') {
+                                include_state = true;
+                            }
+
+                            if (include_state) {
+                                var menu_location = '';
+                                if (!senseConnection.startState) {
+                                    senseConnection.startState = state_name;
+                                }
+                                var template_for_state = '../app/' + states_read[key][i].template;
+                                if (states_read[key][i].menu) {
+                                    menu_location = '../app/' + states_read[key][i].menu;
+                                }
+                                $stateProvider.state(state_name, {
+                                    views: {
+                                        main: {
+                                            templateUrl: template_for_state
+                                        },
+                                        menu: {
+                                            templateUrl: menu_location
+                                        },
+                                    }
+
+                                });
+                            }
+
+                        }
+
+                    } else {
+
+                        var menu_location = '';
+                        // This comes from a javascript file that caches 
+                        var template_for_state = '../app/' + states_read[key].template;
+
+                        if (states_read[key].menu) {
+                            menu_location = '../app/' + states_read[key].menu;
+                        }
+
+                        console.info(state_name);
+
+                        $stateProvider.state(state_name, {
+                            views: {
+                                main: {
+                                    templateUrl: template_for_state
+                                },
+                                menu: {
+                                    templateUrl: menu_location
+                                },
+                            }
+
+                        });
+
+                        if (!senseConnection.startState) {
+                            senseConnection.startState = state_name;
+                        }
+                    }
+                }
+
+                $stateProvider.state('404', {
+                    url: '404',
+                    templateUrl: senseConnection.remoteServer + '/templates/404.html'
+                });
+
+            });
+        }
+
+        app.run([
+            '$rootScope',
+            '$http',
+            '$route',
+            '$location',
+            '$routeParams',
+            '$timeout',
+            '$state',
+
+            'routeServices',
+            
+            function (
+                $rootScope,
+                $http,
+                $route,
+                $location,
+                $routeParams,
+                $timeout,
+                $state,
+                routeServices
+            ) {
+
+
+                $rootScope.currentObjects = [];
+
+                if (mode === 'ROUTE_BASED') {
+                    
+                    // First thing, redirect if we got to the root
+                    if ($location.path() === "") {
+                        $location.path("/main-intro");
+                    }
+
+                    // Load routes
+                    var ts = Math.ceil(Math.random() * 1000);
+                    routeServices.loadRoutes('config/routes.json?ts=' + ts.toString(), $routeProviderReference)
+                        .then(routeServices.registerRouteChangeEvents);
+
+                     if ($location.path() === "" ||
+                        $location.path() === "/"
+                        ) {
+                        $rootScope.defaultSection = 'main';
+                    }
+
+
+                } else if (mode === 'STATE_BASED') {
+
+                    $rootScope.$on('senseapp-loaded', function () {
+                        $state.go(senseConnection.startState);
+                    });
+
+                    $rootScope.$on('$stateChangeStart',
+                        function (event, toState, toParams, fromState, fromParams) {
+                            var currentObjectsClean = $rootScope.currentObjects;
+                            angular.forEach(currentObjectsClean, function (obj, key) {
+                                if (angular.element('#' + obj.id).scope()) {
+                                    try {
+                                        obj.close();
+                                        angular.element('#' + obj.id).scope().$destroy();
+                                        $('#' + obj.id).empty();
+                                    } catch (e) {
+                                        // noop
+                                    }
+                                }
+                            });
+
+                            // We've removed the objects that where on the domain
+                            // this ain't needed anymore
+                            $rootScope.currentObjects = [];
+                        });
+
+                    // When the HTML is loaded, then we get all the charts
+                    // and load them.
+                    $rootScope.$on('$viewContentLoaded',
+                        function () {
+                            var chartObjects = angular.element('.celsa-qs-chart');
+
+                            angular.forEach(chartObjects, function (obj, key) {
+                                var chart_obj = angular.element(chartObjects[key]);
+                                var id = angular.element(chartObjects[key]).attr('id');
+
+                                senseApp.getObject(
+                                    id,
+                                    id, {}
+                                ).then(function (d) {
+                                    $rootScope.currentObjects.push(d);
+                                    $rootScope.triggerResize();
+                                });
+                            });
+                        });
+
+                }
+
+
+                $rootScope.globalResize = function () {
+                    console.log('Global resize called');
+                    if (document.createEvent) { // W3C
+                        var nonIeEvent = document.createEvent('Event');
+                        nonIeEvent.initEvent('resize', true, true);
+                        window.dispatchEvent(nonIeEvent);
+                    } else { // IE
+                        var docElement = document.documentElement;
+                        var event = document.createEventObject();
+                        docElement.fireEvent("onresize", event);
+                    }
+                };
+
+                $rootScope.triggerResize = function () {
+                    $timeout(function () {
+                        $rootScope.globalResize();
+                    }, 2000);
+                    $timeout(function () {
+                        $rootScope.globalResize();
+                    }, 8000);
+                    $timeout(function () {
+                        $rootScope.globalResize();
+                    }, 16000);
+                };
+
+
+                $rootScope.exportDataForChart = function (objectID) {
+                    var container = element.parent();
+                    container.css('opacity', 0.4);
+                    try {
+                        senseApp.getObject('exportData', objectID).then(function (vizModel) {
+                            vizModel.exportData().then(function (reply) {
+                                var forward_slash = false;
+                                container.css('opacity', 1.0);
+                                window.open(senseConnection.getServerUrl(forward_slash) + reply.result.qUrl);
+                            });
+                        });
+                    } catch (e) {
+                        container.css('opacity', 1.0);
+                    }
+                };
+
+            }
+        ]);
+    }
+);

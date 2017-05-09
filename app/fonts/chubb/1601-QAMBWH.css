@@ -1,0 +1,264 @@
+/*
+	This font software is the property of Commercial Type.
+
+	You may not modify the font software, use it on another website, or install it on a computer.
+
+	License information is available at http://commercialtype.com/eula
+	For more information please visit Commercial Type at http://commercialtype.com or email us at info[at]commercialtype.com
+
+	Copyright (C) 2013 Schwartzco Inc.
+	1601-QAMBWH
+*/
+
+
+	.ChubbPublicoWeb-LightItalic {
+	font-family: "Chubb Publico Web";
+	font-weight: 300;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoTextWeb-Roman {
+	font-family: "Chubb Publico Text Web";
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoTextWeb-Semibold {
+	font-family: "Chubb Publico Text Web";
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoWeb-MediumItalic {
+	font-family: "Chubb Publico Web";
+	font-weight: 500;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoWeb-Roman {
+	font-family: "Chubb Publico Web";
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoTextWeb-Bold {
+	font-family: "Chubb Publico Text Web";
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoWeb-Light {
+	font-family: "Chubb Publico Web";
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoWeb-Bold {
+	font-family: "Chubb Publico Web";
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoWeb-Medium {
+	font-family: "Chubb Publico Web";
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoWeb-BoldItalic {
+	font-family: "Chubb Publico Web";
+	font-weight: 700;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoTextWeb-BoldItalic {
+	font-family: "Chubb Publico Text Web";
+	font-weight: 700;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoTextWeb-SemiboldItalic {
+	font-family: "Chubb Publico Text Web";
+	font-weight: 600;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoTextWeb-Italic {
+	font-family: "Chubb Publico Text Web";
+	font-weight: 400;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	.ChubbPublicoWeb-Italic {
+	font-family: "Chubb Publico Web";
+	font-weight: 400;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Web";
+	src: url("Chubb Publico Web-Light Italic.eot");
+	src: url("Chubb Publico Web-Light Italic.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Web-Light Italic.woff2") format("woff2"),
+	url("Chubb Publico Web-Light Italic.woff") format("woff");
+	font-weight: 300;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Text Web";
+	src: url("Chubb Publico Text Web-Roman.eot");
+	src: url("Chubb Publico Text Web-Roman.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Text Web-Roman.woff2") format("woff2"),
+	url("Chubb Publico Text Web-Roman.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Text Web";
+	src: url("Chubb Publico Text Web-Semibold.eot");
+	src: url("Chubb Publico Text Web-Semibold.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Text Web-Semibold.woff2") format("woff2"),
+	url("Chubb Publico Text Web-Semibold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Web";
+	src: url("Chubb Publico Web-Medium Italic.eot");
+	src: url("Chubb Publico Web-Medium Italic.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Web-Medium Italic.woff2") format("woff2"),
+	url("Chubb Publico Web-Medium Italic.woff") format("woff");
+	font-weight: 500;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Web";
+	src: url("Chubb Publico Web-Roman.eot");
+	src: url("Chubb Publico Web-Roman.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Web-Roman.woff2") format("woff2"),
+	url("Chubb Publico Web-Roman.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Text Web";
+	src: url("Chubb Publico Text Web-Bold.eot");
+	src: url("Chubb Publico Text Web-Bold.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Text Web-Bold.woff2") format("woff2"),
+	url("Chubb Publico Text Web-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Web";
+	src: url("Chubb Publico Web-Light.eot");
+	src: url("Chubb Publico Web-Light.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Web-Light.woff2") format("woff2"),
+	url("Chubb Publico Web-Light.woff") format("woff");
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Web";
+	src: url("Chubb Publico Web-Bold.eot");
+	src: url("Chubb Publico Web-Bold.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Web-Bold.woff2") format("woff2"),
+	url("Chubb Publico Web-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Web";
+	src: url("Chubb Publico Web-Medium.eot");
+	src: url("Chubb Publico Web-Medium.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Web-Medium.woff2") format("woff2"),
+	url("Chubb Publico Web-Medium.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Web";
+	src: url("Chubb Publico Web-Bold Italic.eot");
+	src: url("Chubb Publico Web-Bold Italic.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Web-Bold Italic.woff2") format("woff2"),
+	url("Chubb Publico Web-Bold Italic.woff") format("woff");
+	font-weight: 700;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Text Web";
+	src: url("Chubb Publico Text Web-Bold Italic.eot");
+	src: url("Chubb Publico Text Web-Bold Italic.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Text Web-Bold Italic.woff2") format("woff2"),
+	url("Chubb Publico Text Web-Bold Italic.woff") format("woff");
+	font-weight: 700;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Text Web";
+	src: url("Chubb Publico Text Web-Semibold Italic.eot");
+	src: url("Chubb Publico Text Web-Semibold Italic.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Text Web-Semibold Italic.woff2") format("woff2"),
+	url("Chubb Publico Text Web-Semibold Italic.woff") format("woff");
+	font-weight: 600;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Text Web";
+	src: url("Chubb Publico Text Web-Italic.eot");
+	src: url("Chubb Publico Text Web-Italic.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Text Web-Italic.woff2") format("woff2"),
+	url("Chubb Publico Text Web-Italic.woff") format("woff");
+	font-weight: 400;
+	font-style: italic;
+	font-stretch: normal;
+	}
+
+	@font-face {
+	font-family: "Chubb Publico Web";
+	src: url("Chubb Publico Web-Italic.eot");
+	src: url("Chubb Publico Web-Italic.eot?#iefix") format("embedded-opentype"),
+	url("Chubb Publico Web-Italic.woff2") format("woff2"),
+	url("Chubb Publico Web-Italic.woff") format("woff");
+	font-weight: 400;
+	font-style: italic;
+	font-stretch: normal;
+	}

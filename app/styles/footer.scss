@@ -1,0 +1,20 @@
+@import "branding";
+
+
+.footer-wrapper {
+    height: $footer_size;
+    background-color: $footer_gray;
+    vertical-align: middle;
+    color: white;
+
+
+    ul {
+        list-style-type: none;
+        float: left;
+
+        li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+    }
+}
