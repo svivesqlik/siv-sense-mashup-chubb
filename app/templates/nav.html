@@ -1,15 +1,29 @@
+<div class="pre-nav-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+            </div>
+            <div class="col-lg-3" ng-controller="topBarController">
+                <ul>                    
+                    <li><a>Bookmarks</a></li>
+                    <li><a ng-click="triggerFilters()">Filters</a></li>
+                    <li><a>Help</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="nav-wrapper">
     <div class="container">
-        <div class="col-lg-3">
-            <img class="nav-logo" src="images/logo.svg" />
-        </div>
-        <div class="col-lg-9">
-            <nav>
-                <a>Headlines</a>
-                <a>Roll Forward</a>
-                <a>Pipeline</a>
-                <a>Segmentation</a>
-            </nav>
+        <div class="row">
+            <div class="col-lg-3">
+                <a class="nav-logo" href="#{{navLinks[defaultSection][0].title|urlConverter:defaultSection}}"><img src="images/logo.svg" /></a>
+            </div>
+            <div class="col-lg-9">
+                <nav>
+                    <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-class="{ 'active': section === '{{n.section}}' }" href="#{{n.title|urlConverter:defaultSection}}">{{n.title}}</a>
+                </nav>
+            </div>
         </div>
     </div>
 </div>

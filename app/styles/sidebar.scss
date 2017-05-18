@@ -1,0 +1,108 @@
+.sidebar.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    background: #D9D9D9;
+}
+
+.sidebars>.sidebar {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.64);
+    position: fixed;
+    color: white;
+    padding: 30px 15px;
+    padding-top: 50px;
+    font-size: 2em;
+    text-align: left;
+    z-index: 100;
+
+    .close-image {
+        height: 20px;
+        width: 20px;
+        display: block;
+        float: right;
+    }
+
+    h2 {
+        font-size: 0.75em;
+        line-height: 1em;
+        margin: 10px 0;
+        text-align: left;
+    }
+
+    h3 {
+        font-size: 0.55em;
+        line-height: 1em;
+        margin: 10px 0;
+        text-align: left;
+    }
+
+
+    #time-selection {
+        .time-selector {
+            margin: 10px 0;
+        }
+        label {
+            font-size: 0.6em;
+            text-align: left;
+            color: black;
+            padding-right: 10px;
+        }
+        select {
+            height: 35px;
+            width: 80px;
+        }
+    }
+    
+
+    .applied-selections.empty {
+        font-family: 'QlikView Sans', sans-serif;
+        color: gray;
+        font-size: 0.6em;
+        margin: 1.5em 0;
+    }
+
+    #filters-current-selections {
+        text-align: left;
+        min-height: 100px;
+        max-height: 200px;
+        overflow-y: scroll;
+
+        .active-selection {
+            background: $qlik_green;
+            padding: 5px 6px;
+            display: inline-block;
+            list-style-type: none;
+            color: white;
+            margin: 4px;
+            font-size: 0.45em;
+            font-family: 'QlikView Sans', sans-serif;
+
+            i {
+                color: white;
+            }
+            a {
+                color: white;
+                font-size: 14px;
+                margin-left: 10px;
+            }
+            button {
+                background: transparent;
+                color: white;
+                padding: 5px;
+                height: auto;
+                display: inline-block;
+                i {
+                    font-size: 12px;
+                    display: inline-flex;
+                    vertical-align: middle;
+                }
+            }
+        }
+    }
+}
+
+.qv-collapsed-listbox {
+    background: white;
+    margin-bottom: 10px;
+}

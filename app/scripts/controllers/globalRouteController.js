@@ -69,27 +69,36 @@ app.controller('globalRouteController',
             console.info('Setting timeout to start loading sheet objects...');
             $timeout(function () {
                 console.info('Start loading objects...');
-                if ($route.routes[$location.$$path].sheetID instanceof Array) {
-                    for (var i = 0; i < $route.routes[$location.$$path].sheetID.length; ++i) {
-                        var sheetID = $route.routes[$location.$$path].sheetID[i];
-                        senseApp.getFullPropertyTree(sheetID).then(function (model) {
-                            $rootScope.generateObjectCodes(model);
-                        });
-                    }
 
-                } else {
-                    var sheetID = $route.routes[$location.$$path].sheetID;
-                    senseApp.getFullPropertyTree(sheetID).then(function (model) {
-                        $rootScope.generateObjectCodes(model);
+                 var chartObjects = angular.element('.qs-object');
+
+                    angular.forEach(chartObjects, function (obj, key) {
+                        var chart_obj = angular.element(chartObjects[key]);
+                        var id = angular.element(chartObjects[key]).attr('id');
+                        var options = {};
+
+                        if ($(obj).hasClass('kpi-spark')) {
+                            options = {
+                                noInteraction: true, 
+                                noSelections: true
+                            };
+                        }
+
+                        senseApp.getObject(
+                            id,
+                            id, 
+                            options
+                        ).then(function (d) {
+                            $rootScope.currentObjects.push(d);
+                            $rootScope.triggerResize();
+                        });
+
                     });
-                }
 
                 // Resize the global window after some time when objets are loaded
                 // this helps make sure stuff gets drawn.
-                $timeout($rootScope.globalResize, 3000);
-                $timeout($rootScope.globalResize, 10000);
 
-            }, 5000);
+            }, 500);
         };
 
         $rootScope.$on('senseapp-loaded', function (args) {

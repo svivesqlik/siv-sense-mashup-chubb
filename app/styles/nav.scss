@@ -1,7 +1,128 @@
-.nav-wrapper {
+$prenav_height: 30px;
+$nav_light_height: 30px;
+
+a.nav-logo {
+    :hover {
+        img {
+            opacity: 0.9;
+        }
+        
+    }
+    &:before {
+        background: white;
+    }
+}
+
+.pre-nav-wrapper {
+    position: fixed;
+    z-index: 110;
+    width: 100%;
+    background-color: rgba(0,0,0,0.9);
+    height: $prenav_height;
+
+    ul {
+        float: right;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            padding-top: 10px;
+            padding-left: 15px;
+            color:white;
+            a {
+                color:white;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.nav-light-wrapper,
+.nav-wrapper 
+{
+    a {
+        color: white;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 15px;
+        font-weight: bold;
+        font-size: 1.2em;
+        font-weight: 400;
+        padding-bottom: 10px;
+        position: relative;
+        cursor: pointer;
+
+        &:hover {
+            &:before {
+                left: 0;
+                right: 0;
+                background: $link_hover;
+            }
+        }
+
+
+        &.active {
+             &:before {
+                left: 0;
+                right: 0;
+                background: $scheme_section_color;
+             }
+        }
+
+      
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: 200;
+            bottom: 0;
+            height: 2px;
+            left: 50%;
+            right: 50%;
+            background: $scheme_section_color;
+            transition-property: left, right;
+            transition-duration:  .3s;
+            transition-timing-function: ease-out;
+        }
+
+    &:hover::after {
+        width: 100%;
+    }
+
+    }
+
+    &:last-child {
+        a {
+            padding-right: 0;
+        }
+    }
+}
+
+ 
+
+ .nav-light-wrapper {
     width: 100%;
     background-color: rgba(0,0,0,0.7);
-    padding: 25px 0;
+    padding: 10px;
+    vertical-align: middle;
+    z-index: 200;
+
+    a {
+        font-size: 1em;
+        padding-top: 10px;
+    }
+}
+
+.nav-wrapper {
+    position: fixed;
+    z-index: 100;
+    top: $prenav_height;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    padding: 15px 0;
     vertical-align: middle;
 
     nav {
@@ -12,15 +133,4 @@
         float: left;
     }
 
-    a {
-        color: white;
-        display: inline-block;
-        padding: 0 15px;
-        font-weight: bold;
-        &.active {
-            border-bottom: 1px solid $scheme_section_color;
-        }
-    }
 }
-
- 

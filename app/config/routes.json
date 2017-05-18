@@ -1,9 +1,29 @@
 {
   "main": {
     "0": {
-      "title": "Intro",
-      "sheetID": ["LACGP", "jQgDSx", "NzNayJ"],
-      "template": "views/intro.html"
+      "title": "Headlines",
+      "sheetID": ["TjJhNFf", "yTxhpmE", "cuAxPwr", "TmDqKQj"],
+      "template": "views/headlines.html"
+    },
+    "1": {
+      "title": "Roll forward",
+      "sheetID": ["TjJhNFf", "yTxhpmE", "cuAxPwr", "TmDqKQj"],
+      "template": "views/roll-forward.html"
+    },
+    "2": {
+      "title": "Submissions",
+      "sheetID": ["TjJhNFf", "yTxhpmE", "cuAxPwr", "TmDqKQj"],
+      "template": "views/submissions.html"
+    },
+    "3": {
+      "title": "Segmentation",
+      "sheetID": ["TjJhNFf", "yTxhpmE", "cuAxPwr", "TmDqKQj"],
+      "template": "views/segmentation.html"
+    },
+    "4": {
+      "title": "Reports",
+      "sheetID": ["TjJhNFf", "yTxhpmE", "cuAxPwr", "TmDqKQj"],
+      "template": "views/reports.html"
     }
   }
 }

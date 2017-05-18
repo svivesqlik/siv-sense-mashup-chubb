@@ -1,0 +1,25 @@
+@import "branding";
+
+ .var-toggle-loading {
+    pointer-events: none;
+    opacity: 0.2;
+}
+
+.var-toggle-button {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px 15px;
+    margin: 0 5px;
+    color: $scheme_turquoise;
+    border: 1px solid $scheme_turquoise;        
+    border-radius: 5px;
+    cursor: pointer;
+
+    &.inactive-state {
+        color: white;
+        background: $scheme_turquoise;
+        border: 1px solid transparent;
+    }
+
+   
+}

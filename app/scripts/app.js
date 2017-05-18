@@ -7,7 +7,9 @@ require.config({
     baseUrl: (senseConnection.isSecure ? "https://" : "http://") + senseConnection.host + (senseConnection.port ? ":" + senseConnection.port : "") + senseConnection.prefix + "resources",
     'paths': {
         'uirouter': basePath + '/lib/angular-ui-router.min',
-        'templates': basePath + '/templates'
+        'sidebar': basePath + '/lib/jquery.sidebar.min',
+        'templates': basePath + '/templates',
+        'textjs': basePath + '/lib/text'
     },
     'shim': {
         'uirouter': ['angular'],
@@ -89,10 +91,17 @@ var app = angular
 var app_dependencies = [
     'uirouter',
     'templates',
+    'sidebar',
+    'textjs',
+    
+    'scripts/filters/urlConverter.js',
     'scripts/directives/directives.js',
     'scripts/services/routeServices.js',
+
     'scripts/controllers/globalRouteController.js',
-    'scripts/controllers/splashController.js'
+    'scripts/controllers/splashController.js',
+    'scripts/controllers/topBarController.js',
+    'scripts/controllers/sideBarController.js'
 ];
 
 var $routeProviderReference = null;
@@ -221,12 +230,13 @@ require(app_dependencies,
 
 
                 $rootScope.currentObjects = [];
+                $rootScope.chartViewMode = 'mode-geo';
 
                 if (mode === 'ROUTE_BASED') {
                     
                     // First thing, redirect if we got to the root
                     if ($location.path() === "") {
-                        $location.path("/main-intro");
+                        $location.path("/main-headlines");
                     }
 
                     // Load routes
@@ -234,11 +244,12 @@ require(app_dependencies,
                     routeServices.loadRoutes('config/routes.json?ts=' + ts.toString(), $routeProviderReference)
                         .then(routeServices.registerRouteChangeEvents);
 
-                     if ($location.path() === "" ||
+                    $rootScope.defaultSection = 'main';
+                     /*if ($location.path() === "" ||
                         $location.path() === "/"
                         ) {
                         $rootScope.defaultSection = 'main';
-                    }
+                    }*/
 
 
                 } else if (mode === 'STATE_BASED') {
@@ -267,25 +278,6 @@ require(app_dependencies,
                             $rootScope.currentObjects = [];
                         });
 
-                    // When the HTML is loaded, then we get all the charts
-                    // and load them.
-                    $rootScope.$on('$viewContentLoaded',
-                        function () {
-                            var chartObjects = angular.element('.celsa-qs-chart');
-
-                            angular.forEach(chartObjects, function (obj, key) {
-                                var chart_obj = angular.element(chartObjects[key]);
-                                var id = angular.element(chartObjects[key]).attr('id');
-
-                                senseApp.getObject(
-                                    id,
-                                    id, {}
-                                ).then(function (d) {
-                                    $rootScope.currentObjects.push(d);
-                                    $rootScope.triggerResize();
-                                });
-                            });
-                        });
 
                 }
 
@@ -306,13 +298,10 @@ require(app_dependencies,
                 $rootScope.triggerResize = function () {
                     $timeout(function () {
                         $rootScope.globalResize();
-                    }, 2000);
+                    }, 500);
                     $timeout(function () {
                         $rootScope.globalResize();
-                    }, 8000);
-                    $timeout(function () {
-                        $rootScope.globalResize();
-                    }, 16000);
+                    }, 4000);
                 };
 
 
@@ -329,6 +318,20 @@ require(app_dependencies,
                         });
                     } catch (e) {
                         container.css('opacity', 1.0);
+                    }
+                };
+
+
+                $rootScope.togglePanelVisibility = function () {
+                    
+                    if (!$('.collapsible').hasClass('collapsed')) {
+                        $('.collapsible').addClass('collapsed');
+                        $('.collapse-trigger').addClass('collapsed');
+                        $('.collapse-trigger').text('+ More details');
+                    } else {
+                        $('.collapsible').removeClass('collapsed');
+                        $('.collapse-trigger').removeClass('collapsed');
+                        $('.collapse-trigger').text('- Less details');
                     }
                 };
 

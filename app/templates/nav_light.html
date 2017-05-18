@@ -1,0 +1,11 @@
+<div class="nav-light-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <nav class="pull-right">
+                    <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-click="goToSection(n)">{{n.title}}</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

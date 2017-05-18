@@ -1,17 +1,37 @@
 @import "branding";
 
 #contentwrap {
-    margin-bottom: $footer_size;
+    margin-bottom: -$footer_size;
 }
 
 #contentBody {
     background:  white;
 
     #containerMainView {
-        article {
-            background: $scheme_content_body_bkg;
-            min-height: 50vh;
+
+      .quick-selections {
+        margin: 10px 0;
+        text-align: right;
+
+        .quick-select-section {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
+            
+            &:last-child {
+                margin-right: 0;
+            }
+
+            span:last-child {
+                margin-right: 0;
+            }
+
         }
+        .select-wrapper {
+            margin: 10px 0;
+        }
+
+      }
 
         .section-intro {
             width: 100%;
@@ -21,6 +41,59 @@
                 background-image: url('../images/sections/1.jpg');
                 background-origin: center center;
                 background-size: cover;
+
+                .section-top {
+                    margin-top: 5vh;
+                }
+            }
+
+            & > .container > .row {
+                background: rgba(0, 0, 0, 0.5);
+                min-height: 30vh;
+            }
+
+            &.headlines .container {
+                background-image: url('../images/sections/1.jpg');
+            }
+
+            &.roll-forward .container {
+                background-image: url('../images/sections/2.jpg');
+            }
+
+            &.submissions .container {
+                background-image: url('../images/sections/3.jpg');
+            }
+
+            &.segmentation .container {
+                background-image: url('../images/sections/4.jpg');
+            }        
+
+            &.reports .container {
+                background-image: url('../images/sections/5.jpg');
+            }         
+
+            .section-intro-cover {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                background: rgba(0,0,0,0.15);
+            }
+
+            .share_price {
+                background-color:#fff;
+                width: 200px;
+                min-width: 150px;
+                margin-top: 50px;
+                padding-top: 5px;
+                padding-left: 10px;
+                font-family: $main_font;
+                float: right;
+                display: inline-block;
+                margin-right: 15px;
+
+                iframe .StockQuote .price {
+                    font-family: $main_font;
+                }
             }
 
              .section-cover {
@@ -38,45 +111,89 @@
             }
 
             .section-headers-wrapper {
+                margin-top: 7vh;
+                margin-left: 0;
                 padding-left: 15px;
                 border-left: 5px solid $scheme_section_color;
-            }
 
-            h1, h2 {
-                color: white;
-                line-height: 1.5em;
-            }
+                h1, h2 {
+                    color: white;
+                    line-height: 1.5em;
+                }
 
-            h1 {
-                margin-top: 4vh;
-                font-size: 3em;
-                font-weight: 800;
-            }
+                h1 {
+                    margin-top: 3vh;
+                    font-size: 3em;
+                    font-weight: 700;
+                }
 
-            h2 {
-                margin-top: 1vh;
-                font-size: 1.25em;
-                font-weight: normal;
+                h2 {
+                    margin-top: 1vh;
+                    font-size: 1.25em;
+                    font-weight: 400;
+                }
             }
+            
+            .section-kpis {
+                margin-top: 3vh;
+                margin-bottom: 2vh;
+                text-align: center;
 
-            .container {
-                height: 25vh;
+                .kpi-object {
+                    display: inline-block;
+                    min-width: 100px;
+                    width: 20%;
+                    vertical-align: top;
+                }
+
+                .kpi-comb-wrapper {
+                    display: inline-block;
+                    min-width: 100px;
+                    width: 16%;
+                    vertical-align: top;
+                    .kpi-object { 
+                        width: 100%;
+                    }
+                }
             }
         }
 
-        article {
-            h1 {
+        article.charts-section {
+            background: $scheme_content_body_bkg;
+            min-height: 50vh;
+            padding-bottom: 3vh;
+
+            h1.section-title {
                 font-size: 2em;
+                font-weight: 400;
             }
 
             h2 {
                 font-size: 1.5em;
+                font-weight: 400;
+            }
+
+            h3 {
+                font-size: 1.1em;
+                margin: 0.25em 0;
+                font-weight: 500;
             }
 
             .panel {
                 background: white;
                 padding: 10px;
                 border-top: 4px solid $scheme_section_color;
+                margin-bottom: 15px;
+            }
+        }
+
+        .qs-transactions {
+            width: 100%;
+            text-align: right;
+            margin-top: 10px;
+            
+            button {
+                display: inline-block;
             }
         }
     }
@@ -99,6 +216,8 @@ button {
     height: 50px;
     border: none;
     color: white;
+    background: $scheme_turquoise;
+    display: block;
 
     &.chubb-orange {
         background-color: $scheme_orange;
@@ -117,3 +236,4 @@ button {
     }
 
 }
+

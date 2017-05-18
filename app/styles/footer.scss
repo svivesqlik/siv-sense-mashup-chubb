@@ -7,14 +7,20 @@
     vertical-align: middle;
     color: white;
 
+    .col {
+        margin-top: $footer_size / 2;
+    }
+
+
 
     ul {
         list-style-type: none;
-        float: left;
-
         li {
             display: inline-block;
             padding: 0 10px;
+            a {
+                color: white;
+            }
         }
     }
 }

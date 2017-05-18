@@ -1,0 +1,6 @@
+<div class="variableinput-wrapper {{additionalclass}}">
+    <form class="form-inline">
+        <label ng-show="label.length > 0" class="variableinput-label" for="input-value-{{variablCleanName}}">{{label}}</label>
+        <input ng-disabled="!variableLoaded" class="form-control observable-input variableinput input-sm" id="input-value-{{variablCleanName}}" type="number" min="0" max="100" ng-model="variableValue" ng-value="variableValue" ng-change="onChange()"/>
+    </form>
+</div>

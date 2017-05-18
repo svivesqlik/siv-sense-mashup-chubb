@@ -2,17 +2,17 @@
 	"_themeName": "CELSA Theme",
 	"_owner": "Sergi Vives",
 	"backgroundColor": "#EFF1EE",
-	"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
-	"fontSize": "12px",
+	"fontFamily": "Chubb Publico Web",
+	"fontSize": "13px",
 	"fontWeight": "normal",
 	"color": "#777777",
 	"axis": {
 		"title": {
 			"fontSize": {
-				"default": "12px",
-				"xsmall": "9px",
-				"small": "10px",
-				"medium": "11px",
+				"default": "13px",
+				"xsmall": "12px",
+				"small": "13px",
+				"medium": "12px",
 				"full": "14px"
 			},
 			"color": {
@@ -25,18 +25,18 @@
 		},
 		"label": {
 			"fontSize": {
-				"default": "12px",
-				"xsmall": "9px",
-				"small": "10px",
-				"medium": "11px",
+				"default": "13px",
+				"xsmall": "12px",
+				"small": "13px",
+				"medium": "12px",
 				"full": "14px"
 			},
 			"discrete": {
 				"fontSize": {
-					"default": "12px",
-					"xsmall": "9px",
-					"small": "10px",
-					"medium": "11px",
+					"default": "13px",
+					"xsmall": "12px",
+					"small": "13px",
+					"medium": "12px",
 					"full": "14px"
 				}
 			},
@@ -44,55 +44,55 @@
 		},
 		"tick": {
 			"major": {
-				"color": "#EFF2F5",
+				"color": "#ccc",
 				"length": 8
 			},
 			"minor": {
-				"color": "#FFF",
+				"color": "#ccc",
 				"length": 8
 			}
 		},
 		"line": {
-			"color": "#EFF2F5"
+			"color": "#ccc"
 		},
 		"grid": {
 			"major": {
-				"color":"#EFF2F5",
+				"color":"#ccc",
 				"width": 1
 			},
 			"minor": {
-				"color":"#EFF2F5",
+				"color":"#ccc",
 				"width": 1
 			},
 			"zero": {
-				"color":"#EFF2F5",
+				"color":"#ccc",
 				"width": 1
 			}
 		}
 	},
 	"legend": {
 		"title": {
-			"color": "#777",
-			"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
-			"fontSize": "11px"
+			"color": "#ccc",
+			"fontFamily": "Chubb Publico Web",
+			"fontSize": "12px"
 		},
 		"label": {
-			"color": "#777",
-			"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
-			"fontSize": "11px"
+			"color": "#ccc",
+			"fontFamily": "Chubb Publico Web",
+			"fontSize": "12px"
 		}
 	},
 	"item": {
 		"name": {
 			"color": "#777",
-			"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
-			"fontSize": "11px",
+			"fontFamily": "Chubb Publico Web",
+			"fontSize": "12px",
 			"fontWeight": "normal"
 		},
 		"value": {
 			"color": "#777",
-			"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
-			"fontSize": "11px"
+			"fontFamily": "Chubb Publico Web",
+			"fontSize": "12px"
 		}
 	},
 	"gauge": {
@@ -100,7 +100,7 @@
 			"color": "#818181",
 			"fontSize": "42px",
 			"fontWeight": "bold",
-			"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
+			"fontFamily": "Chubb Publico Web",
 			"minFontSize": 25,
 			"maxFontSize": 72
 		},
@@ -116,8 +116,8 @@
 			"fill": "rgba(255,255,255,0.05)",
 			"label": {
 				"color": "#818181",
-				"fontSize": "11px",
-				"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
+				"fontSize": "12px",
+				"fontFamily": "Chubb Publico Web",
 				"fontWeight": "normal"
 			}
 		},
@@ -133,9 +133,9 @@
 				}
 			},
 			"label": {
-				"fontSize": "11px",
+				"fontSize": "12px",
 				"fontWeight": "bold",
-				"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
+				"fontFamily": "Chubb Publico Web",
 				"color": {
 					"default": "#777",
 					"light": "#fff",
@@ -158,7 +158,7 @@
 	"scatterPlot": {
 		"value": {
 			"color": "#777",
-			"fontSize": "11px",
+			"fontSize": "12px",
 			"background": "rgba(51,51,51,0.9)"
 		},
 		"shape": {
@@ -198,18 +198,18 @@
 				"light": "#111"
 			},
 			"fontSize": {
-				"default": "12px",
+				"default": "13px",
 				"full": "14px",
-				"medium": "12px",
-				"small": "10px",
-				"xsmall": "9px",
-				"spark": "12px"
+				"medium": "13px",
+				"small": "13px",
+				"xsmall": "12px",
+				"spark": "13px"
 			}
 		}
 	},
 	"lineChart": {
-		"fontSize": "12px",
-		"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
+		"fontSize": "13px",
+		"fontFamily": "Chubb Publico Web",
 		"color": "#aaa",
 		"item": {
 			"value": {
@@ -218,14 +218,14 @@
 					"dark": "#666",
 					"light": "#666"
 				},
-				"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
+				"fontFamily": "Chubb Publico Web",
 				"fontSize": {
-					"default": "12px",
+					"default": "13px",
 					"full": "14px",
-					"medium": "12px",
-					"small": "10px",
-					"xsmall": "9px",
-					"spark": "12px"
+					"medium": "13px",
+					"small": "13px",
+					"xsmall": "12px",
+					"spark": "13px"
 				}
 			},
 			"shape": {
@@ -253,7 +253,7 @@
 		"color": "#aaa",
 		"axis": {
 			"title": {
-				"fontSize": "12px",
+				"fontSize": "13px",
 				"color": {
 					"default": "#333",
 					"active": "#333",
@@ -261,19 +261,19 @@
 				}
 			},
 			"label": {
-				"fontSize": "12px"
+				"fontSize": "13px"
 			}
 		},
 		"item": {
 			"name": {
 				"fontWeight": "normal",
-				"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
+				"fontFamily": "Chubb Publico Web",
 				"fontSize": {
-					"default": "12px",
+					"default": "13px",
 					"large": "18px",
-					"medium": "12px",
-					"small": "12px",
-					"tiny": "12px"
+					"medium": "13px",
+					"small": "13px",
+					"tiny": "13px"
 				},
 				"color": {
 					"default": "#aaa",
@@ -287,13 +287,13 @@
 					"dark": "#777",
 					"light": "#eee"
 				},
-				"fontFamily": "'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif",
+				"fontFamily": "Chubb Publico Web",
 				"fontSize": {
-					"default": "12px",
+					"default": "13px",
 					"large": "14px",
-					"medium": "12px",
-					"small": "10px",
-					"tiny": "9px"
+					"medium": "13px",
+					"small": "13px",
+					"tiny": "12px"
 				}
 			},
 			"shape": {
@@ -342,14 +342,14 @@
                 "propertyValue": "12",
 				"type": "pyramid",
 				"scale": [
-					["#FACA6F"],
-					["#FACA6F", "#97D8FF"],
-					["#FACA6F", "#97D8FF", "#A2B3FC"],
-					["#FACA6F", "#97D8FF", "#A2B3FC", "#DEA2D1"],
-					["#FACA6F", "#97D8FF", "#A2B3FC", "#DEA2D1", "#BEDE61" ],
-					["#FACA6F", "#97D8FF", "#A2B3FC", "#DEA2D1", "#BEDE61", "#67C2E9"],
-					["#FACA6F", "#97D8FF", "#A2B3FC", "#DEA2D1", "#BEDE61", "#67C2E9", "#F4D852"],
-					["#FACA6F", "#97D8FF", "#A2B3FC", "#DEA2D1", "#BEDE61", "#67C2E9", "#F4D852", "#9EC1CD"]
+					["#00C8D7"],
+					["#00C8D7", "#2FDD42"],
+					["#00C8D7", "#2FDD42", "#FFBC36"],
+					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C"],
+					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C", "#BEDE61" ],
+					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C", "#BEDE61", "#67C2E9"],
+					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C", "#BEDE61", "#67C2E9", "#F4D852"],
+					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C", "#BEDE61", "#67C2E9", "#F4D852", "#9EC1CD"]
 				]
 			},
 			{

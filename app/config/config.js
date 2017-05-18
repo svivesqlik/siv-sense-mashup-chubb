@@ -26,7 +26,7 @@ var environments = {
         protocol: "https",
         prefix: '/',
         isSecure: true,
-        appName: '85b99d80-d527-4164-b758-05d80694426c'
+        appName: 'd789cd85-7a47-440b-82cc-41242757e4a1'//'693b54d1-6a7c-4625-8885-cfae3a8aee36'//'5b81e213-0a5e-4ab9-bc4c-34161eebedf9'
     },
     'PROD' : {
         host: "srvsgsipro01.agbar.ga.local",

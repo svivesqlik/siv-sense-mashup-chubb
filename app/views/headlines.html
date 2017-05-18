@@ -1,0 +1,85 @@
+<section class="section-intro headlines">
+
+    <div class="container">
+        <div class="row">
+            
+            <!-- Headers -->
+            <div class="col-sm-10 section-top">
+                <div class="section-headers-wrapper">
+                    <h1>Headlines</h1>
+                    <h2>How is the business going?</h2>
+                </div>
+            </div>
+            <div class="col-sm-2 section-top">
+                <!-- Stock price -->
+                <div ng-include="'templates/stock.html'"></div>
+            </div>
+            <!-- / Headers -->
+                    
+            <div class="col-lg-12 section-kpis">
+                <div class="qs-object block-100 kpi-object" id="gxjZcxj"></div>
+                <div class="qs-object block-100 kpi-object" id="ZwPPUp"></div>
+                <div class="qs-object block-100 kpi-object" id="BnmTGrP"></div>
+                <div class="qs-object block-100 kpi-object" id="QDPjDRP"></div>
+            </div>
+        </div>
+</section>
+
+<article class="container charts-section">
+    
+    <div class="row">
+        <!--<div class="col-sm-7">
+            <h1 class="section-title">Headlines</h1>
+        </div>-->
+        <div class="col-sm-7"></div>
+        <div class="col-sm-5">
+            <div class="quick-selections">
+                Quick Selection:              
+                <div class="quick-select-section">
+                    <vartoggle variable="v_Ccy" defaultvalue="USD" values="USD|EUR">
+                </div>
+                <div class="quick-select-section">
+                    <vartoggle variable="v_GWP_NWP_Switch" values="'Gross','GWP'|'Net','NWP'" >
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!--<div class="col-lg-12">
+            <h2>Where are we winning on Actual vs Plan?</h2>
+        </div>-->
+        <div class="col-lg-12">
+            <div class="panel">
+                <!--<h3>Where are we winning on Actual vs Plan Trend?</h3>-->
+                <div class="qs-object block-280" id="kPnZApH"></div>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="panel">
+                <div class="qs-object block-350" id="BsuvEr"></div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="panel">
+                <div class="qs-object block-350" id="eNPuSZ"></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="col-lg-12">
+        <div class="collapse-section">
+            <button class="collapse-trigger collapsed" ng-click="togglePanelVisibility()">+ More details</button>
+            <div class="collapsible collapsed" >
+                <div class="collapsible-content">
+                    <div class="qs-object block-600" id="VBDLmk"></div>
+                    <div class="qs-transactions">
+                        <button class="inline-block" ng-click"openPopup('VBDLmk')">View transactions</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>

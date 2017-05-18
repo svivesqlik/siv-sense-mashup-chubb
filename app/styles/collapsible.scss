@@ -1,0 +1,55 @@
+@import "branding";
+
+$max_table_height: 800px;
+
+.collapse-section {
+    padding-top: 25px;
+
+    .collapse-trigger {
+        position: absolute;
+        text-align: center;
+        top:0;
+        left: 40%;
+        padding: 0 80px;
+        border-radius: 5px;
+        background-color: white;
+        color: black;
+        box-shadow: inset 0px 1px 10px 2px rgba(0, 0, 0, 0.2);
+
+        &.collapsed {
+            color:white;
+            background-color: $scheme_section_color; 
+            box-shadow: none;
+            border: none;
+            padding: 0 50px;
+        }
+    }
+    .collapsible {
+        transition-property: max-height;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+        max-height: $max_table_height;        
+        padding: 10px;
+        border: 1px solid #D4D4D4;
+        margin-top: 5px;
+        background: white;
+        
+        .collapsible-content {
+            display: block;
+            margin-top: 20px;
+            
+        }
+
+        &.collapsed {
+            background: transparent;
+
+            .collapsible-content {
+                display: none;
+            }
+
+            max-height: 10px;            
+            border: none;
+            border-top: 1px solid #D4D4D4;
+        }
+    }
+}

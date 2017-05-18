@@ -29,11 +29,18 @@
 
     <div ng-controller="splashController">
         <div class="splash splash-{{splashNum}}">
-            <div id="index-progress">
-                <progress-bar cur-val='{{curVal}}' max-val='{{maxVal}}'></progress-bar>
+            
+            <div id="index-splash-container">
+                <div ng-include="'/templates/nav_light.html'" ng-show="inSplash"></div>
+                <div id="index-progress" ng-show="inSplash">
+                    <progress-bar cur-val='{{curVal}}' max-val='{{maxVal}}'></progress-bar>
+                </div>
             </div>
-            <div id="intro-wrapper" class="container">
-                <div id="index-cover" ng-click="nextSplash()"></div>
+
+            <div id="intro-wrapper" ng-click="nextSplash()">
+                <div id="index-cover-fader"></div>
+                <div id="index-cover"></div>
+                <div class="container">
                 <div class="splash-welcome row table-display col-lg-12">
                     <div class="col-lg-1 cell-display">&nbsp;</div>
                     <div class="col-lg-5 col-md-11 col-sm-11 cell-display">
@@ -47,21 +54,26 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 cell-display bottom-aligned">
                         <div id="button-wrapper">
-                            <button class="start-analysis" ng-click="slideDown()">Start Analysing</button>
+                            <button class="start-analysis" ng-mousedown="slideDown();$event.stopPropagation();">Start Analysing</button>
                         </div>
                     </div>
+                    </div>                    
+                </div>
+                <div id="tick-to-go-straight-wrapper" ng-click="checkClick()" ng-show="inSplash">
+                    <span><input type="checkbox" ng-model="skip" />Tick here to if you want to go straight to the charts when you next log in.</span>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="contentwrap" class="contentwrap">
-        <div id="contentBody">
+        <div id="contentBody" ng-hide="inSplash">
             <div ng-include="'/templates/nav.html'"></div>
-            <div id="containerMainView" class="main-view">
+            <div id="containerMainView" class="main-view" ng-click="closeFilters()">
                 <!-- Main view -->
                 <div ng-view="" class="container-{{pageClassCSS}} "></div>
             </div>
+            <div ng-include="'templates/sidebar.html'"></div>            
             <div ng-include="'/templates/footer.html'"></div>
         </div>
     </div>
