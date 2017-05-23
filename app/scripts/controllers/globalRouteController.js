@@ -35,6 +35,7 @@ app.controller('globalRouteController',
                 }
 
                 promises.push(
+                    
                     senseApp.getObject(document.getElementById(children[i].qProperty.qInfo.qId), children[i].qProperty.qInfo.qId, options).then(function (obj) {
                     
                     console.info('GOT object with ID: ', obj.id);
@@ -77,7 +78,7 @@ app.controller('globalRouteController',
                         var id = angular.element(chartObjects[key]).attr('id');
                         var options = {};
 
-                        if ($(obj).hasClass('kpi-spark')) {
+                        if ($(obj).hasClass('kpi-spark') || $(obj).hasClass('noselect')) {
                             options = {
                                 noInteraction: true, 
                                 noSelections: true

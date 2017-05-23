@@ -26,14 +26,14 @@ app.factory('routeServices', ['$rootScope', '$http', '$location', '$route',
                 $rootScope.$on('$routeChangeStart', function (next, current) {
                     var currentObjectsClean = $rootScope.currentObjects;
                     //console.log('Cleaning:', currentObjectsClean);
-                    angular.forEach(currentObjectsClean, function (obj, key) {
+                    /*angular.forEach(currentObjectsClean, function (obj, key) {
                         var o_scope = angular.element('#' + obj.id).scope();
                         if (o_scope) {
                             o_scope.$destroy();
                             obj.close();
                         }
                         $('#' + obj.id).empty();
-                    });
+                    });*/
                 });
 
                 var history = [];

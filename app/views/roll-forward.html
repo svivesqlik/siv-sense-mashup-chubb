@@ -19,16 +19,12 @@
 <article class="container charts-section">
     <div class="row">
         <div class="col-sm-7">
-            <h1 class="section-title">Roll-forward</h1>
         </div>
         <div class="col-sm-5">
             <div class="quick-selections">
                 Quick Selection:              
                 <div class="quick-select-section">
                     <vartoggle variable="v_Ccy" defaultvalue="USD" values="USD|EUR">
-                </div>
-                <div class="quick-select-section">
-                    <vartoggle variable="v_GWP_NWP_Switch" values="'Gross','GWP'|'Net','NWP'" >
                 </div>
             </div>
         </div>
@@ -38,18 +34,21 @@
 
         <div class="col-lg-12">
             <div class="panel">
-                <div class="qs-object block-400" id="wsHzJ"></div>
+                <div class="qs-object block-400 noselect" id="wsHzJ"></div>
             </div>
         </div>
+        
     </div>
-    <div class="row">
-            <div class="col-lg-12">
-                <div class="panel">
-                        <div class="qs-object block-300" id="CQvJP"></div>
-                        <div class="qs-object block-150" id="FAPgUj"></div>
-                    </div>
-                </div>
-            </div>
+
+     <div class="col-lg-12 panel">
+        <div class="col-lg-6">
+            <div class="qs-object block-300 noselect" id="CQvJP"></div>
+        </div>
+        <div class="col-lg-6">
+            <div class="block-75"></div>
+            <div class="qs-object block-150" id="FAPgUj"></div>
+        </div>
     </div>
+
 
 </article>

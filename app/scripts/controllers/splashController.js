@@ -70,7 +70,7 @@ app.controller('splashController',
             });
         };
 
-        $scope.goToSection = function (section) {
+        $rootScope.goToSection = function (section) {
             var url_target = $filter('urlConverter')(section.title, $rootScope.defaultSection);
             $location.path(url_target);
             $scope.slideDown();

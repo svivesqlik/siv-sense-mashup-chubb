@@ -1,9 +1,9 @@
-<div class="sidebars">
+<div class="sidebars" >
     <div class="sidebar right" ng-controller="sideBarController">
         <div class="close-button" ng-click="closeFilters()"><img class="close-image" src="images/close.svg" /></div>
         <div>
             <h2>Applied filters</h2>
-            <div data-step="2" data-intro="Whatever you have selected appears here so you know what data you have filtered out.">
+            <div data-step="3" data-intro="Whatever you have selected appears here so you know what data you have filtered out.">
                 <div class="applied-selections empty" ng-if="selectionList.length == 0">
                     <span>No selections at the moment.</span>
                 </div>	
@@ -17,17 +17,22 @@
             </div>
         </div>
 
+    <div data-step="4" data-intro="Use these panels to filter the data you are seeing.">
         <h3>Period filters</h3> 
-        <div id="time-selection">
-                <div class="time-selector"><label>Year:</label><fieldselect field="Year" defaultvalue="MAX" /></div>
-                <div class="qs-object block-60" id="vRuT"></div>
-                <div class="qs-object block-60" id="CWeYjrs"></div>
-        </div>
-        
-        <h3>Geographical filters</h3> 
-        <div class="qs-object block-200" id="RQbP"></div>
+            <div id="time-selection">                
+                    <div class="time-selector"><label>Year:</label><fieldselect field="Year" defaultvalue="MAX" /></div>
+                    <div class="qs-object block-50" id="vRuT"></div>
+                    <div class="qs-object block-50" id="CWeYjrs"></div>
+            </div>
+    </div>
+            <h3>Geographical filters</h3> 
+            <div class="qs-object block-190" id="RQbP"></div>
 
-        <h3>Product filters</h3>
-        <div class="qs-object block-300" id="AmPmP"></div>
+            <h3>Product filters</h3>
+            <div class="qs-object block-190" id="AmPmP"></div>
+
+            <h3>Other</h3>
+            <div class="qs-object block-100" id="MhSkn"></div>
+        </div>
     </div>
 </div>

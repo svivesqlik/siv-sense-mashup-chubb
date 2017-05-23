@@ -17,55 +17,51 @@
             <div class="col-lg-12 section-kpis">
                 <div class="kpi-comb-wrapper">
                     <div class="qs-object block-90 kpi-object" id="CTayYA"></div>
-                    <div class="qs-object block-40 kpi-spark" id="JQBmpB"></div>
+                    <div class="qs-object block-40 kpi-spark noselect" id="JQBmpB" ng-click="openPopup('JQBmpB')"></div>
                 </div>
 
                 <div class="kpi-comb-wrapper">                    
                     <div class="qs-object block-90 kpi-object" id="WhKMuz"></div>
-                    <div class="qs-object block-40 kpi-spark" id="mKjxRu"></div>
+                    <div class="qs-object block-40 kpi-spark noselect" id="mKjxRu" ng-click="openPopup('mKjxRu')"></div>
                 </div>
 
                 <div class="kpi-comb-wrapper">                    
                     <div class="qs-object block-90 kpi-object" id="CMPNDa"></div>
-                    <div class="qs-object block-40 kpi-spark" id="eQFXTdX"></div>
+                    <div class="qs-object block-40 kpi-spark noselect" id="eQFXTdX" ng-click="openPopup('eQFXTdX')"></div>
                 </div>
 
                 <div class="kpi-comb-wrapper">                    
                     <div class="qs-object block-90 kpi-object" id="KtvKvhj"></div>
-                    <div class="qs-object block-40 kpi-spark" id="JnKhSQ"></div>
+                    <div class="qs-object block-40 kpi-spark noselect" id="JnKhSQ" ng-click="openPopup('JnKhSQ')"></div>
                 </div>
 
                 <div class="kpi-comb-wrapper">                    
                     <div class="qs-object block-90 kpi-object" id="JQVJTvK"></div>
-                    <div class="qs-object block-40 kpi-spark" id="AGKtZXA"></div>
+                    <div class="qs-object block-40 kpi-spark noselect" id="AGKtZXA" ng-click="openPopup('AGKtZXA')"></div>
                 </div>
 
                 <div class="kpi-comb-wrapper">
                     <div class="qs-object block-90 kpi-object" id="qB"></div>
-                    <div class="qs-object block-40 kpi-spark" id="JFXjUBN"></div>
+                    <div class="qs-object block-40 kpi-spark noselect" id="JFXjUBN" ng-click="openPopup('JFXjUBN')"></div>
                 </div>
             </div>
         </div>
 </section>
 
 <article class="container charts-section">
-    <div class="row">
+     <div class="row">
         <div class="col-sm-7">
-            <h1 class="section-title">Submissions<small>Last updated:</small></h1>
+            <!--<h1 class="section-title">Segmentation</h1>-->
         </div>
         <div class="col-sm-5">
-            <div class="quick-selections">
+          <div class="quick-selections">
                 Quick Selection:              
                 <div class="quick-select-section">
-                    <vartoggle variable="v_Ccy" defaultvalue="USD" values="USD|EUR">
-                </div>
-                <div class="quick-select-section">
-                    <vartoggle variable="v_GWP_NWP_Switch" values="'Gross','GWP'|'Net','NWP'" >
+                    <vartoggle variable="v_Rolling_vs_Static" defaultvalue="Rolling 12" values="Rolling 12 Months,Rolling 12|Selected Months,Static">
                 </div>
             </div>
         </div>
     </div>
-
 
         <div class="row">
 
@@ -90,7 +86,8 @@
                 <div class="collapsible-content">
                     <div class="qs-object block-600" id="PdweKV"></div>
                     <div class="qs-transactions">
-                        <button class="inline-block" ng-click"openPopup('PdweKV')">View transactions</button>
+                        <span>The number of indiviual transactions is limited to 10.000 records, please narrow down your search to less than 10.000 records.</span>
+                        <button class="inline-block" ng-click="openPopup('dpcA')">View transactions</button>
                     </div>
                 </div>
             </div>

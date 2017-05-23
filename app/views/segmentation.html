@@ -24,7 +24,6 @@
                 <div class="qs-object block-100 kpi-object" id="ytHjAmL"></div>
                 <div class="qs-object block-100 kpi-object" id="mNpgjm"></div>
                 <div class="qs-object block-100 kpi-object" id="Yspw"></div>
-                
             </div>
         </div>
 </section>
@@ -32,7 +31,7 @@
 <article class="container charts-section">
     <div class="row">
         <div class="col-sm-7">
-            <h1 class="section-title">Segmentation</h1>
+            <!--<h1 class="section-title">Segmentation</h1>-->
         </div>
         <div class="col-sm-5">
           <div class="quick-selections">
@@ -40,34 +39,48 @@
                 <div class="quick-select-section">
                     <vartoggle variable="v_Ccy" defaultvalue="USD" values="USD|EUR">
                 </div>
-                <div class="quick-select-section">
-                    <vartoggle variable="v_GWP_NWP_Switch" values="'Gross','GWP'|'Net','NWP'" >
-                </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-12">
-            <div class="select-wrapper">
-                <span>View by: </span>
-                <select name="singleSelect" ng-model="chartViewMode" ng-change="triggerResize()">
-                    <option value="mode-geo">Geography</option>
-                    <option value="mode-broker">Broker Segmentation</option>
-                    <option value="mode-class">Class / Line</option>
-                    <option value="mode-risk">Risk / Category</option>
-                </select>
+            <div class="col-lg-12">
+                <div class="panel">
+                    <div class="qs-object block-200" id="rwSXBF"></div>
+                </div>
             </div>
-            <div class="panel">
-                <div ng-show="chartViewMode=='mode-geo'" class="qs-object block-400" id="rwSXBF"></div>
-                <div ng-show="chartViewMode=='mode-broker'" class="qs-object block-400" id="yjzmLc"></div>
-                <div ng-show="chartViewMode=='mode-class'" class="qs-object block-400" id="RguwPz"></div>
-                <div ng-show="chartViewMode=='mode-risk'" class="qs-object block-400" id="HZkCGgU"></div>
-            </div>
+           
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="panel">
+                <div class="select-wrapper">
+                    <span><strong>View by: </strong></span>
+                    <select name="singleSelect" ng-model="chartViewMode" ng-change="triggerResize()">
+                        <option value="mode-geo">Geography</option>
+                        <option value="mode-broker">Broker Segmentation</option>
+                        <option value="mode-class">Class / Line</option>
+                        <option value="mode-risk">Risk Category</option>
+                    </select>
+                </div>
+                <div ng-show="chartViewMode=='mode-geo'" class="qs-object block-300" id="yjzmLc"></div>
+                <div ng-show="chartViewMode=='mode-broker'" class="qs-object block-300" id="RguwPz"></div>
+                <div ng-show="chartViewMode=='mode-class'" class="qs-object block-300" id="HZkCGgU"></div>
+                <div ng-show="chartViewMode=='mode-risk'" class="qs-object block-300" id="BaxBu"></div>
+            </div>
+        </div>
+         <div class="col-lg-5">
+            <div class="panel block-350" style="font-size: 1.3em">
+                <h4>Preferred, Standard &amp; Challenged</h4>
+                <br>
+                <p>Segmentation of our business into 'Preferred', 'Standard' and 'Challenged' is a key area and will only increase as we identify and improve our sources for this data.
+                The current mappings are either based on Actuarial portfolio reviews or from an Industry code (e.g. NAICS). Anything without an appropriate source is labelled as 'Not Segmented'.</p>
 
+            </div>
+        </div>
+    </div>
 
     <div class="col-lg-12">
         <div class="collapse-section">
@@ -76,7 +89,7 @@
                 <div class="collapsible-content">
                     <div class="qs-object block-600" id="zcpTsTw"></div>
                     <div class="qs-transactions">
-                        <button class="inline-block" ng-click"openPopup('zcpTsTw')">View transactions</button>
+                        <button class="inline-block" ng-click="openPopup('VBDLmk')">View transactions</button>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 {
-	"_themeName": "CELSA Theme",
+	"_themeName": "CHUBB Theme",
 	"_owner": "Sergi Vives",
 	"backgroundColor": "#EFF1EE",
 	"fontFamily": "Chubb Publico Web",
@@ -72,25 +72,25 @@
 	},
 	"legend": {
 		"title": {
-			"color": "#ccc",
+			"color": "#666",
 			"fontFamily": "Chubb Publico Web",
 			"fontSize": "12px"
 		},
 		"label": {
-			"color": "#ccc",
+			"color": "#666",
 			"fontFamily": "Chubb Publico Web",
 			"fontSize": "12px"
 		}
 	},
 	"item": {
 		"name": {
-			"color": "#777",
+			"color": "#666",
 			"fontFamily": "Chubb Publico Web",
 			"fontSize": "12px",
 			"fontWeight": "normal"
 		},
 		"value": {
-			"color": "#777",
+			"color": "#666",
 			"fontFamily": "Chubb Publico Web",
 			"fontSize": "12px"
 		}
@@ -151,13 +151,13 @@
 					"dark": "rgba(33,33,33,0.4)"
 				},
 				"fontWeight": "bold",
-				"fontFamily": "Helvetica Neue"
+				"fontFamily": "Arial"
 			}
 		}
 	},
 	"scatterPlot": {
 		"value": {
-			"color": "#777",
+			"color": "#000",
 			"fontSize": "12px",
 			"background": "rgba(51,51,51,0.9)"
 		},
@@ -193,7 +193,7 @@
 		},
 		"value": {
 			"color": {
-				"default": "#777",
+				"default": "#666",
 				"dark": "#111",
 				"light": "#111"
 			},
@@ -208,23 +208,23 @@
 		}
 	},
 	"lineChart": {
-		"fontSize": "13px",
+		"fontSize": "15px",
 		"fontFamily": "Chubb Publico Web",
 		"color": "#aaa",
 		"item": {
 			"value": {
 				"color": {
-					"default": "#B7B7B7",
+					"default": "#666",
 					"dark": "#666",
 					"light": "#666"
 				},
-				"fontFamily": "Chubb Publico Web",
+				"fontFamily": "Arial",
 				"fontSize": {
-					"default": "13px",
-					"full": "14px",
-					"medium": "13px",
-					"small": "13px",
-					"xsmall": "12px",
+					"default": "14px",
+					"full": "15px",
+					"medium": "14px",
+					"small": "14px",
+					"xsmall": "14px",
 					"spark": "13px"
 				}
 			},
@@ -343,13 +343,13 @@
 				"type": "pyramid",
 				"scale": [
 					["#00C8D7"],
-					["#00C8D7", "#2FDD42"],
-					["#00C8D7", "#2FDD42", "#FFBC36"],
-					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C"],
-					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C", "#BEDE61" ],
-					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C", "#BEDE61", "#67C2E9"],
-					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C", "#BEDE61", "#67C2E9", "#F4D852"],
-					["#00C8D7", "#2FDD42", "#FFBC36", "#FF101C", "#BEDE61", "#67C2E9", "#F4D852", "#9EC1CD"]
+					["#00C8D7", "#7CC925"],
+					["#00C8D7", "#7CC925", "#FFBC36"],
+					["#00C8D7", "#7CC925", "#FFBC36", "#FC1998"],
+					["#00C8D7", "#7CC925", "#FFBC36", "#FC1998", "#BEDE61" ],
+					["#00C8D7", "#7CC925", "#FFBC36", "#FC1998", "#BEDE61", "#67C2E9"],
+					["#00C8D7", "#7CC925", "#FFBC36", "#FC1998", "#BEDE61", "#67C2E9", "#F4D852"],
+					["#00C8D7", "#7CC925", "#FFBC36", "#FC1998", "#BEDE61", "#67C2E9", "#F4D852", "#9EC1CD"]
 				]
 			},
 			{

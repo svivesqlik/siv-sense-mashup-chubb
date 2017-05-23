@@ -18,8 +18,8 @@
     <!-- DEV Version -->
     <script src="config/config.js" type="text/javascript"></script>
 
-    <link href="favicon.ico?v=5" rel="shortcut icon">
-    <link href="favicon.ico?v=5" type="image/x-icon" rel="icon" />
+    <link href="favicon.ico?v=6" rel="shortcut icon">
+    <link href="favicon.ico?v=6" type="image/x-icon" rel="icon" />
 </head>
 
 <body id="mainBody" class="{{pageClassCSS}} page-{{defaultSection}} {{section}}" scroll ng-class="{min:boolChangeClass}">
@@ -31,7 +31,7 @@
         <div class="splash splash-{{splashNum}}">
             
             <div id="index-splash-container">
-                <div ng-include="'/templates/nav_light.html'" ng-show="inSplash"></div>
+                <div ng-include="'templates/nav_light.html'" ng-show="inSplash"></div>
                 <div id="index-progress" ng-show="inSplash">
                     <progress-bar cur-val='{{curVal}}' max-val='{{maxVal}}'></progress-bar>
                 </div>
@@ -73,8 +73,9 @@
                 <!-- Main view -->
                 <div ng-view="" class="container-{{pageClassCSS}} "></div>
             </div>
-            <div ng-include="'templates/sidebar.html'"></div>            
-            <div ng-include="'/templates/footer.html'"></div>
+            <div ng-include="'templates/sidebar.html'"></div>
+            <div ng-include="'templates/footer.html'"></div>
+            <div ng-include="'templates/modal.html'"></div>
         </div>
     </div>
 

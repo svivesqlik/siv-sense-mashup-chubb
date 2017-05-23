@@ -1,10 +1,14 @@
 
+@import "bootstrap-min";
 @import "branding";
 @import "splash";
 @import "typography";
-@import "override";
-@import "font-awesome/css/font-awesome.scss";
+@import "grid";
+@import "introjs";
+@import "search";
 
+
+@import "font-awesome/css/font-awesome.scss";
 @import "layout-blocks";
 @import "layout";
 @import "directives";
@@ -12,6 +16,6 @@
 @import "sidebar";
 @import "nav";
 @import "footer";
-@import "grid";
 
+@import "override";
 @import "devices";

@@ -11,7 +11,33 @@
         margin-top: $footer_size / 2;
     }
 
+    .footer-header-title {
+        font-size: 2.5em;
+        padding-top: 40px;
+        padding-bottom: 20px;
 
+        h1 {
+            color: white;
+        }
+    }
+
+    .footer-header-date {
+        padding-top: 50px;
+        font-size: 1.5em;
+
+        span {
+            display: inline-block;
+            padding-right: 10px;
+        }
+        .qv-object *,
+        .qv-object-text-image {
+            font-family: $main_font;
+            font-size: 2em;
+            font-size: 100%;
+            color: white !important;
+            overflow: hidde;
+        }
+    }
 
     ul {
         list-style-type: none;

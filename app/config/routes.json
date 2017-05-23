@@ -24,6 +24,11 @@
       "title": "Reports",
       "sheetID": ["TjJhNFf", "yTxhpmE", "cuAxPwr", "TmDqKQj"],
       "template": "views/reports.html"
+    },
+    "5": {
+      "title": "About",
+      "sheetID": ["TjJhNFf", "yTxhpmE", "cuAxPwr", "TmDqKQj"],
+      "template": "views/about.html"
     }
   }
 }

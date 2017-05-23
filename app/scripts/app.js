@@ -9,7 +9,9 @@ require.config({
         'uirouter': basePath + '/lib/angular-ui-router.min',
         'sidebar': basePath + '/lib/jquery.sidebar.min',
         'templates': basePath + '/templates',
-        'textjs': basePath + '/lib/text'
+        'bootstrapjs': basePath + '/lib/bootstrap-custom',
+        'textjs': basePath + '/lib/text',
+        'introjs': basePath + '/lib/intro'
     },
     'shim': {
         'uirouter': ['angular'],
@@ -92,7 +94,8 @@ var app_dependencies = [
     'uirouter',
     'templates',
     'sidebar',
-    'textjs',
+    'introjs',
+    'bootstrapjs',
     
     'scripts/filters/urlConverter.js',
     'scripts/directives/directives.js',
@@ -117,7 +120,6 @@ require(app_dependencies,
                 }
             ]);
         }
-
 
         if (mode === 'STATE_BASED') {
 
@@ -230,7 +232,9 @@ require(app_dependencies,
 
 
                 $rootScope.currentObjects = [];
+                // @TODO 
                 $rootScope.chartViewMode = 'mode-geo';
+                $rootScope.headlinesChartViewMode = 'mode-monthly';
 
                 if (mode === 'ROUTE_BASED') {
                     
@@ -304,6 +308,35 @@ require(app_dependencies,
                     }, 4000);
                 };
 
+                $rootScope.openPopup = function (objectID) {
+                    var options = {
+
+                    };
+                    senseApp.getObject(objectID, objectID).then(function (model) {
+
+                        if (model.layout.qHyperCube.qGrandTotalRow.length == 0) {
+                            alert('There are too many rows to display. Please refine your selection to narrow down the results.');
+                            return;
+                        } 
+
+                        // Either we have a totals table or a pivot one
+                        require(['bootstrapjs'], function () {
+                            var modal_obj = $('#mashupModal');
+                            var obj = modal_obj.find('#modal-chart-object').find('.qs-object');
+                            obj.css('opacity', 0);
+                            modal_obj.modal(options);
+                            modal_obj.on('shown.bs.modal', function () {
+                                
+                                obj.attr('id', 'pop_' + objectID);
+                                senseApp.getObject('pop_' + objectID, objectID).then(function () {
+                                    obj.css('opacity', 1.0);
+                                });
+                            });
+                        });
+                    });
+                    
+                    
+                };
 
                 $rootScope.exportDataForChart = function (objectID) {
                     var container = element.parent();

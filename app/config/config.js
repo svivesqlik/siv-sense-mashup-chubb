@@ -1,9 +1,9 @@
 "use strict";
 
-var current_environment = 'BETA';
+var current_environment = 'LOCAL';
 
 var environments = {
-    'LOCAL' : {
+    'LOCAL_EXTENSION' : {
         host: window.location.host, 
         port: 443,
         protocol: window.location.protocol,
@@ -11,14 +11,14 @@ var environments = {
         isSecure: (window.location.port == 443),
         appName: '1496d010-bebb-4ae4-89cc-69de7c53bb9b'
     }, 
-    'LOCAL_PREFIX' : {
+    'LOCAL' : {
         host: "172.16.1.188",
         port: 443,
         protocol: 'https',
-        prefix: '/sensefront/',
+        prefix: '/chubb/',
         isSecure: true,
-        appName: 'ca592d58-9705-4768-ab6e-0226938bdb77',
-        publishedappName: 'cb9990b0-2be7-4b1e-a6d9-dd19ab333049'
+        //appName: '14bec530-1337-4974-99b8-22b2f622f6b2'
+        'appName':'ddbf4c00-8c15-43c9-82e1-fafbfaef0689'
     }, 
     'BETA' : {
         host: "beta.qliksensestudios.com",
@@ -26,7 +26,8 @@ var environments = {
         protocol: "https",
         prefix: '/',
         isSecure: true,
-        appName: 'd789cd85-7a47-440b-82cc-41242757e4a1'//'693b54d1-6a7c-4625-8885-cfae3a8aee36'//'5b81e213-0a5e-4ab9-bc4c-34161eebedf9'
+        //appName: 'd789cd85-7a47-440b-82cc-41242757e4a1'
+        appName: '693b54d1-6a7c-4625-8885-cfae3a8aee36'//'5b81e213-0a5e-4ab9-bc4c-34161eebedf9'
     },
     'PROD' : {
         host: "srvsgsipro01.agbar.ga.local",

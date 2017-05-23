@@ -116,6 +116,7 @@ app.controller('sideBarController',
 
 
         $rootScope.closeFilters = function () {
+            $rootScope.globalResize();
             $(".sidebar.right").trigger("sidebar:close");
         };
         

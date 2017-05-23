@@ -2,7 +2,7 @@
 
     <div class="container">
         <div class="row">
-            
+
             <!-- Headers -->
             <div class="col-sm-10 section-top">
                 <div class="section-headers-wrapper">
@@ -15,67 +15,97 @@
                 <div ng-include="'templates/stock.html'"></div>
             </div>
             <!-- / Headers -->
-                    
+
             <div class="col-lg-12 section-kpis">
                 <div class="qs-object block-100 kpi-object" id="gxjZcxj"></div>
-                <div class="qs-object block-100 kpi-object" id="ZwPPUp"></div>
                 <div class="qs-object block-100 kpi-object" id="BnmTGrP"></div>
+                <div class="qs-object block-100 kpi-object" id="ZwPPUp"></div>                
                 <div class="qs-object block-100 kpi-object" id="QDPjDRP"></div>
             </div>
         </div>
 </section>
 
 <article class="container charts-section">
-    
     <div class="row">
-        <!--<div class="col-sm-7">
-            <h1 class="section-title">Headlines</h1>
-        </div>-->
-        <div class="col-sm-7"></div>
-        <div class="col-sm-5">
+        <div class="col-sm-7">
+            <!--<h1 class="section-title">Headlines</h1>-->
+            <div class="time-selector" style="margin-top: 15px; float: left;"><label>Analytical view:</label><fieldselect field="Data_Set_Catergory_1" /></div>
+        </div>
+        <!--<div class="col-sm-7"></div>-->
+        <div class="col-sm-5" data-step="5" data-intro="Here you can pick how to see the data with currency and Gross/Net selectors">
             <div class="quick-selections">
-                Quick Selection:              
+                Quick Selection:
                 <div class="quick-select-section">
                     <vartoggle variable="v_Ccy" defaultvalue="USD" values="USD|EUR">
                 </div>
                 <div class="quick-select-section">
-                    <vartoggle variable="v_GWP_NWP_Switch" values="'Gross','GWP'|'Net','NWP'" >
+                    <vartoggle variable="v_GWP_NWP_Switch" values="'Gross','GWP'|'Net','NWP'">
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <!--<div class="col-lg-12">
-            <h2>Where are we winning on Actual vs Plan?</h2>
-        </div>-->
+
         <div class="col-lg-12">
-            <div class="panel">
-                <!--<h3>Where are we winning on Actual vs Plan Trend?</h3>-->
-                <div class="qs-object block-280" id="kPnZApH"></div>
-            </div>
+                <h2 class="subtitle">What is the geographic / LOB split on Actual vs Plan?</h2>
         </div>
-        <div class="col-lg-7">
+        <div class="col-lg-6">
             <div class="panel">
                 <div class="qs-object block-350" id="BsuvEr"></div>
             </div>
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-6">
             <div class="panel">
                 <div class="qs-object block-350" id="eNPuSZ"></div>
             </div>
         </div>
     </div>
-    
 
-    <div class="col-lg-12">
-        <div class="collapse-section">
-            <button class="collapse-trigger collapsed" ng-click="togglePanelVisibility()">+ More details</button>
-            <div class="collapsible collapsed" >
-                <div class="collapsible-content">
-                    <div class="qs-object block-600" id="VBDLmk"></div>
-                    <div class="qs-transactions">
-                        <button class="inline-block" ng-click"openPopup('VBDLmk')">View transactions</button>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="subtitle">What are our top &amp; bottom movements vs Plan and Forecast?</h2>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel">
+                <div class="qs-object block-200" id="MbaXj"></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="panel">
+                <div class="qs-object block-200" id="kPFQSS"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="subtitle">Where are we winning against the actuals?</h2>
+            <div class="panel">
+                 <div class="select-wrapper">
+                    <span><strong>View by: </strong></span>
+                    <select name="singleSelect" ng-model="headlinesChartViewMode" ng-change="triggerResize()">
+                        <option value="mode-monthly">Monthly</option>
+                        <option value="mode-cumulative">Cumulative</option>
+                    </select>
+                </div>
+                <div ng-show="headlinesChartViewMode=='mode-monthly'" class="qs-object block-300" id="kPnZApH"></div>
+                <div ng-show="headlinesChartViewMode=='mode-cumulative'" class="qs-object block-300" id="TWMy"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="collapse-section">
+                <button class="collapse-trigger collapsed" ng-click="togglePanelVisibility()">+ More details</button>
+                <div class="collapsible collapsed">
+                    <div class="collapsible-content">
+                        <div class="qs-object block-600" id="dmjSp"></div>
+                        <div class="qs-transactions">
+                            <button class="inline-block" ng-click="openPopup('VBDLmk')">View transactions</button>
+                        </div>
                     </div>
                 </div>
             </div>

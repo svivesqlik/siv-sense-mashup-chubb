@@ -6,6 +6,11 @@ body {
     overflow: auto !important;
 }
 
+
+.qv-object  {
+    background: transparent;    
+}
+
 .qv-object h1,
 .qv-object h2,
 .qv-object .ellips-text>span,
@@ -35,6 +40,7 @@ body {
 
     .qv-object .measure-title {
         margin-bottom: 8px;
+        display: none;
     }
 
     .qv-object .kpi-title {
@@ -51,12 +57,12 @@ body {
 
     .qv-object .secondary-wrapper .kpi-value {
         .ellips-text > span {
-            font-size: 15px;
+            font-size: 16px;
         }        
     }
     
     .qv-object .kpi-value .ellips-text > span {
-        font-size: 28px;
+        font-size: 30px;
     }
 
     .qv-object .measure-title.ellips-text > span {
@@ -70,18 +76,39 @@ body {
     }
 }
 
+.qv-media-tool-html,
+.qv-media-tool-html b,
+.qv-object-text-image .qv-media-tool-html,
+.qv-object-text-image .qv-media-tool-html b
+.qv-object-text-image .qv-media-tool-html strong {
+    font-family: $main_font;
+}
+
+.qv-media-tool-html > b {
+    padding-bottom: 10px;
+}
 
 .qv-object .qv-object-title,
 .qv-object .qv-object-title .qv-object-title-text,
 .qv-object .qv-object-title h1,
 .qv-object .qv-object-title h1 > div
 {
-    font-size: 1.2em;
+    font-size: 1.15em;
     margin: 0;
     font-weight: 500;
     color: black;
 }
 
+
+.kpi-object .qv-object .qv-object-subtitle {
+    font-size: 1.5em;
+}
+
+
+.kpi-object .qv-object,
+.kpi-comb-wrapper .qv-object {
+    background: transparent !important;
+}
 
 .qv-object .qv-media-tool-html div {
     font-family: $main_font !important;
@@ -99,44 +126,45 @@ body {
     display: none !important; 
 }
 
+.kpi-spark {
+    position:relative;
 
-/*
-.qv-object .qv-object-subtitle {
-    float: right !important;
+    &:hover {
+        opacity: 0.75;
+        background: rgba(255,255,255,0.1);
+
+        &:before {
+            content: "\f065";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 40%;
+            z-index: 11111111;
+            color: black;
+            font-size: 1.4em;
+            background: rgba(255,255,255,0.6);
+            border-radius: 20px;
+            vertical-align: middle;
+            padding: 10px;
+            text-align: center;       
+        }
+    }
+    &:before {
+        display: none;
+        font: normal normal normal 14px/1 FontAwesome;
+    }
 }
-.qv-object h1, 
-.qv-object h2,
-.qv-object .qv-object-title .qv-object-title-text,
-.qv-object .qv-object-subtitle, .qv-object .qv-object-footnote
+
+.qv-object-kpi .kpi-icon
 {
-    font-family: 'Segoe UI','Helvetica Neue',Helvetica,Arial,'Open Sans',sans-serif !important;
-    color: #777777;
+    font-size: 15px;
 }
-.qv-object .qv-object-header {
-    flex: none;
-    display: block !important;
+
+.qv-object-text-image .qv-media-tool-html  {
+    line-height: 2em;
 }
-.qv-object .qv-object-header h1 {
-    display: inline-block;
-    flex: none;
-    font-weight: normal;
-    color: #777777;
+
+/* From client.css */
+body, input, textarea, keygen, select, button, isindex {
+    font-family: $main_font;
 }
-.qv-object .qv-object-header h1 > div {
-    float: left;
-}
-.qv-object .qv-object-header h2 {
-    display: inline-block;
-    flex: none;
-    color: #4A4A4A;
-}
-.qv-object .qv-object-header h1,
-.qv-object .qv-object-header h2 {
-    padding: 5px;
-    padding-left: 0;
-    padding-right: 0;
-}
-.qv-object .qv-object-header h1 {
-    padding-top: 10px;
-}
-*/
