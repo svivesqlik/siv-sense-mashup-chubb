@@ -4,18 +4,34 @@
 var senseApp;
 
 require.config({
-    baseUrl: (senseConnection.isSecure ? "https://" : "http://") + senseConnection.host + (senseConnection.port ? ":" + senseConnection.port : "") + senseConnection.prefix + "resources",
+    baseUrl: baseURL,
     'paths': {
+        'templates': basePath + '/templates',
         'uirouter': basePath + '/lib/angular-ui-router.min',
         'sidebar': basePath + '/lib/jquery.sidebar.min',
-        'templates': basePath + '/templates',
+        'cookies': basePath + '/lib/angular.cookies.min',
         'bootstrapjs': basePath + '/lib/bootstrap-custom',
         'textjs': basePath + '/lib/text',
-        'introjs': basePath + '/lib/intro'
+        'introjs': basePath + '/lib/intro',
+        'text':'.'
     },
     'shim': {
         'uirouter': ['angular'],
-        'templates': ['angular']
+        'templates': ['angular'],
+        'cookies': ['angular']
+    }
+});
+
+requirejs.config({
+    config: {
+        text: {
+            onXhr: function (xhr, url) {
+                xhr.withCredentials = true;
+            },
+            useXhr: function (url, protocol, hostname, port) {
+                return true;
+            }
+        }
     }
 });
 
@@ -75,6 +91,7 @@ function loadApp() {
 $('html').attr('qva-bootstrap', 'false');
 $('body').addClass('loading');
 
+
 require([],
     function () {
         loadTheme('chubb').then(function () {
@@ -86,23 +103,26 @@ require([],
 var app = angular
     .module('qMashup', [
         'ngRoute',
+        'ngCookies',
         'ui.router',
         'templates-main'
     ]);
 
 var app_dependencies = [
+    'scripts/controllers/splashController.js',
+
     'uirouter',
     'templates',
     'sidebar',
     'introjs',
     'bootstrapjs',
+    'cookies',
     
     'scripts/filters/urlConverter.js',
     'scripts/directives/directives.js',
     'scripts/services/routeServices.js',
 
-    'scripts/controllers/globalRouteController.js',
-    'scripts/controllers/splashController.js',
+    'scripts/controllers/globalRouteController.js',    
     'scripts/controllers/topBarController.js',
     'scripts/controllers/sideBarController.js'
 ];
@@ -216,7 +236,6 @@ require(app_dependencies,
             '$routeParams',
             '$timeout',
             '$state',
-
             'routeServices',
             
             function (
@@ -230,11 +249,11 @@ require(app_dependencies,
                 routeServices
             ) {
 
-
                 $rootScope.currentObjects = [];
                 // @TODO 
                 $rootScope.chartViewMode = 'mode-geo';
                 $rootScope.headlinesChartViewMode = 'mode-monthly';
+                $rootScope.pivotViewMode = 'mode-act-abs';
 
                 if (mode === 'ROUTE_BASED') {
                     
@@ -302,7 +321,7 @@ require(app_dependencies,
                 $rootScope.triggerResize = function () {
                     $timeout(function () {
                         $rootScope.globalResize();
-                    }, 500);
+                    }, 1000);
                     $timeout(function () {
                         $rootScope.globalResize();
                     }, 4000);
@@ -330,6 +349,7 @@ require(app_dependencies,
                                 obj.attr('id', 'pop_' + objectID);
                                 senseApp.getObject('pop_' + objectID, objectID).then(function () {
                                     obj.css('opacity', 1.0);
+                                    $rootScope.globalResize();
                                 });
                             });
                         });
@@ -365,6 +385,13 @@ require(app_dependencies,
                         $('.collapsible').removeClass('collapsed');
                         $('.collapse-trigger').removeClass('collapsed');
                         $('.collapse-trigger').text('- Less details');
+
+                        // Force the paint method after 1 second (the animation takes less
+                        // though).
+                        $timeout(function () {
+                            $rootScope.globalResize();
+                        }, 1000);
+                        
                     }
                 };
 

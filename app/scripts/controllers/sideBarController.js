@@ -17,14 +17,15 @@ app.controller('sideBarController',
         $timeout
     ) {
         $scope.selectionList = [];
-
+        $scope.variable_holding_max_period = 'v_Max_Month';
+        $scope.period_field_name = 'Period';
+        
          $scope.registerListener = function () {
                 // create an object
                 var selState = senseApp.selectionState();
 
                 var listener = function () {
                     $scope.getSelections();
-                    //try {$scope.$apply();} catch (e) {}
                 };
 
                 //bind the listener
@@ -63,8 +64,8 @@ app.controller('sideBarController',
                         if (value.fieldName !== 'Year') {
                                 if (value.selectedCount > 1) {
                                     selectionObject = {
-                                            field_name: value.fieldName,
-                                            text: value.fieldName + ' : ' + value.selectedCount + ' of ' + value.totalCount
+                                        field_name: value.fieldName,
+                                        text: value.fieldName + ' : ' + value.selectedCount + ' of ' + value.totalCount
                                     };
                                 } else {
                                     selectionObject = {
@@ -104,19 +105,43 @@ app.controller('sideBarController',
                 }
             };
 
-            
+        $scope.selectPeriodToMax = function () {
+            senseApp.variable.getContent($scope.variable_holding_max_period).then(function (model) {
+                if (model) {
+                    
+                    if (model.qContent && model.qContent.qIsNum) {
+                        var periodMax = Number(model.qContent.qString);
+                        var periodValues = [];
+
+                        for (var p = 1; p <= periodMax; ++p) {
+                            periodValues.push(p);
+                        }
+                        
+                        senseApp.field($scope.period_field_name).clear()
+                            .then(function () {
+                                senseApp.field($scope.period_field_name).selectValues(periodValues, true, true)
+                                    .then(console.log('Selections performed: ', periodValues));
+                            });
+                    }
+
+                    $scope.variableLoaded = true;
+                }
+            });
+        };
+         
 
         $rootScope.$on('senseapp-loaded', function () {
             $scope.registerListener(); 
+            $scope.selectPeriodToMax();
         });
 
         if ($rootScope.senseAppIsLoaded) {
             $scope.registerListener(); 
+            $scope.selectPeriodToMax();
         }
 
 
         $rootScope.closeFilters = function () {
-            $rootScope.globalResize();
             $(".sidebar.right").trigger("sidebar:close");
         };
         

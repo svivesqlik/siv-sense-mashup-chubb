@@ -8,13 +8,15 @@ app.controller('splashController',
     '$filter',
     '$location',
     '$timeout',
+    '$cookies',
     function (
         $rootScope,
         $scope,
         $interval,
         $filter,
         $location,
-        $timeout
+        $timeout,
+        $cookies
     ) {
         $scope.MaxSplashNum = 6;
         $scope.splashNum = 1;
@@ -25,7 +27,8 @@ app.controller('splashController',
         $scope.skip = false;
 
         $scope.init = function () {
-            $rootScope.inSplash = true;
+            
+            $rootScope.inSplash = false;
 
             $scope.i = $interval(function () {
                 $scope.curVal+=0.25;
@@ -34,7 +37,13 @@ app.controller('splashController',
                 }
             }, 15, 0);
 
-            //$scope.slideDown();
+            if ($cookies.get('straightToAnalysis')) {
+                $rootScope.inSplash = false;
+                $scope.slideDown(true);
+            } else {
+                $('#splashContainer').css('opacity', '1.0');
+                $rootScope.inSplash = true;
+            }
         };
 
         $scope.getImage = function(num) {
@@ -46,6 +55,8 @@ app.controller('splashController',
             $timeout(function () {
                 $scope.slideDown();
             }, 500);
+
+             $cookies.put('straightToAnalysis', 'true');
             
         };
 
@@ -76,8 +87,17 @@ app.controller('splashController',
             $scope.slideDown();
         };
 
-        $scope.slideDown = function () {
+        $scope.slideDown = function (straight) {
             var delayed = 1000;
+
+            if (straight) {
+                $interval.cancel($scope.i);
+                $rootScope.inSplash = false;
+                $(".contentwrap").css('opacity', "1.0");
+                $(".splash").css('display', 'none');
+                return;
+            }
+
             $interval.cancel($scope.i);
             $rootScope.inSplash = false;
             $(".contentwrap").css('opacity', "0");

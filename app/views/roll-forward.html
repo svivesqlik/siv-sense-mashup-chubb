@@ -1,5 +1,5 @@
 <section class="section-intro roll-forward">
-    
+
     <div class="container">
         <div class="row">
             <!-- Headers -->
@@ -22,7 +22,7 @@
         </div>
         <div class="col-sm-5">
             <div class="quick-selections">
-                Quick Selection:              
+                Quick Selection:
                 <div class="quick-select-section">
                     <vartoggle variable="v_Ccy" defaultvalue="USD" values="USD|EUR">
                 </div>
@@ -37,10 +37,10 @@
                 <div class="qs-object block-400 noselect" id="wsHzJ"></div>
             </div>
         </div>
-        
+
     </div>
 
-     <div class="col-lg-12 panel">
+    <div class="col-lg-12 panel">
         <div class="col-lg-6">
             <div class="qs-object block-300 noselect" id="CQvJP"></div>
         </div>
@@ -50,5 +50,29 @@
         </div>
     </div>
 
+    <div class="col-lg-12">
+        <div class="collapse-section">
+            <button class="collapse-trigger collapsed" ng-click="togglePanelVisibility()">+ More details</button>
+            <div class="collapsible collapsed">
+                <div class="collapsible-content">
+
+                    <div class="select-wrapper">
+                        <span><strong>View by: </strong></span>
+                        <select name="singleSelect" ng-model="pivotViewMode" ng-change="triggerResize()">
+                        <option value="mode-act-abs">Actual Absolute</option>
+                        <option value="mode-plan-abs">Plan Absolute</option>
+                        <option value="mode-act-vs-plan">Actual vs Plan</option>
+                    </select>
+                    
+                        <div class="block-30"></div>
+
+                        <div ng-show="pivotViewMode=='mode-act-abs'" class="qs-object block-600" id="HDeuWpR"></div>
+                        <div ng-show="pivotViewMode=='mode-plan-abs'" class="qs-object block-600" id="vZzcC"></div>
+                        <div ng-show="pivotViewMode=='mode-act-vs-plan'" class="qs-object block-600" id="HLJx"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </article>

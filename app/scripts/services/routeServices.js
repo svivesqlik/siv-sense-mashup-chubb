@@ -42,10 +42,12 @@ app.factory('routeServices', ['$rootScope', '$http', '$location', '$route',
                     $rootScope.path = $location.path();
                     if ($route.routes) {
                         $rootScope.pageClassCSS = $location.path().replace('/', "");
-                        $rootScope.section = $route.routes[$location.$$path].section;
-                        $rootScope.parent = $route.routes[$location.$$path].parent;
-                        $rootScope.pageTitle = $route.routes[$location.$$path].pageTitle;
-                        history.push($route.routes[$location.$$path].sheetID);
+                        if ($route.routes.hasOwnProperty($location.$$path)) {
+                            $rootScope.section = $route.routes[$location.$$path].section;
+                            $rootScope.parent = $route.routes[$location.$$path].parent;
+                            $rootScope.pageTitle = $route.routes[$location.$$path].pageTitle;
+                            history.push($route.routes[$location.$$path].sheetID);
+                        }
                         $rootScope.prevUrl = history.length > 1 ? history[history.length - 2] : "none";
                     }
 
@@ -120,17 +122,21 @@ app.factory('routeServices', ['$rootScope', '$http', '$location', '$route',
                                 });
 
                             });
+                            
 
                         });
 
 
+
+                         $routeProviderReference.otherwise({
+                            redirectTo: '/main-intro'
+                        });
+                        
                         $rootScope.$broadcast('routeconfig-loaded');
                         $route.reload();
                     });
 
-                $routeProviderReference.otherwise({
-                    redirectTo: '/main-intro'
-                });
+               
 
             }
         };

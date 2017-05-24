@@ -5,9 +5,9 @@ var current_environment = 'LOCAL';
 var environments = {
     'LOCAL_EXTENSION' : {
         host: window.location.host, 
-        port: 443,
-        protocol: window.location.protocol,
-        prefix: '/',
+        port: 80,
+        protocol: 'http',
+        prefix: '/chubb/',
         isSecure: (window.location.port == 443),
         appName: '1496d010-bebb-4ae4-89cc-69de7c53bb9b'
     }, 
@@ -18,7 +18,7 @@ var environments = {
         prefix: '/chubb/',
         isSecure: true,
         //appName: '14bec530-1337-4974-99b8-22b2f622f6b2'
-        'appName':'ddbf4c00-8c15-43c9-82e1-fafbfaef0689'
+        'appName':'728f4f7c-a4eb-4028-a12e-14333497171f'
     }, 
     'BETA' : {
         host: "beta.qliksensestudios.com",

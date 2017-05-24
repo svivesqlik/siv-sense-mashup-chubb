@@ -6,9 +6,9 @@ body {
     overflow: auto !important;
 }
 
-
 .qv-object  {
     background: transparent;    
+    font-size: 1em;
 }
 
 .qv-object h1,
@@ -26,6 +26,17 @@ body {
 }
 
 
+.qv-object .qv-object-title,
+.qv-object .qv-object-title .qv-object-title-text,
+.qv-object .qv-object-title h1,
+.qv-object .qv-object-title h1 > div
+{
+    font-size: 1.15em;
+    margin: 0;
+    font-weight: 500;
+    color: black;
+}
+
 
 .kpi-object {
     .qv-object h1,
@@ -39,12 +50,19 @@ body {
     }
 
     .qv-object .measure-title {
-        margin-bottom: 8px;
         display: none;
     }
 
-    .qv-object .kpi-title {
-        font-size: 16px;            
+    .qv-object .qv-object-title,
+    .qv-object .qv-object-title .qv-object-title-text,
+    .qv-object .qv-object-title h1,
+    .qv-object .qv-object-title h1 > div {
+        font-size: 1.3em;
+    }
+
+    .qv-object .qv-object-title {
+        padding-right: 0;
+        line-height: 1.5em;
     }
 
     .footer {
@@ -53,16 +71,20 @@ body {
 
     .qv-object .secondary-wrapper {
         padding-left: 10px;
-    }
 
-    .qv-object .secondary-wrapper .kpi-value {
-        .ellips-text > span {
-            font-size: 16px;
-        }        
+        .kpi-value {
+            .ellips-text > span {
+                font-size: 16px;
+            }        
+        }
+        .kpi-title {
+            font-size: 1.25em !important;
+            line-height: 1em;
+        }
     }
     
     .qv-object .kpi-value .ellips-text > span {
-        font-size: 30px;
+        font-size: 120%;
     }
 
     .qv-object .measure-title.ellips-text > span {
@@ -74,6 +96,11 @@ body {
         font-style: normal;
         margin-top: 0;
     }
+
+    .qv-object .qv-object-subtitle {
+        font-size: 1.5em;
+    }
+    
 }
 
 .qv-media-tool-html,
@@ -88,21 +115,6 @@ body {
     padding-bottom: 10px;
 }
 
-.qv-object .qv-object-title,
-.qv-object .qv-object-title .qv-object-title-text,
-.qv-object .qv-object-title h1,
-.qv-object .qv-object-title h1 > div
-{
-    font-size: 1.15em;
-    margin: 0;
-    font-weight: 500;
-    color: black;
-}
-
-
-.kpi-object .qv-object .qv-object-subtitle {
-    font-size: 1.5em;
-}
 
 
 .kpi-object .qv-object,
@@ -115,7 +127,8 @@ body {
     font-size: 0.95em;
 }
 
-.qv-object .qv-chart-component *,
+.qv-object .qv-chart-component .color-legend .vertical .text,
+.qv-object .qv-chart-component .color-legend .horizontal .text,
 .qv-object .qv-chart-component > canvas,
 .qv-object .qv-chart-component > canvas text,
 .qv-object .qv-chart-component > canvas * {
@@ -167,4 +180,16 @@ body {
 /* From client.css */
 body, input, textarea, keygen, select, button, isindex {
     font-family: $main_font;
+}
+
+
+.reports-wrapper .requirements .add-button {
+    display: none;
+}
+
+/* 
+* By default when the KPI is too small, the secondary value is emptied
+*/
+.kpi-object .secondary-wrapper {    
+    display: flex !important;
 }

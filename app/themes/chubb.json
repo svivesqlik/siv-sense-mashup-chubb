@@ -74,12 +74,12 @@
 		"title": {
 			"color": "#666",
 			"fontFamily": "Chubb Publico Web",
-			"fontSize": "12px"
+			"fontSize": "11px"
 		},
 		"label": {
 			"color": "#666",
 			"fontFamily": "Chubb Publico Web",
-			"fontSize": "12px"
+			"fontSize": "11px"
 		}
 	},
 	"item": {

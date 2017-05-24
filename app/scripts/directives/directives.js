@@ -31,7 +31,7 @@ app.directive('progressBar', [function () {
 }]);
 
 
-app.directive('variableinput', function () {
+app.directive('variableinput', function ($rootScope) {
     return {
         restrict: 'E',
         scope: {
@@ -41,7 +41,7 @@ app.directive('variableinput', function () {
             additionalclass: '@'
         },
         templateUrl: 'templates/variableinput.html',
-        link: function ($scope, element, attrs, $rootScope) {
+        link: function ($scope, element, attrs) {
             $scope.variablCleanName = $scope.variable.replace('.', '');
             $scope.variableLoaded = false;
             $scope.observer = null;
@@ -128,7 +128,7 @@ app.directive('fieldselect', function ($rootScope) {
 
 
             $scope.pickValue = function () {
-                senseApp.clearAll($scope.field)
+                senseApp.field($scope.field).clear()
                     .then(senseApp.field($scope.field).selectMatch($scope.field_value, true));
             };
 
@@ -198,7 +198,7 @@ app.directive('vartoggle', function ($rootScope) {
                         $scope.variableLoaded = true;
                     }
                 });
-            }
+            };
 
 
             $scope.changed = function (val) {
@@ -272,7 +272,7 @@ app.directive('fieldtoggle', function ($rootScope) {
             };
 
             $scope.changed = function () {
-                senseApp.clearAll($scope.field)
+                senseApp.field($scope.field).clear()
                     .then(senseApp.field($scope.field).selectMatch($scope.field_value, true));
             };
 

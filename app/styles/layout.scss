@@ -144,12 +144,22 @@
                     min-width: 100px;
                     width: 20%;
                     vertical-align: top;
+
+                     &.medium {
+                        min-width: 90px;
+                        width: 15%;
+                    }
+
+                    &.small {
+                        min-width: 80px;
+                        width: 10%;
+                    }
                 }
 
                 .kpi-comb-wrapper {
                     display: inline-block;
                     min-width: 100px;
-                    width: 16%;
+                    width: 14%;
                     vertical-align: top;
                     .kpi-object { 
                         width: 100%;
