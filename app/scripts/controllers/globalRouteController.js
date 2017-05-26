@@ -71,6 +71,7 @@ app.controller('globalRouteController', [
             console.info('Start loading objects...');
 
             var chartObjects = angular.element('.qs-object');
+            var needsExport = {};
 
             angular.forEach(chartObjects, function (obj, key) {
                 var chart_obj = angular.element(chartObjects[key]);
@@ -84,7 +85,7 @@ app.controller('globalRouteController', [
                             noInteraction: true,
                             noSelections: true
                         };
-                    }
+                    }                    
 
                     console.info('Getting object with ID: ', obj.id);
                     promises.push(
@@ -97,6 +98,7 @@ app.controller('globalRouteController', [
                             try {
                                 $rootScope.currentObjects.push(obj);
                             } catch (e) {}
+                            
                         })
                     );
                 }

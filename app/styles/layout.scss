@@ -205,6 +205,33 @@
                 border-top: 4px solid $scheme_section_color;
                 margin-bottom: 15px;
             }
+
+            .options-wrap {
+                position: absolute;
+                right: 0;
+                z-index: 999;
+                width: 150px;
+
+                .expander {
+                    display: inline-block;
+                    text-align: right;
+                }
+                
+                .options-list {
+                    width: 150px;
+
+                    .options-button {
+                        padding: 5px;
+                        color: $scheme_turquoise;
+                        font-size: 2em;
+
+                        &:hover {
+                            background-color: $scheme_turquoise;
+                            color: white;
+                        }
+                    }
+                }
+            }
         }
 
         .qs-transactions {

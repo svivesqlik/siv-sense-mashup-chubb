@@ -13,7 +13,7 @@ require.config({
         'bootstrapjs': basePath + '/lib/bootstrap-custom',
         'textjs': basePath + '/lib/text',
         'introjs': basePath + '/lib/intro',
-        'text':'.'
+        'text': '.'
     },
     'shim': {
         'uirouter': ['angular'],
@@ -117,12 +117,12 @@ var app_dependencies = [
     'introjs',
     'bootstrapjs',
     'cookies',
-    
+
     'scripts/filters/urlConverter.js',
     'scripts/directives/directives.js',
     'scripts/services/routeServices.js',
 
-    'scripts/controllers/globalRouteController.js',    
+    'scripts/controllers/globalRouteController.js',
     'scripts/controllers/topBarController.js',
     'scripts/controllers/sideBarController.js'
 ];
@@ -237,7 +237,7 @@ require(app_dependencies,
             '$timeout',
             '$state',
             'routeServices',
-            
+
             function (
                 $rootScope,
                 $http,
@@ -256,7 +256,7 @@ require(app_dependencies,
                 $rootScope.pivotViewMode = 'mode-act-abs';
 
                 if (mode === 'ROUTE_BASED') {
-                    
+
                     // First thing, redirect if we got to the root
                     if ($location.path() === "") {
                         $location.path("/main-headlines");
@@ -268,7 +268,7 @@ require(app_dependencies,
                         .then(routeServices.registerRouteChangeEvents);
 
                     $rootScope.defaultSection = 'main';
-                     /*if ($location.path() === "" ||
+                    /*if ($location.path() === "" ||
                         $location.path() === "/"
                         ) {
                         $rootScope.defaultSection = 'main';
@@ -321,7 +321,7 @@ require(app_dependencies,
                 $rootScope.triggerResize = function () {
                     $timeout(function () {
                         $rootScope.globalResize();
-                    }, 1000);
+                    }, 1500);
                     $timeout(function () {
                         $rootScope.globalResize();
                     }, 4000);
@@ -331,12 +331,12 @@ require(app_dependencies,
                     var options = {
 
                     };
-                    senseApp.getObject(objectID, objectID).then(function (model) {
+                    senseApp.getObject(null, objectID).then(function (model) {
 
                         if (model.layout.qHyperCube.qGrandTotalRow.length == 0) {
                             alert('There are too many rows to display. Please refine your selection to narrow down the results.');
                             return;
-                        } 
+                        }
 
                         // Either we have a totals table or a pivot one
                         require(['bootstrapjs'], function () {
@@ -345,7 +345,7 @@ require(app_dependencies,
                             obj.css('opacity', 0);
                             modal_obj.modal(options);
                             modal_obj.on('shown.bs.modal', function () {
-                                
+
                                 obj.attr('id', 'pop_' + objectID);
                                 senseApp.getObject('pop_' + objectID, objectID).then(function () {
                                     obj.css('opacity', 1.0);
@@ -354,12 +354,18 @@ require(app_dependencies,
                             });
                         });
                     });
-                    
-                    
+
                 };
 
-                $rootScope.exportDataForChart = function (objectID) {
-                    var container = element.parent();
+
+                $rootScope.exportDataForChart = function (objectID, elem) {
+                    var container;
+                    if (elem) {
+                        container = elem
+                    } else {
+                        container = element.parent();
+                    }
+                    
                     container.css('opacity', 0.4);
                     try {
                         senseApp.getObject('exportData', objectID).then(function (vizModel) {
@@ -376,7 +382,7 @@ require(app_dependencies,
 
 
                 $rootScope.togglePanelVisibility = function () {
-                    
+
                     if (!$('.collapsible').hasClass('collapsed')) {
                         $('.collapsible').addClass('collapsed');
                         $('.collapse-trigger').addClass('collapsed');
@@ -391,7 +397,7 @@ require(app_dependencies,
                         $timeout(function () {
                             $rootScope.globalResize();
                         }, 1000);
-                        
+
                     }
                 };
 

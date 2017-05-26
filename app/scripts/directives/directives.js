@@ -82,6 +82,33 @@ app.directive('variableinput', function ($rootScope) {
 });
 
 
+app.directive('chartoptions', function ($rootScope) {
+    return {
+        restrict: 'E',
+        scope: {
+            oid: '@',
+            defaultvalue: '@',
+            label: '@',
+            additionalclass: '@'
+        },
+        templateUrl: 'templates/options.html',
+        link: function ($scope, element, attrs) {
+            $scope.show_panel = false;
+
+            $scope.open = function () {
+                $rootScope.openPopup($scope.oid);
+            }
+            $scope.export = function () {
+                $rootScope.exportDataForChart($scope.oid, element);
+            }
+            $scope.toggle = function () {
+                $scope.show_panel = !$scope.show_panel;
+            }
+        }
+    };
+});
+
+
 app.directive('fieldselect', function ($rootScope) {
     return {
         restrict: 'E',

@@ -1,0 +1,10 @@
+<div class="options-wrap"> 
+    <i class="expander fa fa-bars" aria-hidden="true" ng-click="toggle()"></i>
+    <div class="options-list" ng-show="show_panel">
+        <ul>
+            <li><i class="options-button fa fa-tasks" ng-click="console.log('Crap')"></i></li>
+            <li><i class="options-button fa fa-expand" ng-click="open('{{oid}}')"></i></li>
+            <li><i class="options-button fa fa-share-square-o" ng-click="export('{{oid}}')"></i></li>
+        </ul>
+    </div>
+</div>
