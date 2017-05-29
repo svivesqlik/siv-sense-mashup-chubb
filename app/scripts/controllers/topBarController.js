@@ -16,7 +16,6 @@ app.controller('topBarController',
         $location,
         $timeout
     ) {
-
         $scope.searchFields = [
             'Region',
             'Cluster',
