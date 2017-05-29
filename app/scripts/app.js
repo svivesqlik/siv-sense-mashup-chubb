@@ -380,6 +380,9 @@ require(app_dependencies,
                     }
                 };
 
+                $rootScope.closeOptionPanels = function () {
+                    $rootScope.$broadcast('close-panels');
+                };
 
                 $rootScope.togglePanelVisibility = function () {
 

@@ -82,7 +82,7 @@ app.directive('variableinput', function ($rootScope) {
 });
 
 
-app.directive('chartoptions', function ($rootScope) {
+app.directive('chartoptions', function ($rootScope, $timeout) {
     return {
         restrict: 'E',
         scope: {
@@ -94,16 +94,38 @@ app.directive('chartoptions', function ($rootScope) {
         templateUrl: 'templates/options.html',
         link: function ($scope, element, attrs) {
             $scope.show_panel = false;
+            $scope.t = null;
+            $scope.miliseconds = 5000;
 
             $scope.open = function () {
                 $rootScope.openPopup($scope.oid);
-            }
+                $scope.show_panel = false;
+                
+            };
             $scope.export = function () {
                 $rootScope.exportDataForChart($scope.oid, element);
-            }
-            $scope.toggle = function () {
+                $scope.show_panel = false;
+            };
+            $scope.toggle = function ($event) {
+                if (!$scope.show_panel) {
+                    $scope.t = $timeout(function () {
+                        $scope.show_panel = false;
+                    }, $scope.miliseconds );
+                }
                 $scope.show_panel = !$scope.show_panel;
-            }
+                $event.stopPropagation();
+            };
+            $scope.mousemove = function () {
+                $timeout.cancel($scope.t);
+            };
+            $scope.mouseout = function () {
+                $scope.t = $timeout(function () {
+                    $scope.show_panel = false;
+                }, $scope.miliseconds );
+            };
+            $rootScope.$on('close-panels', function () {
+                $scope.show_panel = false;
+            });
         }
     };
 });

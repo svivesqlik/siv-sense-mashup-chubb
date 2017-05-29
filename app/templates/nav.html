@@ -1,4 +1,29 @@
 <div ng-controller="topBarController">
+    <!-- SEARCH -->
+    <div id="searchbar-wrapper" ng-show="searchFieldVisible">
+        <form>
+            <div class="form-group">
+                <div id="search-bar-field">
+                    <input type="text" class="input-sm" placeholder="What are you looking for" id="searchInput" ng-model="searchTerm" ng-keydown="search()"
+                        ng-change="search()" ng-blur="hideResults()">
+                    </input>
+                </div>
+            </div>
+        </form>
+        <div class="search-results" ng-show="processingOrFinished">
+            <ul class="search-term-results">
+                <li ng-repeat="field in searchResults">
+                    <span>{{field.key}}</span>
+                    <ul class="search-matches">
+                        <li ng-repeat="match in field.matches"><a ng-mousedown="clickResult(field,match.text)">{{match.text}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="search-results-loader" ng-show="searching">Searching...</div>
+        </div>
+    </div>
+    <!-- /SEARCH -->
+
     <div class="pre-nav-wrapper">
         <div class="container">
             <div class="row">
@@ -29,37 +54,7 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="pull-right">
-                        <!-- SEARCH -->
-                        <div id="searchbar-wrapper">
-                            <form>
-                                <div class="form-group">
-                                    <div id="search-bar-field">
-                                        <input type="text" 
-                                            class="input-sm" 
-                                            placeholder="What are you looking for" 
-                                            id="searchInput" 
-                                            ng-model="searchTerm" 
-                                            ng-keydown="search()"
-                                            ng-change="search()" 
-                                            ng-blur="hideResults()">
-                                        </input>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="search-results" ng-show="processingOrFinished">
-                                <ul class="search-term-results">
-                                    <li ng-repeat="field in searchResults">
-                                        <span>{{field.key}}</span>
-                                        <ul class="search-matches">
-                                            <li ng-repeat="match in field.matches"><a ng-mousedown="clickResult(field,match.text)">{{match.text}}</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="search-results-loader" ng-show="searching">Searching...</div>
-                            </div>
-                        </div>
-                        <!-- /SEARCH -->
-                        <i class="toolbar-icon fa fa-search"></i>
+                        <i class="toolbar-icon fa fa-search" ng-click="enableSearch()"></i>
                         <i class="toolbar-icon bck fa fa-step-backward" aria-hidden="true" ng-click="selectionsGoBack()"></i>
                         <i class="toolbar-icon fwd fa fa-step-forward" aria-hidden="true" ng-click="selectionsGoForward()"></i>
                     </div>

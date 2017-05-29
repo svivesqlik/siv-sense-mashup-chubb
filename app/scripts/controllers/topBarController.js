@@ -95,6 +95,7 @@ app.controller('topBarController',
                 $scope.searchTerm = '';
                 $rootScope.processingOrFinished = false;
                 $scope.searchResults = [];
+                $rootScope.disableSearch();
             });
         };
 
@@ -104,7 +105,14 @@ app.controller('topBarController',
         };
 
         $scope.enableSearch = function () {
-            $scope.searchFieldVisible = true;            
+            $scope.searchFieldVisible = true;
+            $('#container-cover').show();
+        };
+
+        $rootScope.disableSearch = function () {
+            $('#container-cover').hide();
+            $scope.searchFieldVisible = false;
+            $rootScope.processingOrFinished = false;
         };
         
         $scope.selectionsGoBack = function () {

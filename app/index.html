@@ -66,8 +66,9 @@
 
     <div id="contentwrap" class="contentwrap">
         <div id="contentBody" ng-hide="inSplash">
+            <div id="container-cover" ng-click="disableSearch()"></div>
             <div ng-include="'templates/nav.html'"></div>
-            <div id="containerMainView" class="main-view" ng-click="closeFilters()">
+            <div id="containerMainView" class="main-view" ng-click="closeFilters();">
                 <!-- Main view -->
                 <div ng-view="" class="container-{{pageClassCSS}} "></div>
             </div>

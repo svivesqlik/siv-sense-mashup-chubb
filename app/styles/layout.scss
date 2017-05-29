@@ -1,86 +1,77 @@
 @import "branding";
-
 #contentwrap {
     margin-bottom: -$footer_size;
 }
 
-
 #contentBody {
-    background:  white;
-
+    background: white;
+    #container-cover {
+        background: rgba(0, 0, 0, 0.75);
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 110;
+        display: none;
+    }
     #containerMainView {
-
-      .quick-selections {
-        margin: 10px 0;
-        text-align: right;
-
-        .quick-select-section {
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 20px;
-            
-            &:last-child {
-                margin-right: 0;
+        .quick-selections {
+            margin: 10px 0;
+            text-align: right;
+            .quick-select-section {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 20px;
+                &:last-child {
+                    margin-right: 0;
+                }
+                span:last-child {
+                    margin-right: 0;
+                }
             }
-
-            span:last-child {
-                margin-right: 0;
-            }
-
         }
-      }
-
         .section-intro {
             width: 100%;
             background-color: $scheme_section_head_background;
-
             .container {
                 background-image: url('../images/sections/1.jpg');
                 background-origin: center center;
                 background-size: cover;
-
                 .section-top {
                     margin-top: 8vh;
                 }
             }
-
-            & > .container > .row {
+            &>.container>.row {
                 background: rgba(0, 0, 0, 0.75);
                 min-height: 30vh;
             }
-
             &.headlines .container {
                 background-image: url('../images/sections/1.jpg');
                 .row {
                     background: rgba(0, 0, 0, 0.6);
                 }
             }
-
             &.roll-forward .container {
                 background-image: url('../images/sections/2.jpg');
             }
-
             &.submissions .container {
                 background-image: url('../images/sections/3.jpg');
             }
-
             &.segmentation .container {
                 background-image: url('../images/sections/4.jpg');
-            }        
-
+            }
             &.reports .container {
                 background-image: url('../images/sections/5.jpg');
-            }         
-
+            }
             .section-intro-cover {
                 position: relative;
                 height: 100%;
                 width: 100%;
-                background: rgba(0,0,0,0.15);
+                background: rgba(0, 0, 0, 0.15);
             }
-
             .share_price {
-                background-color:#fff;
+                background-color: #fff;
                 width: 200px;
                 min-width: 150px;
                 margin-top: 50px;
@@ -90,155 +81,178 @@
                 float: right;
                 display: inline-block;
                 margin-right: 15px;
-
                 iframe .StockQuote .price {
                     font-family: $main_font;
                 }
             }
-
-             .section-cover {
+            .section-cover {
                 //  http://www.colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.10+100
-                background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 85%);
-                background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 85%);
-                background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 85%);
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
-
+                background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 85%);
+                background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 85%);
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 85%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
                 height: 100%;
                 width: 100%;
                 position: absolute;
                 left: 0;
                 top: 0;
             }
-
             .section-headers-wrapper {
                 margin-top: 7vh;
                 margin-left: 15px;
                 padding-left: 15px;
                 border-left: 5px solid $scheme_section_color;
-
-                h1, h2 {
+                h1,
+                h2 {
                     color: white;
                     line-height: 1.5em;
                 }
-
                 h1 {
                     margin-top: 3vh;
                     font-size: 3em;
                     font-weight: 700;
                 }
-
                 h2 {
                     margin-top: 1vh;
                     font-size: 1.25em;
                     font-weight: 400;
                 }
             }
-            
             .section-kpis {
                 margin-top: 3vh;
                 margin-bottom: 2vh;
                 text-align: center;
-
                 .kpi-object {
                     display: inline-block;
                     min-width: 100px;
                     width: 20%;
                     vertical-align: top;
-
-                     &.medium {
+                    &.medium {
                         min-width: 90px;
                         width: 15%;
                     }
-
                     &.small {
                         min-width: 80px;
                         width: 10%;
                     }
                 }
-
                 .kpi-comb-wrapper {
                     display: inline-block;
                     min-width: 100px;
                     width: 14%;
                     vertical-align: top;
-                    .kpi-object { 
+                    .kpi-object {
                         width: 100%;
                     }
                 }
             }
         }
-
         .select-wrapper {
             margin: 10px 0;
-
             select {
                 height: 35px;
                 min-width: 100px;
                 margin-left: 10px;
             }
         }
-
         article.charts-section {
             background: $scheme_content_body_bkg;
             min-height: 50vh;
             padding-bottom: 3vh;
-
             h1.section-title {
                 font-size: 2em;
                 font-weight: 400;
             }
-
             h2 {
                 font-size: 1.5em;
                 font-weight: 400;
             }
-
             h3 {
                 font-size: 1.1em;
                 margin: 0.25em 0;
                 font-weight: 500;
             }
-
             .panel {
                 background: white;
                 padding: 10px;
                 border-top: 4px solid $scheme_section_color;
                 margin-bottom: 15px;
             }
-
             .options-wrap {
                 position: absolute;
-                right: 0;
-                z-index: 999;
-                width: 150px;
-
+                right: 15px;
+                z-index: 99;
+                .information-button {
+                    position: absolute;
+                    right: 45px;
+                    display: inline-block;
+                    text-align: right;
+                    font-size: 1.5em;
+                    background-color: #AFAFAF;
+                    color: white;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    text-align: center;
+                    vertical-align: middle;
+                    padding: 3px;
+                    top: 2px;
+                }
                 .expander {
                     display: inline-block;
                     text-align: right;
+                    position: absolute;
+                    right: 13px;
+                    padding: 5px;
+                    font-size: 1.5em;
+                    color: $scheme_turquoise;
                 }
-                
                 .options-list {
-                    width: 150px;
-
+                    margin-top: 30px;
+                    list-style-type: none;
+                    ul {
+                        list-style-type: none;
+                    }
+                    li {
+                        border-radius: 10px;
+                        text-align: right;
+                        margin: 10px 0;
+                        margin-right: 0;
+                        color: transparent;
+                        vertical-align: middle;
+                        font-size: 1.5em;
+                        padding-right: 0;
+                        padding-left: 10px;
+                        span {
+                            vertical-align: text-bottom;
+                            padding-right: 10px;
+                        }
+                        .options-button {
+                            padding: 5px;
+                            margin-right: 10px;
+                            color: $scheme_turquoise;
+                            font-size: 1.5em;
+                        }
+                        &:hover {
+                            background-color: $scheme_turquoise;
+                            color: white;
+                            .options-button {
+                                color: white;
+                            }
+                        }
+                    }
                     .options-button {
                         padding: 5px;
                         color: $scheme_turquoise;
                         font-size: 2em;
-
-                        &:hover {
-                            background-color: $scheme_turquoise;
-                            color: white;
-                        }
                     }
                 }
             }
         }
-
         .qs-transactions {
             width: 100%;
             text-align: right;
             margin-top: 10px;
-            
             button {
                 display: inline-block;
             }
@@ -265,49 +279,40 @@ button {
     color: white;
     background: $scheme_turquoise;
     display: block;
-
     &.chubb-orange {
         background-color: $scheme_orange;
-
         &:hover {
             background-color: #D85421;
         }
     }
-    
     &.short {
         height: 35px;
     }
-
     &.tall {
         height: 80px;
     }
-
 }
 
 .modal-dialog {
-  width: 98%;
-  padding: 5px;
+    width: 98%;
+    padding: 5px;
 }
 
 .modal-content {
-  height: auto;
-  min-height: 85%;
-  border-radius: 0;
-
-  .modal-header {
-      padding: 0;
-      padding-right: 10px;
-  }
-
-  button.close {
-      font-size: 3em;
-      padding-right: 10px;
-  }
-
-  .modal-footer {
-      margin-top: 50px;
-  }
-
+    height: auto;
+    min-height: 85%;
+    border-radius: 0;
+    .modal-header {
+        padding: 0;
+        padding-right: 10px;
+    }
+    button.close {
+        font-size: 3em;
+        padding-right: 10px;
+    }
+    .modal-footer {
+        margin-top: 50px;
+    }
 }
 
 select {
