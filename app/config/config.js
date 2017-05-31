@@ -15,10 +15,11 @@ var environments = {
         host: "172.16.1.188",
         port: 443,
         protocol: 'https',
-        prefix: '/chubb/',
+        prefix: '/',
         isSecure: true,
+        appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0',
         //appName: '14bec530-1337-4974-99b8-22b2f622f6b2'
-        'appName':'728f4f7c-a4eb-4028-a12e-14333497171f'
+        //'appName':'728f4f7c-a4eb-4028-a12e-14333497171f'
     }, 
     'BETA' : {
         host: "beta.qliksensestudios.com",
@@ -26,8 +27,8 @@ var environments = {
         protocol: "https",
         prefix: '/',
         isSecure: true,
-        //appName: 'd789cd85-7a47-440b-82cc-41242757e4a1'
-        appName: '693b54d1-6a7c-4625-8885-cfae3a8aee36'//'5b81e213-0a5e-4ab9-bc4c-34161eebedf9'
+        appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0'
+        //appName: '693b54d1-6a7c-4625-8885-cfae3a8aee36'//'5b81e213-0a5e-4ab9-bc4c-34161eebedf9'
     },
     'PROD' : {
         host: "srvsgsipro01.agbar.ga.local",

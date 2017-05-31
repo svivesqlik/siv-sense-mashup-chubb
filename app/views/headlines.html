@@ -29,7 +29,17 @@
     <div class="row">
         <div class="col-sm-7">
             <!--<h1 class="section-title">Headlines</h1>-->
-            <div class="time-selector" style="margin-top: 15px; float: left;"><label>Analytical view:</label><fieldselect field="Data_Set_Catergory_1" /></div>
+            <div class="view-selector">
+                <div class="select-wrapper">
+                    <span><strong>Analytical View: </strong></span>
+                    <select name="singleSelect" ng-model="analyticalViewMode" ng-change="triggerResize()">
+                        <option value="mode-view-plan">Plan</option>
+                        <option value="mode-view-forecast">Forecast</option>
+                        <option value="mode-view-projection">Projection</option>
+                        <option value="mode-view-prior">Prior Year</option>
+                    </select>
+                </div>
+                </div>
         </div>
         <!--<div class="col-sm-7"></div>-->
         <div class="col-sm-5" data-step="5" data-intro="Here you can pick how to see the data with currency and Gross/Net selectors">
@@ -52,14 +62,54 @@
         </div>
         <div class="col-lg-6">
             <div class="panel">
-                <chartoptions oid="BsuvEr"></chartoptions>
-                <div class="qs-object has-options block-350" id="BsuvEr"></div>
+                <!-- Plan -->
+                <div ng-show="analyticalViewMode=='mode-view-plan'">
+                    <chartoptions oid="vngfFUc" info="Against the plan information"></chartoptions>
+                    <div class="qs-object has-options block-350" id="vngfFUc"></div>
+                </div>
+                <!-- Forecast -->
+                <div ng-show="analyticalViewMode=='mode-view-forecast'">
+                    <chartoptions oid="daYTLet" info="Against the forecast"></chartoptions>
+                    <div class="qs-object has-options block-350" id="daYTLet"></div>
+                </div>
+                <!-- Projection -->
+                <div ng-show="analyticalViewMode=='mode-view-projection'">
+                    <chartoptions oid="DjESzw" info="Against the projection"></chartoptions>
+                    <div class="qs-object has-options block-350" id="DjESzw"></div>
+                </div>
+                <!-- Prior year -->
+                <div ng-show="analyticalViewMode=='mode-view-prior'">
+                    <chartoptions oid="HUzUMNF" info="Against the prior"></chartoptions>
+                    <div class="qs-object has-options block-350" id="HUzUMNF"></div>
+                </div>
+
             </div>
         </div>
         <div class="col-lg-6">
             <div class="panel">
-                <chartoptions oid="eNPuSZ"></chartoptions>
-                <div class="qs-object has-options block-350" id="eNPuSZ"></div>
+                <!-- Plan -->
+                <div ng-show="analyticalViewMode=='mode-view-plan'">
+                    <chartoptions oid="jBWjRw"></chartoptions>
+                    <div class="qs-object has-options block-350" id="jBWjRw"></div>
+                </div>
+                <!-- Forecast -->
+                <div ng-show="analyticalViewMode=='mode-view-forecast'">
+                    <chartoptions oid="KvAeJyn"></chartoptions>
+                    <div class="qs-object has-options block-350" id="KvAeJyn"></div>
+                </div>
+                <!-- Projection -->
+                <div ng-show="analyticalViewMode=='mode-view-projection'">
+                    <chartoptions oid="mSXGVDk"></chartoptions>
+                    <div class="qs-object has-options block-350" id="mSXGVDk"></div>
+                </div>
+                <!-- Prior year -->
+                <div ng-show="analyticalViewMode=='mode-view-prior'">
+                    <chartoptions oid="xNAp"></chartoptions>
+                    <div class="qs-object has-options block-350" id="xNAp"></div>
+                </div>
+
+
+
             </div>
         </div>
     </div>
@@ -92,10 +142,39 @@
                         <option value="mode-cumulative">Cumulative</option>
                     </select>
                 </div>
-                <chartoptions ng-show="headlinesChartViewMode=='mode-monthly'" oid="kPnZApH"></chartoptions>
-                <div ng-show="headlinesChartViewMode=='mode-monthly'" class="qs-object block-300" id="kPnZApH"></div>
-                <chartoptions  ng-show="headlinesChartViewMode=='mode-cumulative'"  oid="TWMy"></chartoptions>
-                <div ng-show="headlinesChartViewMode=='mode-cumulative'" class="qs-object block-300" id="TWMy"></div>
+
+                <!-- Plan -->
+                <div ng-show="analyticalViewMode=='mode-view-plan'">
+                    <chartoptions ng-show="headlinesChartViewMode=='mode-monthly'" oid="kPnZApH"></chartoptions>
+                    <div ng-show="headlinesChartViewMode=='mode-monthly'" class="qs-object block-300" id="kPnZApH"></div>
+                    <chartoptions  ng-show="headlinesChartViewMode=='mode-cumulative'"  oid="TWMy"></chartoptions>
+                    <div ng-show="headlinesChartViewMode=='mode-cumulative'" class="qs-object block-300" id="TWMy"></div>
+                </div>
+
+                <!-- Forecast -->
+                <div ng-show="analyticalViewMode=='mode-view-forecast'">
+                    <chartoptions ng-show="headlinesChartViewMode=='mode-monthly'" oid="mKjbmK"></chartoptions>
+                    <div ng-show="headlinesChartViewMode=='mode-monthly'" class="qs-object block-300" id="mKjbmK"></div>
+                    <chartoptions ng-show="headlinesChartViewMode=='mode-cumulative'" oid="PQMYYF"></chartoptions>
+                    <div ng-show="headlinesChartViewMode=='mode-cumulative'" class="qs-object block-300" id="PQMYYF"></div>
+                </div>
+
+                <!-- Projection -->
+                <div ng-show="analyticalViewMode=='mode-view-projection'">
+                    <chartoptions ng-show="headlinesChartViewMode=='mode-monthly'" oid="tLfGmtF"></chartoptions>
+                    <div ng-show="headlinesChartViewMode=='mode-monthly'" class="qs-object block-300" id="tLfGmtF"></div>
+                    <chartoptions ng-show="headlinesChartViewMode=='mode-cumulative'" oid="cpjjPL"></chartoptions>
+                    <div ng-show="headlinesChartViewMode=='mode-cumulative'" class="qs-object block-300" id="cpjjPL"></div>
+                </div>
+
+                <!-- Prior year -->
+                <div ng-show="analyticalViewMode=='mode-view-prior'">
+                    <chartoptions ng-show="headlinesChartViewMode=='mode-monthly'" oid="UuEGWH"></chartoptions>
+                    <div ng-show="headlinesChartViewMode=='mode-monthly'" class="qs-object block-300" id="UuEGWH"></div>
+                    <chartoptions ng-show="headlinesChartViewMode=='mode-cumulative'" oid="DRdPsue"></chartoptions>
+                    <div ng-show="headlinesChartViewMode=='mode-cumulative'" class="qs-object block-300" id="DRdPsue"></div>
+                </div>
+
             </div>
         </div>
     </div>

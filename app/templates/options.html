@@ -1,5 +1,5 @@
 <div class="options-wrap">
-    <i class="information-button fa fa-info" ng-hide="hasinfo"></i>
+    <i class="information-button fa fa-info" ng-show="hasInfo" ng-click="toggleInfo($event)"></i>
     <i class="expander fa fa-bars" aria-hidden="true" ng-mousedown="toggle($event);"></i>
     <div class="options-list" ng-show="show_panel">
         <ul ng-mouseenter="mousemove()" ng-mouseleave="mouseout()">
@@ -8,4 +8,8 @@
             <li><span>Export this chart</span><i class="options-button fa fa-share-square-o" ng-mousedown="export('{{oid}}')"></i></li>
         </ul>
     </div>
+</div>
+
+<div class="information-section" ng-show="visible_info">
+    <div class="content">{{info}}</div>
 </div>

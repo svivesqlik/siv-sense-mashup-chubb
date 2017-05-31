@@ -254,6 +254,7 @@ require(app_dependencies,
                 $rootScope.chartViewMode = 'mode-geo';
                 $rootScope.headlinesChartViewMode = 'mode-monthly';
                 $rootScope.pivotViewMode = 'mode-act-abs';
+                $rootScope.analyticalViewMode = 'mode-view-plan';
 
                 if (mode === 'ROUTE_BASED') {
 
@@ -332,11 +333,13 @@ require(app_dependencies,
 
                     };
                     senseApp.getObject(null, objectID).then(function (model) {
-
-                        if (model.layout.qHyperCube.qGrandTotalRow.length == 0) {
-                            alert('There are too many rows to display. Please refine your selection to narrow down the results.');
-                            return;
+                        if (model.layout.visualization == 'table') {
+                            if (model.layout.qHyperCube.qGrandTotalRow.length == 0) {
+                                alert('There are too many rows to display. Please refine your selection to narrow down the results.');
+                                return;
+                            }
                         }
+                        
 
                         // Either we have a totals table or a pivot one
                         require(['bootstrapjs'], function () {

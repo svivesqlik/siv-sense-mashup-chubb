@@ -89,11 +89,14 @@ app.directive('chartoptions', function ($rootScope, $timeout) {
             oid: '@',
             defaultvalue: '@',
             label: '@',
-            additionalclass: '@'
+            additionalclass: '@',
+            info: '@'
         },
         templateUrl: 'templates/options.html',
         link: function ($scope, element, attrs) {
+            $scope.hasInfo = false;
             $scope.show_panel = false;
+            $scope.visible_info = false;
             $scope.t = null;
             $scope.miliseconds = 5000;
 
@@ -102,11 +105,14 @@ app.directive('chartoptions', function ($rootScope, $timeout) {
                 $scope.show_panel = false;
                 
             };
-            $scope.export = function () {
+            $scope.export = function () {                
                 $rootScope.exportDataForChart($scope.oid, element);
                 $scope.show_panel = false;
             };
             $scope.toggle = function ($event) {
+                $scope.visible_info = false;
+                $('#' + $scope.oid).find('.qv-object').css('opacity', 1.0);
+
                 if (!$scope.show_panel) {
                     $scope.t = $timeout(function () {
                         $scope.show_panel = false;
@@ -123,9 +129,25 @@ app.directive('chartoptions', function ($rootScope, $timeout) {
                     $scope.show_panel = false;
                 }, $scope.miliseconds );
             };
+            $scope.toggleInfo = function () {
+                $scope.show_panel = false;
+
+                if (!$scope.visible_info) {
+                    $('#' + $scope.oid).find('.qv-object').css('opacity', 0.1);
+                } else {
+                    $('#' + $scope.oid).find('.qv-object').css('opacity', 1.0);
+                }
+                $scope.visible_info = !$scope.visible_info;
+            };
             $rootScope.$on('close-panels', function () {
                 $scope.show_panel = false;
             });
+            $scope.init = function () {
+                if ($scope.info && $scope.info !== '') {
+                    $scope.hasInfo = true;
+                }
+            };
+            $scope.init();
         }
     };
 });

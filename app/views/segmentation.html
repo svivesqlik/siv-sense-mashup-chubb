@@ -46,6 +46,7 @@
     <div class="row">
             <div class="col-lg-12">
                 <div class="panel">
+                    <chartoptions oid="rwSXBF" info="Chart options risk"></chartoptions>
                     <div class="qs-object block-200" id="rwSXBF"></div>
                 </div>
             </div>
@@ -65,10 +66,31 @@
                         <option value="mode-risk">Risk Category</option>
                     </select>
                 </div>
-                <div ng-show="chartViewMode=='mode-geo'" class="qs-object block-300" id="yjzmLc"></div>
-                <div ng-show="chartViewMode=='mode-broker'" class="qs-object block-300" id="RguwPz"></div>
-                <div ng-show="chartViewMode=='mode-class'" class="qs-object block-300" id="HZkCGgU"></div>
-                <div ng-show="chartViewMode=='mode-risk'" class="qs-object block-300" id="BaxBu"></div>
+                
+                <!-- Geo -->
+                <div ng-show="chartViewMode=='mode-geo'">
+                    <chartoptions oid="yjzmLc" info="Chart options geo"></chartoptions>
+                    <div class="qs-object block-300" id="yjzmLc"></div>
+                </div>
+
+                <!-- Broker -->
+                <div ng-show="chartViewMode=='mode-broker'">
+                    <chartoptions oid="RguwPz" info="Chart options broker"></chartoptions>                
+                    <div class="qs-object block-300" id="RguwPz"></div>
+                </div>
+                
+                <!-- Class -->
+                <div ng-show="chartViewMode=='mode-class'">
+                    <chartoptions oid="HZkCGgU" info="Chart options class"></chartoptions>
+                    <div class="qs-object block-300" id="HZkCGgU"></div>
+                </div>
+                
+                <!-- Risk -->
+                <div ng-show="chartViewMode=='mode-risk'">
+                    <chartoptions oid="BaxBu" info="Chart options risk"></chartoptions>
+                    <div class="qs-object block-300" id="BaxBu"></div>
+                </div>
+
             </div>
         </div>
          <div class="col-lg-5">
