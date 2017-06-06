@@ -2,7 +2,7 @@
 
     <footer class="container">
         
-        <div class="row">
+        <div class="row hidden-xs">
             <div class="footer-header-title col-lg-8">
                 <h1 class="pull-left">Chubb. Insured.</h1>
             </div>
@@ -11,7 +11,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row hidden-xs">
             <div class="col-lg-10">
                 <ul class="pull-left">
                    <li ng-repeat="n in navLinks[defaultSection] track by $index"><a ng-class="{ 'active': section === '{{n.section}}' }" href="#{{n.title|urlConverter:defaultSection}}">{{n.title}}</a></li>
@@ -21,6 +21,18 @@
                 <span class="footer-text pull-right">&copy; 2017 Chubb</span>
             </div>
         </div>
+
+        <div class="row footer-responsive hidden-sm hidden-lg hidden-md">
+            <div class="footer-responsive-col">
+                <span class="footer-text ">&copy; 2017 Chubb</span>
+            </div>
+            <div class="footer-header-date footer-responsive-col">
+                <div class="footer-text"><span>Data last reloaded:</span>
+                    <div class="qs-object block-60" id="GYZRSJ"></div>
+                </div>
+            </div>
+        </div>
+
 
     </footer>
 

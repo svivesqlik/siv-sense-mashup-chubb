@@ -12,11 +12,19 @@
         width: 100%;
         font-size: 2em;
         border-radius: 5px;
+        position: relative;
 
         input {
             height: 100%;
             width: 100%;
             padding: 0 10px;
+            border-radius: 5px;  
+        }
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 12px;
+            font-size: 25px;
         }
     }
 }

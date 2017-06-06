@@ -1,3 +1,4 @@
+@import "branding";
 .sidebar.right {
     top: 0;
     right: 0;
@@ -14,35 +15,33 @@
     padding-top: 50px;
     text-align: left;
     z-index: 100;
-
+    @media all and (max-width: 690px) {
+        width: 100%;
+        padding-top: 10px;
+    }
     .close-image {
         height: 20px;
         width: 20px;
         display: block;
         float: right;
     }
-
     h2 {
         font-size: 1.5em;
         line-height: 1em;
         margin: 10px 0;
         text-align: left;
     }
-
     h3 {
         font-size: 1.3em;
         line-height: 1em;
         margin: 10px 0;
         text-align: left;
     }
-
-
     #time-selection {
         .time-selector {
             margin: 10px 0;
             margin-bottom: 15px;
             vertical-align: middle;
-
             select {
                 height: 35px;
                 min-width: 80px;
@@ -55,21 +54,21 @@
             padding-right: 10px;
         }
     }
-    
-
     .applied-selections.empty {
         font-family: 'QlikView Sans', sans-serif;
         color: gray;
-        font-size: 0.6em;
+        font-size: 1.25em;
         margin: 1.5em 0;
     }
-
     #filters-current-selections {
         text-align: left;
         min-height: 100px;
         max-height: 125px;
+        @media all and (max-width: 767px) {
+            min-height: 75px;
+            max-height: 100px;
+        }
         overflow-y: scroll;
-
         .active-selection {
             background: $qlik_green;
             padding: 5px;
@@ -79,7 +78,6 @@
             margin: 4px;
             font-size: 0.95em;
             font-family: 'QlikView Sans', sans-serif;
-
             i {
                 color: white;
             }

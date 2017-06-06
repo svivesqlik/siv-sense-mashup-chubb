@@ -1,0 +1,19 @@
+{
+    "headlines": {
+        "by_class": "This table shows Actuals against either Plan, Forecast, Projection or Prior Year - depending on your selection. It is split using a drill down including MCC Line of Business, then Products. ",
+        "by_geography": "This table shows Actuals against either Plan, Forecast, Projection or Prior Year - depending on your selection. It is split using a drill down by Geographic split, including Cluster, Country and Segment.",
+        "chart":"This chart shows the trend of Actuals against either Plan, Forecast, Projection or Prior Year - depending on your selection. Use the 'View by' switch to change between a monthly or cumulative view."
+    },
+    "roll_forward": {
+        "waterfall": "This chart shows how we got to our GWP position, by using an 'Opening GWP' from last year; and then layering in the effect of accounting such as new business won, change in rates, movements in exposure, etc.",
+        "variance": "This chart shows the variance between the Actuals for each Premium Roll Forward account, and it's planned amount."
+    },
+    "submissions": {
+        "by_geography": "This chart shows a single metric (by default it's Submission Count), broken down by Geography. Use the drop down menu to switch this chart to a different metric such as Quote Count, Conversion Ratio or similar.",
+        "by_class": "This chart shows a single metric (by default it's Submission Count), broken down by Class. Use the drop down menu to switch this chart to a different metric such as Quote Count, Conversion Ratio or similar."
+    },
+    "segmentation": {
+        "premium": "This chart shows the split of premium per month by it's PSC (Preferred, Standard, Challenged) segmentation.",
+        "charts": "This chart shows the split of premium by it's PSC (Preferred, Standard, Challenged) segmentation. Use the drop down menu to segment show this chart by Geography, Broker, Class or Risk Category."
+    }
+}

@@ -1,12 +1,11 @@
 'use strict';
 
 //to avoid errors in workbench: you can remove this when you have added an app
-var senseApp;
+var senseApp, helpContent;
 
 require.config({
     baseUrl: baseURL,
     'paths': {
-        'templates': basePath + '/templates',
         'uirouter': basePath + '/lib/angular-ui-router.min',
         'sidebar': basePath + '/lib/jquery.sidebar.min',
         'cookies': basePath + '/lib/angular.cookies.min',
@@ -17,11 +16,11 @@ require.config({
     },
     'shim': {
         'uirouter': ['angular'],
-        'templates': ['angular'],
         'cookies': ['angular']
     }
 });
 
+// Code needed to allow extensions to work in the mashup
 requirejs.config({
     config: {
         text: {
@@ -35,6 +34,13 @@ requirejs.config({
     }
 });
 
+function loadHelp() {
+    var ts = Math.ceil(Math.random() * 1000);
+    return $.get('config/help.json?' + ts.toString())
+        .then(function (data) {
+            helpContent = data;
+        });
+}
 
 function loadTheme(name) {
     return $.get('themes/' + name + '.json')
@@ -94,9 +100,9 @@ $('body').addClass('loading');
 
 require([],
     function () {
-        loadTheme('chubb').then(function () {
-            loadApp();
-        });
+        loadTheme('chubb')
+            .then(loadHelp)
+            .then(loadApp);
     }
 );
 
@@ -105,14 +111,12 @@ var app = angular
         'ngRoute',
         'ngCookies',
         'ui.router',
-        'templates-main'
     ]);
 
 var app_dependencies = [
     'scripts/controllers/splashController.js',
 
     'uirouter',
-    'templates',
     'sidebar',
     'introjs',
     'bootstrapjs',
@@ -121,6 +125,7 @@ var app_dependencies = [
     'scripts/filters/urlConverter.js',
     'scripts/directives/directives.js',
     'scripts/services/routeServices.js',
+    'scripts/services/bookmarksService.js',
 
     'scripts/controllers/globalRouteController.js',
     'scripts/controllers/topBarController.js',
@@ -237,6 +242,7 @@ require(app_dependencies,
             '$timeout',
             '$state',
             'routeServices',
+            'bookmarksService',
 
             function (
                 $rootScope,
@@ -246,7 +252,8 @@ require(app_dependencies,
                 $routeParams,
                 $timeout,
                 $state,
-                routeServices
+                routeServices,
+                bookmarksService
             ) {
 
                 $rootScope.currentObjects = [];
@@ -255,6 +262,8 @@ require(app_dependencies,
                 $rootScope.headlinesChartViewMode = 'mode-monthly';
                 $rootScope.pivotViewMode = 'mode-act-abs';
                 $rootScope.analyticalViewMode = 'mode-view-plan';
+                $rootScope.info_texts = helpContent;
+                $rootScope.selectionCount = 0;
 
                 if (mode === 'ROUTE_BASED') {
 
@@ -329,9 +338,9 @@ require(app_dependencies,
                 };
 
                 $rootScope.openPopup = function (objectID) {
-                    var options = {
+                    
+                    var options = {};
 
-                    };
                     senseApp.getObject(null, objectID).then(function (model) {
                         if (model.layout.visualization == 'table') {
                             if (model.layout.qHyperCube.qGrandTotalRow.length == 0) {
@@ -339,8 +348,6 @@ require(app_dependencies,
                                 return;
                             }
                         }
-                        
-
                         // Either we have a totals table or a pivot one
                         require(['bootstrapjs'], function () {
                             var modal_obj = $('#mashupModal');
@@ -349,7 +356,10 @@ require(app_dependencies,
                             modal_obj.modal(options);
                             modal_obj.on('shown.bs.modal', function () {
 
+                                var export_button = modal_obj.find('.export-options-button');
+                                export_button.attr('oid', objectID);
                                 obj.attr('id', 'pop_' + objectID);
+
                                 senseApp.getObject('pop_' + objectID, objectID).then(function () {
                                     obj.css('opacity', 1.0);
                                     $rootScope.globalResize();
@@ -360,6 +370,24 @@ require(app_dependencies,
 
                 };
 
+                $rootScope.showBookmarksModal = function () {
+                    bookmarksService.showModal();
+                };
+
+                $rootScope.saveBookmark = function (form) {
+                    bookmarksService.addBookmark(this.bookmarkName, this.bookmarkDesc);
+                };
+
+                $rootScope.saveBookmark = function (bookmark) {
+                    bookmarksService.activateBookmark(bookmark.id); 
+                };
+
+                $rootScope.exportData = function () {
+                    var modal_obj = $('#mashupModal');
+                    var export_button = modal_obj.find('.export-options-button');
+                    var oid = export_button.attr('oid');
+                    $rootScope.exportDataForChart(oid, export_button);
+                };
 
                 $rootScope.exportDataForChart = function (objectID, elem) {
                     var container;
@@ -370,6 +398,7 @@ require(app_dependencies,
                     }
                     
                     container.css('opacity', 0.4);
+
                     try {
                         senseApp.getObject('exportData', objectID).then(function (vizModel) {
                             vizModel.exportData().then(function (reply) {

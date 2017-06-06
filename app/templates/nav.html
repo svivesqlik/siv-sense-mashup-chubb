@@ -6,6 +6,7 @@
                 <div id="search-bar-field">
                     <input type="text" class="input-sm" placeholder="What are you looking for" id="searchInput" ng-model="searchTerm" ng-keydown="search()"
                         ng-change="search()" ng-blur="hideResults()">
+                        <i class="search-icon fa fa-search" aria-hidden="true"></i>
                     </input>
                 </div>
             </div>
@@ -24,15 +25,15 @@
     </div>
     <!-- /SEARCH -->
 
-    <div class="pre-nav-wrapper">
+    <div class="pre-nav-wrapper hidden-xs">
         <div class="container">
             <div class="row">
                 <div class="col-lg-9">
                 </div>
                 <div class="col-lg-3">
                     <ul>
-                        <li data-step="1" data-intro="Use these panels to filter the data you are seeing."><a>Bookmarks</a></li>
-                        <li data-step="2" data-intro="Click here to toggle the filter panel visibility"><a ng-click="triggerFilters()">Filters</a></li>
+                        <li data-step="1" data-intro="Use these panels to filter the data you are seeing."><a ng-click="showBookmarksModal()">Bookmarks</a></li>
+                        <li data-step="2" data-intro="Click here to toggle the filter panel visibility"><a ng-click="triggerFilters()">Filters</a><span ng-show="selectionCount > 0" id="nav-filter-count" ng-class="{'hasItems' : selectionCount > 0}">{{selectionCount}}</span></li>
                         <li><a ng-click="openHelp()">Help</a></li>
                     </ul>
                 </div>
@@ -44,21 +45,37 @@
     <div class="nav-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-lg-2">
-                    <a class="nav-logo" href="#{{navLinks[defaultSection][0].title|urlConverter:defaultSection}}"><img src="images/logo.svg" /></a>
-                </div>
-                <div class="col-lg-7">
-                    <nav>
-                        <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-class="{ 'active': section === '{{n.section}}' }" href="#{{n.title|urlConverter:defaultSection}}">{{n.title}}</a>
-                    </nav>
-                </div>
-                <div class="col-lg-3">
-                    <div class="pull-right">
-                        <i class="toolbar-icon fa fa-search" ng-click="enableSearch()"></i>
-                        <i class="toolbar-icon bck fa fa-step-backward" aria-hidden="true" ng-click="selectionsGoBack()"></i>
-                        <i class="toolbar-icon fwd fa fa-step-forward" aria-hidden="true" ng-click="selectionsGoForward()"></i>
+                <!-- Non-mobile view -->
+                <div class="hidden-xs">
+                    <div class="col-md-2">
+                        <a class="nav-logo" href="#{{navLinks[defaultSection][0].title|urlConverter:defaultSection}}"><img src="images/logo.svg" /></a>
+                    </div>
+                    <div class="col-md-7">
+                        <nav>
+                            <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-class="{ 'active': section === '{{n.section}}' }" href="#{{n.title|urlConverter:defaultSection}}">{{n.title}}</a>
+                        </nav>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="pull-right">
+                            <i class="toolbar-icon fa fa-search" ng-click="enableSearch()"></i>
+                            <i class="toolbar-icon bck fa fa-step-backward" aria-hidden="true" ng-click="selectionsGoBack()"></i>
+                            <i class="toolbar-icon fwd fa fa-step-forward" aria-hidden="true" ng-click="selectionsGoForward()"></i>
+                        </div>
                     </div>
                 </div>
+                <!-- Mobile/responsive -->
+                <div class="hidden-sm hidden-md hidden-lg col-xs-12">
+                    <a class="nav-logo responsive" href="#{{navLinks[defaultSection][0].title|urlConverter:defaultSection}}"><img src="images/logo.svg" /></a>
+                    <div class="responsive-options-wrapper">
+                        <a class="responsive-menu-filters" ng-click="triggerFilters()">Filters<span ng-show="selectionCount > 0" id="nav-filter-count" ng-class="{'hasItems' : selectionCount > 0}">{{selectionCount}}</span></a>
+                        <div class="responsive-menu-button fa fa-bars" ng-click="show_responsive_menu = !show_responsive_menu"></div>
+                    </div>
+                    <nav class="responsive-menu-menu" ng-show="show_responsive_menu == true">
+                        <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-click="goToSection(n)">{{n.title}}</a>
+                    </nav>
+                    
+                </div>
+                
             </div>
         </div>
     </div>

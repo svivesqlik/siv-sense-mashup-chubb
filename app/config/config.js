@@ -15,7 +15,7 @@ var environments = {
         host: "172.16.1.188",
         port: 443,
         protocol: 'https',
-        prefix: '/',
+        prefix: '/chubb/',
         isSecure: true,
         appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0',
         //appName: '14bec530-1337-4974-99b8-22b2f622f6b2'

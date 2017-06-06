@@ -8,7 +8,7 @@
                     <h1>Submissions</h1>
                 </div>
             </div>
-            <div class="col-sm-2 section-top">
+            <div class="col-sm-2 section-top hidden-xs">
                 <!-- Stock price -->
                 <div ng-include="'templates/stock.html'"></div>
             </div>
@@ -55,7 +55,7 @@
         </div>
         <div class="col-sm-5">
           <div class="quick-selections">
-                Quick Selection:              
+                <label>Quick Selection:</label>
                 <div class="quick-select-section">
                     <vartoggle variable="v_Rolling_vs_Static" defaultvalue="Rolling 12" values="Rolling 12 Months,Rolling 12|Selected Months,Static">
                 </div>
@@ -67,34 +67,34 @@
 
             <div class="col-lg-6">
                 <div class="panel">
-                    <chartoptions oid="NLdPLH"></chartoptions>
+                    <chartoptions oid="NLdPLH" info="{{info_texts.submissions.by_geography}}"></chartoptions>
                     <div class="qs-object block-400" id="NLdPLH"></div>
                 </div>
             </div>
 
             <div class="col-lg-6">
                 <div class="panel">
-                    <chartoptions oid="rPxScK"></chartoptions>
+                    <chartoptions oid="rPxScK"info="{{info_texts.submissions.by_class}}"></chartoptions>
                     <div class="qs-object block-400" id="rPxScK"></div>
                 </div>
             </div>
         </div>
 
-
-    <div class="col-lg-12">
-        <div class="collapse-section">
-            <button class="collapse-trigger collapsed" ng-click="togglePanelVisibility()">+ More details</button>
-            <div class="collapsible collapsed" >
-                <div class="collapsible-content">
-                    <div class="qs-object block-600" id="PdweKV"></div>
-                    <div class="qs-transactions">
-                        <span>The number of indiviual transactions is limited to 10.000 records, please narrow down your search to less than 10.000 records.</span>
-                        <button class="inline-block" ng-click="openPopup('dpcA')">View transactions</button>
+        <div class="row hidden-xs">
+            <div class="col-lg-12">
+                <div class="collapse-section">
+                    <button class="collapse-trigger collapsed" ng-click="togglePanelVisibility()">+ More details</button>
+                    <div class="collapsible collapsed" >
+                        <div class="collapsible-content">
+                            <div class="qs-object block-600" id="PdweKV"></div>
+                            <div class="qs-transactions">
+                                <span>The number of indiviual transactions is limited to 10.000 records, please narrow down your search to less than 10.000 records.</span>
+                                <button class="inline-block" ng-click="openPopup('dpcA')">View transactions</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
 
 </article>

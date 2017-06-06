@@ -1,25 +1,31 @@
+    @import "../fonts/chubb/1601-QAMBWH.scss";
+    * {
+        font-family: "Chubb Publico Web";
+    }
 
-@import "../fonts/chubb/1601-QAMBWH.scss";
+    body {
+        font-size: 100%;
+        @media all and (max-width: 480px) {
+            font-size: 115%;
+        }
+    }
 
-* {
-    font-family: "Chubb Publico Web"; 
-}
+ 
+ 
+    h2,
+    h3,
+    h4 {
+        line-height: 1em;
+        color: black;
+        color: #000000;
+        margin: 0.75em 0;
+    }
 
-body {
-    font-size: 100%;
-}
+    h1 {
+        font-size: inherit;
+    }
 
-h1,h2,h3,h4 {
-    line-height: 1em; 
-    color: black;
-    color: #000000;
-    margin: 0.75em 0;
-}
-h1 {
-    font-size: inherit;
-}
-
-h1 > small {
-    font-size: 0.3em;
-    vertical-align: text-bottom;
-}
+    h1>small {
+        font-size: 0.3em;
+        vertical-align: text-bottom;
+    }

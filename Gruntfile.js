@@ -31,20 +31,20 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
-  compress: {
-      main: {
-        options: {
-          archive: 'celsa.zip'
-        },
-        files: [
-          {
-            expand: true, 
-            cwd: 'dist/',
-            src: ['**/*'], 
-            dest: '/' 
-          }
-        ]
-      }
+    compress: {
+        main: {
+          options: {
+            archive: 'dist.zip'
+          },
+          files: [
+            {
+              expand: true, 
+              cwd: 'dist/',
+              src: ['**/*'], 
+              dest: '/' 
+            }
+          ]
+        }
     },
 
     // Watches files for changes and runs tasks based on the changed files
@@ -226,7 +226,7 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= yeoman.dist %>/scripts/{,*/}*.js',
+          //'<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
           '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.dist %>/styles/fonts/*'
@@ -365,11 +365,12 @@ module.exports = function (grunt) {
             'lib/{,*/}*.*',  
             'views/{,*/}*.html',
             'templates/{,*/}*.html',
+            'scripts/{,*/}*.js',
             'json/{,*/}*.json',
-            'images/{,*/}*.{webp}',
-            'fonts/*',
-            'config/*.js',
-      			'images/*.png'
+            'themes/{,*/}*.json',
+            'fonts/{,*/}*.*',  
+            'config/*.{js,json}',          
+            'images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
           ]
         }, {
           expand: true,
@@ -461,7 +462,7 @@ module.exports = function (grunt) {
     'copy:dist',
     'cssmin',
     'uglify',
-    'filerev',
+    //'filerev',
     'usemin',
     'compress:main'
   ]);

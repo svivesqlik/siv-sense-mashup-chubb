@@ -1,4 +1,7 @@
-html, body {
+@import "branding";
+
+html,
+body {
     height: 100%;
 }
 
@@ -6,8 +9,8 @@ body {
     overflow: auto !important;
 }
 
-.qv-object  {
-    background: transparent;    
+.qv-object {
+    background: transparent;
     font-size: 1em;
 }
 
@@ -19,24 +22,23 @@ body {
 .qv-object .qv-object-footnote,
 .qv-object .kpi-title,
 .qv-object table,
-.qv-object th, .qv-object th span,
-.qv-object td, .qv-object td span,
+.qv-object th,
+.qv-object th span,
+.qv-object td,
+.qv-object td span,
 .qv-object tbody {
     font-family: $main_font;
 }
 
-
 .qv-object .qv-object-title,
 .qv-object .qv-object-title .qv-object-title-text,
 .qv-object .qv-object-title h1,
-.qv-object .qv-object-title h1 > div
-{
+.qv-object .qv-object-title h1>div {
     font-size: 1.15em;
     margin: 0;
     font-weight: 500;
     color: black;
 }
-
 
 .kpi-object {
     .qv-object h1,
@@ -45,77 +47,66 @@ body {
     .qv-object .qv-object-title .qv-object-title-text,
     .qv-object .qv-object-subtitle,
     .qv-object .qv-object-footnote,
-    .qv-object .kpi-title  {
+    .qv-object .kpi-title {
         color: white;
+        @media all and (max-width: 690px) {
+            color: black;
+        }
     }
-
     .qv-object .measure-title {
         display: none;
     }
-
     .qv-object .qv-object-title,
     .qv-object .qv-object-title .qv-object-title-text,
     .qv-object .qv-object-title h1,
-    .qv-object .qv-object-title h1 > div {
+    .qv-object .qv-object-title h1>div {
         font-size: 1.3em;
     }
-
     .qv-object .qv-object-title {
         padding-right: 0;
         line-height: 1.5em;
     }
-
     .footer {
         margin-top: 0;
     }
-
     .qv-object .secondary-wrapper {
         padding-left: 10px;
-
         .kpi-value {
-            .ellips-text > span {
+            .ellips-text>span {
                 font-size: 16px;
-            }        
+            }
         }
         .kpi-title {
             font-size: 1.25em !important;
             line-height: 1em;
         }
     }
-    
-    .qv-object .kpi-value .ellips-text > span {
+    .qv-object .kpi-value .ellips-text>span {
         font-size: 1.2em;
     }
-
-    .qv-object .measure-title.ellips-text > span {
+    .qv-object .measure-title.ellips-text>span {
         font-size: 18px;
     }
-
     .qv-object-footnote {
         text-align: center;
         font-style: normal;
         margin-top: 0;
     }
-
     .qv-object .qv-object-subtitle {
         font-size: 1.5em;
     }
-    
 }
 
 .qv-media-tool-html,
 .qv-media-tool-html b,
 .qv-object-text-image .qv-media-tool-html,
-.qv-object-text-image .qv-media-tool-html b
-.qv-object-text-image .qv-media-tool-html strong {
+.qv-object-text-image .qv-media-tool-html b .qv-object-text-image .qv-media-tool-html strong {
     font-family: $main_font;
 }
 
-.qv-media-tool-html > b {
+.qv-media-tool-html>b {
     padding-bottom: 10px;
 }
-
-
 
 .kpi-object .qv-object,
 .kpi-comb-wrapper .qv-object {
@@ -129,23 +120,21 @@ body {
 
 .qv-object .qv-chart-component .color-legend .vertical .text,
 .qv-object .qv-chart-component .color-legend .horizontal .text,
-.qv-object .qv-chart-component > canvas,
-.qv-object .qv-chart-component > canvas text,
-.qv-object .qv-chart-component > canvas * {
+.qv-object .qv-chart-component>canvas,
+.qv-object .qv-chart-component>canvas text,
+.qv-object .qv-chart-component>canvas * {
     font-family: $main_font !important;
 }
 
 .kpi-spark .qv-object .qv-object-title .qv-object-title-text {
-    display: none !important; 
+    display: none !important;
 }
 
 .kpi-spark {
-    position:relative;
-
+    position: relative;
     &:hover {
         opacity: 0.75;
-        background: rgba(255,255,255,0.1);
-
+        background: rgba(255, 255, 255, 0.1);
         &:before {
             content: "\f065";
             display: block;
@@ -155,11 +144,11 @@ body {
             z-index: 11111111;
             color: black;
             font-size: 1.4em;
-            background: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.6);
             border-radius: 20px;
             vertical-align: middle;
             padding: 10px;
-            text-align: center;       
+            text-align: center;
         }
     }
     &:before {
@@ -168,28 +157,37 @@ body {
     }
 }
 
-.qv-object-kpi .kpi-icon
-{
+.qv-object-kpi .kpi-icon {
     font-size: 15px;
 }
 
-.qv-object-text-image .qv-media-tool-html  {
-    line-height: 2em;
+.qv-object-text-image .qv-media-tool-html {
+    line-height: 1.5em;
+    font-size: 1.2em;
 }
+
 
 /* From client.css */
-body, input, textarea, keygen, select, button, isindex {
+
+body,
+input,
+textarea,
+keygen,
+select,
+button,
+isindex {
     font-family: $main_font;
 }
-
 
 .reports-wrapper .requirements .add-button {
     display: none;
 }
 
+
 /* 
 * By default when the KPI is too small, the secondary value is emptied
 */
-.kpi-object .secondary-wrapper {    
+
+.kpi-object .secondary-wrapper {
     display: flex !important;
 }

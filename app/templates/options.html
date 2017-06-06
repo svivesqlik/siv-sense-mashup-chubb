@@ -3,9 +3,9 @@
     <i class="expander fa fa-bars" aria-hidden="true" ng-mousedown="toggle($event);"></i>
     <div class="options-list" ng-show="show_panel">
         <ul ng-mouseenter="mousemove()" ng-mouseleave="mouseout()">
-            <li><span>Alternative dimensions</span><i class="options-button fa fa-tasks" ng-mousedown="console.log('Crap')"></i></li>
-            <li><span>Enlarge chart</span><i class="options-button fa fa-expand" ng-mousedown="open('{{oid}}')"></i></li>
-            <li><span>Export this chart</span><i class="options-button fa fa-share-square-o" ng-mousedown="export('{{oid}}')"></i></li>
+            <li ng-mousedown="console.log('Crap')"><span>Alternative dimensions</span><i class="options-button fa fa-tasks"></i></li>
+            <li ng-mousedown="open('{{oid}}')"><span>Enlarge chart</span><i class="options-button fa fa-expand"></i></li>
+            <li ng-mousedown="export('{{oid}}')"><span>Export this chart</span><i class="options-button fa fa-share-square-o"></i></li>
         </ul>
     </div>
 </div>

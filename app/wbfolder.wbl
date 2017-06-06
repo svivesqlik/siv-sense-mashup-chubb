@@ -1,6 +1,4 @@
 config/config.js;
-config/states.js;
-config/formats.js;
-scripts/celsa.js;
-templates.js;
+config/help.json;
+config/routes.json;
 index.html;

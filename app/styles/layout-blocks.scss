@@ -1,8 +1,4 @@
-//  height blocks
-.block-vh {
-    height: 28vh !important;
-}
-
+    //  height blocks
 .block {
     margin-bottom: 30px !important;
 }
@@ -331,6 +327,7 @@
 .block-950 {
     height: 800px !important;
 }
+
 .block-1235 {
     height: 1235px !important;
 }
@@ -339,6 +336,7 @@
 /**
 * Relative measures
 */
+
 .block-25vh {
     height: 25vh !important;
 }
@@ -361,4 +359,52 @@
 
 .block-75vh {
     height: 75vh !important;
+}
+
+@media all and (max-width: 425px) {
+    .block-xs-10 {
+        height: 10px !important;
+    }
+    .block-xs-20 {
+        height: 20px !important;
+    }
+    .block-xs-25 {
+        height: 25px !important;
+    }
+    .block-xs-30 {
+        height: 30px !important;
+    }
+    .block-xs-35 {
+        height: 35px !important;
+    }
+    .block-xs-40 {
+        height: 40px !important;
+    }
+    .block-xs-50 {
+        height: 50px !important;
+    }
+    .block-xs-60 {
+        height: 60px !important;
+    }
+    .block-xs-65 {
+        height: 65px !important;
+    }
+    .block-xs-70 {
+        height: 70px !important;
+    }
+    .block-xs-75 {
+        height: 75px !important;
+    }
+    .block-xs-80 {
+        height: 80px !important;
+    }
+    .block-xs-90 {
+        height: 90px !important;
+    }
+    .block-xs-95 {
+        height: 95px !important;
+    }
+    .block-xs-100 {
+        height: 100px !important;
+    }
 }

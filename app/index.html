@@ -38,28 +38,38 @@
             <div id="intro-wrapper" ng-click="nextSplash()" >
                 <div id="index-cover-fader"></div>
                 <div id="index-cover"></div>
+
+                <div class="row hidden-xs">
+                    <div class="col-sm-10">
+                    </div>
+                    <div class="col-sm-2 splash-stock">
+                        <div ng-include="'templates/stock.html'"></div>
+                    </div>
+                </div>
+
                 <div class="container">
-                <div class="splash-welcome row table-display col-lg-12">
-                    <div class="col-lg-1 cell-display">&nbsp;</div>
-                    <div class="col-lg-5 col-md-11 col-sm-11 cell-display">
-                        <img class="splash-logo" src="images/logo.svg" />
-                        <div id="splash-welcome-text">
-                            <h1 class="splash-title fade-in">Welcome to the Revenue Dashboard</h1>
-                            <p class="splash-text">As a recognised leader and one of the largest providers of financial institutions insurance in
-                                the UK, London and Lloyd’s markets our mission is to support the development of the business
-                                environment, through innovative products and services</p>
+                    <div class="splash-welcome row table-display col-lg-12">
+                        <div class="col-lg-1 cell-display">&nbsp;</div>
+                        <div class="col-sm-5 col-md-6 col-sm-8 cell-display">
+                            <img class="splash-logo" src="images/logo.svg" />
+                            <div id="splash-welcome-text">
+                                <h1 class="splash-title fade-in">Welcome to the Revenue Dashboard</h1>
+                                <p class="splash-text">As a recognised leader and one of the largest providers of financial institutions insurance in
+                                    the UK, London and Lloyd’s markets our mission is to support the development of the business
+                                    environment, through innovative products and services</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 cell-display bottom-aligned">
-                        <div id="button-wrapper">
-                            <button class="start-analysis" ng-mousedown="slideDown();$event.stopPropagation();">Start Analysing</button>
+                        <div class="col-lg-4 col-md-5 col-sm-12 cell-display bottom-aligned">
+                            <div id="button-wrapper">
+                                <button class="start-analysis" ng-mousedown="slideDown();$event.stopPropagation();">Start Analysing</button>
+                            </div>
                         </div>
+                        </div>                    
                     </div>
-                    </div>                    
-                </div>
-                <div id="tick-to-go-straight-wrapper" ng-click="checkClick()">
-                    <span><input type="checkbox" ng-model="skip" />Tick here to if you want to go straight to the charts when you next log in.</span>
-                </div>
+
+                    <div id="tick-to-go-straight-wrapper" ng-click="checkClick()">
+                        <span><input type="checkbox" ng-model="skip" />Tick here to if you want to go straight to the charts when you next log in.</span>
+                    </div>
             </div>
         </div>
     </div>
@@ -74,7 +84,10 @@
             </div>
             <div ng-include="'templates/sidebar.html'"></div>
             <div ng-include="'templates/footer.html'"></div>
+            
+            <!-- Modals -->
             <div ng-include="'templates/modal.html'"></div>
+            <div ng-include="'templates/bookmarks_modal.html'"></div>
         </div>
     </div>
 

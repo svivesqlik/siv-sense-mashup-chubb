@@ -13,7 +13,7 @@
                     <h2>How is the business split?</h2>
                 </div>
             </div>
-            <div class="col-sm-2 section-top">
+            <div class="col-sm-2 section-top hidden-xs">
                 <!-- Stock price -->
                 <div ng-include="'templates/stock.html'"></div>
             </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="col-sm-5">
           <div class="quick-selections">
-                Quick Selection:              
+                <label>Quick Selection:</label>
                 <div class="quick-select-section">
                     <vartoggle variable="v_Ccy" defaultvalue="USD" values="USD|EUR">
                 </div>
@@ -46,7 +46,7 @@
     <div class="row">
             <div class="col-lg-12">
                 <div class="panel">
-                    <chartoptions oid="rwSXBF" info="Chart options risk"></chartoptions>
+                    <chartoptions oid="rwSXBF" info="{{info_texts.segmentation.premium}}"></chartoptions>
                     <div class="qs-object block-200" id="rwSXBF"></div>
                 </div>
             </div>
@@ -69,25 +69,25 @@
                 
                 <!-- Geo -->
                 <div ng-show="chartViewMode=='mode-geo'">
-                    <chartoptions oid="yjzmLc" info="Chart options geo"></chartoptions>
+                    <chartoptions oid="yjzmLc" info="{{info_texts.segmentation.charts}}"></chartoptions>
                     <div class="qs-object block-300" id="yjzmLc"></div>
                 </div>
 
                 <!-- Broker -->
                 <div ng-show="chartViewMode=='mode-broker'">
-                    <chartoptions oid="RguwPz" info="Chart options broker"></chartoptions>                
+                    <chartoptions oid="RguwPz" info="{{info_texts.segmentation.charts}}"></chartoptions>                
                     <div class="qs-object block-300" id="RguwPz"></div>
                 </div>
                 
                 <!-- Class -->
                 <div ng-show="chartViewMode=='mode-class'">
-                    <chartoptions oid="HZkCGgU" info="Chart options class"></chartoptions>
+                    <chartoptions oid="HZkCGgU" info="{{info_texts.segmentation.charts}}"></chartoptions>
                     <div class="qs-object block-300" id="HZkCGgU"></div>
                 </div>
                 
                 <!-- Risk -->
                 <div ng-show="chartViewMode=='mode-risk'">
-                    <chartoptions oid="BaxBu" info="Chart options risk"></chartoptions>
+                    <chartoptions oid="BaxBu" info="{{info_texts.segmentation.charts}}"></chartoptions>
                     <div class="qs-object block-300" id="BaxBu"></div>
                 </div>
 
@@ -103,16 +103,18 @@
             </div>
         </div>
     </div>
-
-    <div class="col-lg-12">
-        <div class="collapse-section">
-            <button class="collapse-trigger collapsed" ng-click="togglePanelVisibility()">+ More details</button>
-            <div class="collapsible collapsed" >
-                <div class="collapsible-content">
-                    <div class="qs-object block-600" id="zcpTsTw"></div>
-                    <div class="qs-transactions">
-                        <span>The number of indiviual transactions is limited to 10.000 records, please narrow down your search to less than 10.000 records.</span>
-                        <button class="inline-block" ng-click="openPopup('VBDLmk')">View transactions</button>
+    
+    <div class="row hidden-xs">
+        <div class="col-lg-12">
+            <div class="collapse-section">
+                <button class="collapse-trigger collapsed" ng-click="togglePanelVisibility()">+ More details</button>
+                <div class="collapsible collapsed" >
+                    <div class="collapsible-content">
+                        <div class="qs-object block-600" id="zcpTsTw"></div>
+                        <div class="qs-transactions">
+                            <span>The number of indiviual transactions is limited to 10.000 records, please narrow down your search to less than 10.000 records.</span>
+                            <button class="inline-block" ng-click="openPopup('VBDLmk')">View transactions</button>
+                        </div>
                     </div>
                 </div>
             </div>

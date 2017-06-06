@@ -1,7 +1,7 @@
+@import "branding";
 .splash {
     background-color: #000;
     background-image: url('../images/splash/1.jpg');
-
     button {
         background-color: $scheme_orange;
         margin-top: 20px;
@@ -10,10 +10,15 @@
         height: 60px;
         font-weight: 600;
     }
-
+    .splash-stock {
+        margin-top: 15vh;
+        background: white;
+        padding: 10px;
+        padding-right: 20px;
+    }
     .start-analysis {
-     &:after {
-           content: ' ';
+        &:after {
+            content: ' ';
             background: url(../images/arrow_down.svg);
             height: 9px;
             width: 16px;
@@ -25,9 +30,7 @@
             margin-top: 2px;
         }
     }
-
-    
-    #tick-to-go-straight-wrapper  {
+    #tick-to-go-straight-wrapper {
         width: 100%;
         display: block;
         position: absolute;
@@ -35,7 +38,9 @@
         padding: 10px;
         background: black;
         border-top: 1px solid #a7a7a7;
-
+        @media all and (max-width: 480px) {
+            padding: 30px 10px;
+        }
         span {
             width: 100%;
             color: white;
@@ -43,33 +48,25 @@
             text-align: center;
             font-size: 1.2em;
         }
-
         input {
             margin-right: 10px;
         }
-        
     }
-
     #splash-welcome-text {
         margin-top: 20px;
         border-left: 5px solid;
         border-color: $scheme_orange;
     }
-
     .arrow-wrapper {
         text-align: center;
-
         .arrow-down-img {
             width: 25px;
             display: block;
         }
     }
-
     #index-progress .progress-bar-bar {
         background-color: $scheme_orange;
     }
-    
-
     &.splash-1 {
         background-image: url('../images/splash/1.jpg');
         #splash-welcome-text {
@@ -78,24 +75,23 @@
         button,
         #index-progress .progress-bar-bar,
         .nav-light-wrapper a:before,
-        .nav-light-wrapper a:hover:before  {
+        .nav-light-wrapper a:hover:before {
             background-color: $scheme_orange;
         }
     }
-
     &.splash-2 {
         background-image: url('../images/splash/2.jpg');
-          .nav-light-wrapper a:before,
-         .nav-light-wrapper a:hover:before {
-             background-color: $scheme_turquoise;
-         }
+        .nav-light-wrapper a:before,
+        .nav-light-wrapper a:hover:before {
+            background-color: $scheme_turquoise;
+        }
         #splash-welcome-text {
             border-color: $scheme_turquoise;
         }
-         button,
+        button,
         #index-progress .progress-bar-bar,
         .nav-light-wrapper a:before,
-        .nav-light-wrapper a:hover:before  {
+        .nav-light-wrapper a:hover:before {
             background-color: $scheme_turquoise;
         }
     }
@@ -107,7 +103,7 @@
         button,
         #index-progress .progress-bar-bar,
         .nav-light-wrapper a:before,
-        .nav-light-wrapper a:hover:before  {
+        .nav-light-wrapper a:hover:before {
             background-color: $scheme_red;
         }
     }
@@ -116,10 +112,10 @@
         #splash-welcome-text {
             border-color: $scheme_purple;
         }
-         button,
+        button,
         #index-progress .progress-bar-bar,
         .nav-light-wrapper a:before,
-        .nav-light-wrapper a:hover:before  {
+        .nav-light-wrapper a:hover:before {
             background-color: $scheme_purple;
         }
     }
@@ -128,14 +124,13 @@
         #splash-welcome-text {
             border-color: $scheme_blue;
         }
-         button,
+        button,
         #index-progress .progress-bar-bar,
         .nav-light-wrapper a:before,
-        .nav-light-wrapper a:hover:before  {
+        .nav-light-wrapper a:hover:before {
             background-color: $scheme_blue;
         }
     }
-
     &.splash-6 {
         background-image: url('../images/splash/6.jpg');
         #splash-welcome-text {
@@ -144,7 +139,7 @@
         button,
         #index-progress .progress-bar-bar,
         .nav-light-wrapper a:before,
-        .nav-light-wrapper a:hover:before  {
+        .nav-light-wrapper a:hover:before {
             background-color: $scheme_yellow;
         }
     }
@@ -153,10 +148,10 @@
         #splash-welcome-text {
             border-color: $scheme_green;
         }
-         button,
+        button,
         #index-progress .progress-bar-bar,
         .nav-light-wrapper a:before,
-        .nav-light-wrapper a:hover:before  {
+        .nav-light-wrapper a:hover:before {
             background-color: $scheme_green;
         }
     }
@@ -168,12 +163,10 @@
         button,
         #index-progress .progress-bar-bar,
         .nav-light-wrapper a:before,
-        .nav-light-wrapper a:hover:before  {
+        .nav-light-wrapper a:hover:before {
             background-color: $scheme_turquoise;
         }
     }
-
-
     background-position: center center;
     position: fixed;
     top: 0;
@@ -184,15 +177,13 @@
     background-size: cover;
     background-attachment: fixed;
     text-align: left;
-
     #index-splash-container {
         position: absolute;
-        top:0;
-        left:0;
+        top: 0;
+        left: 0;
         width: 100%;
         z-index: 999999;
     }
-    
     #index-progress {
         height: 5px;
         width: 100%;
@@ -206,40 +197,32 @@
             color: #fff;
             font-weight: normal
         }
-
     }
-    
     .splash-logo {
         width: 300px;
     }
-
     .splash-logo,
     #splash-welcome-text {
         padding-left: 20px;
     }
-
     #index-cover,
     #index-cover-fader {
         //  http://www.colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.10+100
-        background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 85%);
-        background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 85%);
-        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 85%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
-
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 85%);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 85%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 85%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
         height: 100%;
         width: 100%;
         position: absolute;
         left: 0;
         top: 0;
     }
-
     #index-cover-fader {
-        background: black; 
+        background: black;
         opacity: 0;
     }
-    
-
-     @media all and (min-width: 768px) {
+    @media all and (min-width: 768px) {
         .table-display {
             display: table;
         }
@@ -251,21 +234,34 @@
                 vertical-align: bottom;
             }
         }
-     }
-
+    }
     #intro-wrapper {
         height: 100%;
     }
-
     .splash-welcome {
         bottom: 150px;
         position: absolute;
+        $margin_to_add: 60vh;
+        @media all and (max-width: 690px) and (orientation: landscape) {
+            position: relative;
+            margin-top: $margin_to_add;
+        }
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation: landscape) {
+            position: relative;
+            margin-top: $margin_to_add;
+        }
+        @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation: landscape) {
+            position: relative;
+            margin-top: $margin_to_add;
+        }
+        @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {
+            position: relative;
+            margin-top: $margin_to_add;
+        }
     }
-
     button {
         border: 1px solid white;
     }
-
     .splash-title {
         color: white;
         font-size: 2.5em;
