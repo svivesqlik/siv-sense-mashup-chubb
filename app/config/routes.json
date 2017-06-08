@@ -23,7 +23,8 @@
     "4": {
       "title": "Reports",
       "sheetID": ["TjJhNFf", "yTxhpmE", "cuAxPwr", "TmDqKQj"],
-      "template": "views/reports.html"
+      "template": "views/reports.html",
+      "hiddenOnMobile":"true"
     },
     "5": {
       "title": "About",

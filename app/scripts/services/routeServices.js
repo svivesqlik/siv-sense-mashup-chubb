@@ -78,7 +78,8 @@ app.factory('routeServices', ['$rootScope', '$http', '$location', '$route',
                                     parent: key,
                                     subItems: route.subItems,
                                     gObjectIDs: route.gObjectIDs,
-                                    hidden: route.hidden
+                                    hidden: route.hidden,
+                                    hiddenOnMobile: route.hiddenOnMobile
                                 });
 
                                 $rootScope.navLinks[key][subkey]['parent'] = key;
@@ -96,7 +97,8 @@ app.factory('routeServices', ['$rootScope', '$http', '$location', '$route',
                                         section: section,
                                         parent: first_section,
                                         gObjectIDs: item.gObjectIDs,
-                                        hidden: item.hidden
+                                        hidden: item.hidden,
+                                        hiddenOnMobile: item.hiddenOnMobile
                                     });
 
                                     $rootScope.navLinks[key][subkey]['parent'] = first_section;
@@ -115,7 +117,8 @@ app.factory('routeServices', ['$rootScope', '$http', '$location', '$route',
                                                 pageTitle: subItem.title,
                                                 section: section,
                                                 gObjectIDs: subItem.gObjectIDs,
-                                                hidden: subItem.hidden
+                                                hidden: subItem.hidden,
+                                                hiddenOnMobile: item.hiddenOnMobile
                                             });
                                         });
                                     }

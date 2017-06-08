@@ -3,13 +3,13 @@
         <div class="row">
             <div class="hidden-xs col-lg-12">
                 <nav class="pull-right">
-                    <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-click="goToSection(n)">{{n.title}}</a>
+                    <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-click="goToSection(n, true)">{{n.title}}</a>
                 </nav>
             </div>
             <div class="hidden-sm hidden-md hidden-lg col-lg-12">
                 <div class="responsive-menu-button fa fa-bars" ng-click="show_responsive_menu = !show_responsive_menu"></div>
                 <nav class="responsive-menu-menu" ng-show="show_responsive_menu == true">
-                    <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-click="goToSection(n)">{{n.title}}</a>
+                    <a ng-repeat="n in navLinks[defaultSection] track by $index"  ng-class="{'hidden-xs' : n.hiddenOnMobile }" ng-click="goToSection(n, true)">{{n.title}}</a>
                 </nav>
             </div>
         </div>

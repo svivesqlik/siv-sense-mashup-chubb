@@ -263,7 +263,7 @@ require(app_dependencies,
                 $rootScope.pivotViewMode = 'mode-act-abs';
                 $rootScope.analyticalViewMode = 'mode-view-plan';
                 $rootScope.info_texts = helpContent;
-                $rootScope.selectionCount = 0;
+                $rootScope.selectionCount = 0;                
 
                 if (mode === 'ROUTE_BASED') {
 

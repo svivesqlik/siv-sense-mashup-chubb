@@ -66,13 +66,13 @@ app.controller('splashController',
                 return;
             }
 
-            $scope.curVal = 0;
+            
             var next = (($scope.splashNum + 1) > $scope.MaxSplashNum ? 1 :  $scope.splashNum + 1);
             var next_follows = (($scope.splashNum + 2) > $scope.MaxSplashNum ? 1 :  $scope.splashNum + 2);
 
             $scope.getImage(next)
-            .then(function () {                                
-                    
+            .then(function () {
+                    $scope.curVal = 0;
                     $("#index-cover-fader").animate({"opacity":"0.85"}, 1000, function () {
                         $scope.splashNum = next;
                         $("#index-cover-fader").animate({"opacity":"0.0"}, 600);
@@ -81,10 +81,15 @@ app.controller('splashController',
             });
         };
 
-        $rootScope.goToSection = function (section) {
+        $rootScope.goToSection = function (section, with_slide, set_hidden) {
             var url_target = $filter('urlConverter')(section.title, $rootScope.defaultSection);
             $location.path(url_target);
-            $scope.slideDown();
+            if (with_slide) {
+                $scope.slideDown();
+            }
+            if (set_hidden) {
+                $rootScope.show_responsive_menu = false;
+            }
         };
 
         $scope.slideDown = function (straight) {

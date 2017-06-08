@@ -60,6 +60,7 @@
                             <i class="toolbar-icon fa fa-search" ng-click="enableSearch()"></i>
                             <i class="toolbar-icon bck fa fa-step-backward" aria-hidden="true" ng-click="selectionsGoBack()"></i>
                             <i class="toolbar-icon fwd fa fa-step-forward" aria-hidden="true" ng-click="selectionsGoForward()"></i>
+                            <i class="toolbar-icon clr lui-icon lui-icon--clear-selections" aria-hidden="true" ng-click="selectionsClear()"></i>
                         </div>
                     </div>
                 </div>
@@ -67,11 +68,13 @@
                 <div class="hidden-sm hidden-md hidden-lg col-xs-12">
                     <a class="nav-logo responsive" href="#{{navLinks[defaultSection][0].title|urlConverter:defaultSection}}"><img src="images/logo.svg" /></a>
                     <div class="responsive-options-wrapper">
+                        <i class="toolbar-icon fa fa-search" ng-click="enableSearch()"></i>
                         <a class="responsive-menu-filters" ng-click="triggerFilters()">Filters<span ng-show="selectionCount > 0" id="nav-filter-count" ng-class="{'hasItems' : selectionCount > 0}">{{selectionCount}}</span></a>
                         <div class="responsive-menu-button fa fa-bars" ng-click="show_responsive_menu = !show_responsive_menu"></div>
                     </div>
-                    <nav class="responsive-menu-menu" ng-show="show_responsive_menu == true">
-                        <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-click="goToSection(n)">{{n.title}}</a>
+                    
+                    <nav class="responsive-menu-menu" ng-show="show_responsive_menu === true">
+                        <a ng-repeat="n in navLinks[defaultSection] track by $index" ng-class="{'hidden-xs' : n.hiddenOnMobile}" ng-click="hideMenu();goToSection(n, false, true)">{{n.title}}</a>
                     </nav>
                     
                 </div>

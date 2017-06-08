@@ -43,7 +43,8 @@ app.controller('topBarController',
             'Quote Premium',
             'Prod Horizontal'
          ];
-         
+
+        $scope.show_responsive_menu = false;    
      
         $scope.init = function () {
             $timeout(function () {
@@ -98,6 +99,10 @@ app.controller('topBarController',
             });
         };
 
+        $scope.hideMenu = function () {
+            $scope.show_responsive_menu = false;
+        };
+
         $scope.hideResults = function () {
             $rootScope.processingOrFinished = false;
             $scope.searchTerm = '';
@@ -125,6 +130,13 @@ app.controller('topBarController',
             $('.toolbar-icon.fwd').css('opacity', 0.4);
             senseApp.forward().then(function () {
                 $('.toolbar-icon.fwd').css('opacity', 1.0);
+            });
+        };
+
+        $scope.selectionsClear = function () {
+            $('.toolbar-icon.clr').css('opacity', 0.4);
+            senseApp.clearAll().then(function () {
+                $('.toolbar-icon.clr').css('opacity', 1.0);
             });
         };
 

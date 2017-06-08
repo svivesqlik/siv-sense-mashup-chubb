@@ -25,7 +25,7 @@ var environments = {
         host: "beta.qliksensestudios.com",
         port: 443,
         protocol: "https",
-        prefix: '/',
+        prefix: '/chubb/',
         isSecure: true,
         appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0'
         //appName: '693b54d1-6a7c-4625-8885-cfae3a8aee36'//'5b81e213-0a5e-4ab9-bc4c-34161eebedf9'

@@ -109,11 +109,9 @@
                 }
                 .section-headers-wrapper {
                     margin-top: 7vh;
-
                     @media all and (max-width: 767px) {
                         margin-top: 15vh;
                     }
-
                     margin-left: 15px;
                     padding-left: 15px;
                     border-left: 5px solid $scheme_section_color;
@@ -209,6 +207,7 @@
                     height: 30px;
                     min-width: 100px;
                     margin-left: 10px;
+                    border: 1px solid gray;
                 }
             }
             article.charts-section {
@@ -411,27 +410,21 @@
 
     .modal-content {
         font-size: 1.25em;
-
         form {
             .form-control {
                 display: block;
                 margin-bottom: 15px;
             }
         }
-
         #bookmarksList {
             list-style-type: none;
             margin-left: 10px;
             font-size: 1.35em;
-
-
-
             i {
                 margin-left: 25px;
                 font-size: 1.1em;
             }
         }
-
         .export-options-button {
             cursor: pointer;
             background: $scheme_turquoise;
