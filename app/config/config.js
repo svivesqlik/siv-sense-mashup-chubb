@@ -1,5 +1,5 @@
 // DO NOT DELETE THIS LINE BELOW
-var current_environment, environments, chartDefaults; 
+var current_environment, environments, chartDefaults;
 
 
 
@@ -7,20 +7,20 @@ current_environment = 'LOCAL';
 
 environments = {
     'LOCAL_EXTENSION' : {
-        host: window.location.host, 
+        host: window.location.host,
         port: 443,
         protocol: 'https',
         prefix: '/',
         isSecure: true,
         appName: '1496d010-bebb-4ae4-89cc-69de7c53bb9b'
-    }, 
+    },
     'LOCAL' : {
-        host: "172.16.1.188",
-        port: 443,
-        protocol: 'https',
-        prefix: '/chubb/',
-        isSecure: true,
-        appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0',
+      host: "uk01pqsp001",
+      port: 80,
+      protocol: "http",
+      prefix: '/prod/',
+      isSecure: false,
+      appName: '22836af1-2510-4088-a4e8-7a15138757bd'
     }
 };
 
@@ -37,7 +37,7 @@ chartDefaults = {
     'headlines-analytical-view':'mode-view-plan',
 
     // Options: 'mode-actual-absolute', 'mode-plan-absolute', 'mode-actual-vs-plan'
-    'roll-forward': 'mode-actual-absolute' 
+    'roll-forward': 'mode-actual-absolute'
 };
 
 
@@ -155,5 +155,3 @@ var _protocol = (senseConnection.isSecure ? "https://" : "http://");
 var _port = (senseConnection.port ? ":" + senseConnection.port : "");
 var _path = senseConnection.prefix + "resources";
 baseURL =  _protocol + senseConnection.host + _port + _path;
-
-
