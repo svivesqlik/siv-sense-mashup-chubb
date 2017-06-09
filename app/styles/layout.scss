@@ -166,11 +166,11 @@
                             vertical-align: top;
                             &.medium {
                                 min-width: 90px;
-                                width: 15%;
+                                width: 20%;
                             }
                             &.small {
                                 min-width: 80px;
-                                width: 10%;
+                                width: 15%;
                             }
                             /* Phones with portrait, till hidden xs */
                             @media all and (max-width: 767px) {
@@ -291,7 +291,7 @@
                             text-align: center;
                             vertical-align: middle;
                             padding: 3px;
-                            top: 2px;
+                            top: 0;
                         }
                         .expander {
                             display: inline-block;

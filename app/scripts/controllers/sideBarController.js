@@ -140,12 +140,6 @@ app.controller('sideBarController',
             $scope.selectPeriodToMax();
         }
 
-
-        $rootScope.closeFilters = function () {
-            $(".sidebar.right").trigger("sidebar:close");
-        };
-        
-
     }
 ]);
 

@@ -53,11 +53,13 @@ app.controller('topBarController',
         };
 
         $rootScope.triggerFilters = function () {
+            $(".sidebars").attr('style', 'opacity: 1.0');
             $(".sidebar.right").trigger("sidebar:toggle");
         };
 
         $rootScope.openFilters = function () {
-          $(".sidebar.right").trigger("sidebar:open");
+            $(".sidebars").attr('style','opacity: 1.0');
+            $(".sidebar.right").trigger("sidebar:open");
         };
     
         $rootScope.closeFilters = function () {
@@ -68,21 +70,37 @@ app.controller('topBarController',
             $rootScope.filterPanelOpen = true;
 
             require(['introjs'], function (introJs) {
+            
+            $rootScope.goToSection({title:'headlines'});
+            $rootScope.closeFilters();
+
             var ijs = introJs()
                 .setOption('showProgress', true)
                 .onbeforechange(function(targetElement) {
                     
-                    if ($(targetElement).attr('data-step') == '2') {
+                    if ($(targetElement).attr('data-step') == '4') {
                         $rootScope.openFilters();
+                        setTimeout(function () {
+                            ijs.refresh();
+                        }, 1000);
+                        setTimeout(function () {
+                            ijs.refresh();
+                        }, 300);
+                        $('#containerMainView').css('opacity', 0.3);
                     }
 
-                     if ($(targetElement).attr('data-step') == '4') {
-                         $rootScope.goToSection({title:'headlines'});
+                     if ($(targetElement).attr('data-step') == '5') {
+                         
+                     }
+
+                     if ($(targetElement).attr('data-step') == '6') {
+                         $rootScope.closeFilters();
+                         $('#containerMainView').css('opacity', 1.0);
                      }
 
                 })
                 .onexit(function () {
-                    //$('#mainContainer').css('opacity', 1.0);
+                    $('#containerMainView').css('opacity', 1.0);
                 })
                 .start();
             })

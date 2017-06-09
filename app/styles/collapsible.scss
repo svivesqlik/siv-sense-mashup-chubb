@@ -6,7 +6,9 @@ $max_table_height: 800px;
         position: absolute;
         text-align: center;
         top: 0;
-        left: 40%;
+        margin-left: 40%;
+        margin-right: 40%;
+        width: 20%;
         @media all and (max-width: 690px) {
             left: 30%;
         }

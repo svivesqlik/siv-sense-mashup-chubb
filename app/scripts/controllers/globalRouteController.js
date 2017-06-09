@@ -95,6 +95,7 @@ app.controller('globalRouteController', [
                             options
                         ).then(function (obj) {
                             console.info('GOT object with ID: ', obj.id);
+                            
                             try {
                                 $rootScope.currentObjects.push(obj);
                             } catch (e) {}

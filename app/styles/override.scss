@@ -64,6 +64,8 @@ body {
     .qv-object .qv-object-title {
         padding-right: 0;
         line-height: 1.5em;
+        display: block;
+        text-align: center;
     }
     .footer {
         margin-top: 0;
@@ -194,4 +196,34 @@ textarea {
 
 .kpi-object .secondary-wrapper {
     display: flex !important;
+}
+
+
+/**
+* IntroJS Overrides
+*/
+
+.introjs-fixedTooltip {
+    background: none;
+    border: 2px dashed $scheme_turquoise;
+}
+
+.introjs-overlay {
+    background: none;
+}
+
+.introjs-tooltipbuttons>a {
+    background: $scheme_turquoise;
+    color: white;
+    font-family: $main_font;
+    text-shadow: none;
+    padding: 10px;
+    border: none;
+}
+
+.introjs-helperNumberLayer {
+    top: 0;
+    font-family: $main_font;
+    background: $scheme_turquoise;
+    line-height: 22px;
 }
