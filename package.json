@@ -2,7 +2,8 @@
   "name": "mashup20",
   "version": "0.0.0",
   "dependencies": {
-    "angular-cookies": "^1.6.4"
+    "angular-cookies": "^1.6.4",
+    "ruby": "^0.6.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
@@ -37,7 +38,7 @@
   },
   "scripts": {
     "test": "grunt test",
-    "postinstall": "git submodule update --init --recursive && npm run setup-dependencies",
+    "postinstall": "gem install sass && gem install compass",
     "setup-dependencies": "bower install",
     "setup-ocf-web": "npm --prefix ./app/lib/ocf-web/analytics_tracker install"
   }
