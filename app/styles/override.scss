@@ -1,5 +1,4 @@
 @import "branding";
-
 html,
 body {
     height: 100%;
@@ -177,6 +176,11 @@ select,
 button,
 isindex {
     font-family: $main_font;
+}
+
+input,
+textarea {
+    border: 1px solid gray;
 }
 
 .reports-wrapper .requirements .add-button {

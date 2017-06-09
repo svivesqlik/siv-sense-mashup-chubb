@@ -1,23 +1,45 @@
 @import "branding";
 .footer-wrapper {
     height: $footer_size;
+    .qv-object-text-image .qv-media-tool-html>div {
+        text-align: right !important;
+        color: white !important;
+    }
+    .data-last-reloaded {
+        display: block;
+        margin-top: 40px;
+        text-align: right;
+    }
+    @media all and (max-width: 690px) {
+        height: auto;
+        .data-last-reloaded {
+            margin-top: 10px;
+        }
+    }
     background-color: $footer_gray;
     vertical-align: middle;
     color: white;
     .col {
         margin-top: $footer_size / 2;
     }
+    .footer-text {
+        &.copy-responsive {
+            text-align: left;
+            margin-top: 10px;
+            display: block;
+        }
+    }
     .footer-header-title {
         font-size: 2.5em;
-        padding-top: 40px;
+        padding-top: 20px;
         padding-bottom: 20px;
         h1 {
             color: white;
         }
     }
     .footer-responsive {
-        height: 200px;
-        margin: 40px 0;
+        height: auto;
+        margin: 0;
         .footer-responsive-col {
             width: 48%;
             display: inline-block;

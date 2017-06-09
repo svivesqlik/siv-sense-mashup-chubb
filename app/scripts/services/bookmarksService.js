@@ -13,7 +13,7 @@ app.factory('bookmarksService', ['$rootScope', '$http', '$location', '$route',
                     
                     $("#BookmarkList").empty();
                     $.each(reply.qBookmarkList.qItems, function (key, value) {
-                        $rootScope.bookmarks .push({
+                        $rootScope.bookmarks.push({
                             id: value.qInfo.qId, 
                             name: value.qMeta.title,
                             description: value.qMeta.description
@@ -23,23 +23,13 @@ app.factory('bookmarksService', ['$rootScope', '$http', '$location', '$route',
                 });
             },
             addBookmark: function (bookmarkName, bookmarkDesc) {
-                senseApp.bookmark.create(bookmarkName, bookmarkDesc);
+                return senseApp.bookmark.create(bookmarkName, bookmarkDesc);
             },
-            removeBookMark: function (bookmark) {
-
-                $rootScope.removeID = bookmark.key;
-
-                var modalInstance = $uibModal.open({
-                    templateUrl: 'templates/remove-bookmark.html',
-                    controller: 'ModalInstanceCtrl',
-                    size: 'md',
-                    windowClass: 'app-modal-window',
-                    resolve: {
-                        items: function () {
-                            return $rootScope.removeID;
-                        }
-                    }
-                });
+            removeBookmark: function (id) {
+                return senseApp.bookmark.remove(id);
+            },
+            applyBookmark: function (id) {
+                return senseApp.bookmark.apply(id);
             },
             showModal: function () {
                 var _service = this;

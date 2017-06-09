@@ -28,6 +28,9 @@
             text-align: center;
             margin-left: 35%;
             margin-top: 2px;
+            @media all and (max-width: 480px) {
+                display: none;
+            }
         }
     }
     #tick-to-go-straight-wrapper {
@@ -69,6 +72,9 @@
     }
     &.splash-1 {
         background-image: url('../images/splash/1.jpg');
+        @media all and (max-width: 767px) {
+            background-image: url('../images/splash/1_mobile.jpg');
+        }
         #splash-welcome-text {
             border-color: $scheme_orange;
         }
@@ -81,6 +87,9 @@
     }
     &.splash-2 {
         background-image: url('../images/splash/2.jpg');
+        @media all and (max-width: 767px) {
+            background-image: url('../images/splash/2_mobile.jpg');
+        }
         .nav-light-wrapper a:before,
         .nav-light-wrapper a:hover:before {
             background-color: $scheme_turquoise;
@@ -97,6 +106,9 @@
     }
     &.splash-3 {
         background-image: url('../images/splash/3.jpg');
+        @media all and (max-width: 767px) {
+            background-image: url('../images/splash/3_mobile.jpg');
+        }
         #splash-welcome-text {
             border-color: $scheme_red;
         }
@@ -109,6 +121,9 @@
     }
     &.splash-4 {
         background-image: url('../images/splash/4.jpg');
+        @media all and (max-width: 767px) {
+            background-image: url('../images/splash/4_mobile.jpg');
+        }
         #splash-welcome-text {
             border-color: $scheme_purple;
         }
@@ -121,6 +136,9 @@
     }
     &.splash-5 {
         background-image: url('../images/splash/5.jpg');
+        @media all and (max-width: 767px) {
+            background-image: url('../images/splash/5_mobile.jpg');
+        }
         #splash-welcome-text {
             border-color: $scheme_blue;
         }
@@ -133,6 +151,9 @@
     }
     &.splash-6 {
         background-image: url('../images/splash/6.jpg');
+        @media all and (max-width: 767px) {
+            background-image: url('../images/splash/6_mobile.jpg');
+        }
         #splash-welcome-text {
             border-color: $scheme_yellow;
         }
@@ -145,6 +166,9 @@
     }
     &.splash-7 {
         background-image: url('../images/splash/7.jpg');
+        @media all and (max-width: 767px) {
+            background-image: url('../images/splash/7_mobile.jpg');
+        }
         #splash-welcome-text {
             border-color: $scheme_green;
         }
@@ -157,6 +181,9 @@
     }
     &.splash-8 {
         background-image: url('../images/splash/8.jpg');
+        @media all and (max-width: 767px) {
+            background-image: url('../images/splash/8_mobile.jpg');
+        }
         #splash-welcome-text {
             border-color: $scheme_turquoise;
         }
@@ -200,6 +227,9 @@
     }
     .splash-logo {
         width: 300px;
+        @media all and (max-width: 767px) {
+            width: 200px;
+        }
     }
     .splash-logo,
     #splash-welcome-text {

@@ -129,7 +129,8 @@ var app_dependencies = [
 
     'scripts/controllers/globalRouteController.js',
     'scripts/controllers/topBarController.js',
-    'scripts/controllers/sideBarController.js'
+    'scripts/controllers/sideBarController.js',
+    'scripts/controllers/bookmarksController.js'
 ];
 
 var $routeProviderReference = null;
@@ -257,11 +258,13 @@ require(app_dependencies,
             ) {
 
                 $rootScope.currentObjects = [];
-                // @TODO 
-                $rootScope.chartViewMode = 'mode-geo';
-                $rootScope.headlinesChartViewMode = 'mode-monthly';
-                $rootScope.pivotViewMode = 'mode-act-abs';
-                $rootScope.analyticalViewMode = 'mode-view-plan';
+                
+                // Defaults straight from the configuration file
+                $rootScope.chartViewMode = chartDefaults['segmentation-page'];
+                $rootScope.pivotViewMode = chartDefaults['roll-forward'];
+                $rootScope.analyticalViewMode = chartDefaults['headlines-analytical-view'];
+                $rootScope.headlinesChartViewMode = chartDefaults['headlines-page-chart'];
+
                 $rootScope.info_texts = helpContent;
                 $rootScope.selectionCount = 0;                
 
@@ -373,14 +376,7 @@ require(app_dependencies,
                 $rootScope.showBookmarksModal = function () {
                     bookmarksService.showModal();
                 };
-
-                $rootScope.saveBookmark = function (form) {
-                    bookmarksService.addBookmark(this.bookmarkName, this.bookmarkDesc);
-                };
-
-                $rootScope.saveBookmark = function (bookmark) {
-                    bookmarksService.activateBookmark(bookmark.id); 
-                };
+               
 
                 $rootScope.exportData = function () {
                     var modal_obj = $('#mashupModal');

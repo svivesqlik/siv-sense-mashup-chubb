@@ -68,9 +68,10 @@
                 <div class="hidden-sm hidden-md hidden-lg col-xs-12">
                     <a class="nav-logo responsive" href="#{{navLinks[defaultSection][0].title|urlConverter:defaultSection}}"><img src="images/logo.svg" /></a>
                     <div class="responsive-options-wrapper">
+                        <i class="toolbar-icon lui-icon lui-icon--bookmark" ng-click="showBookmarksModal()"></i> 
                         <i class="toolbar-icon fa fa-search" ng-click="enableSearch()"></i>
-                        <a class="responsive-menu-filters" ng-click="triggerFilters()">Filters<span ng-show="selectionCount > 0" id="nav-filter-count" ng-class="{'hasItems' : selectionCount > 0}">{{selectionCount}}</span></a>
-                        <div class="responsive-menu-button fa fa-bars" ng-click="show_responsive_menu = !show_responsive_menu"></div>
+                        <a class="toolbar-icon responsive-menu-filters" ng-click="triggerFilters()"><i class="fa fa-filter hidden-sm hidden-md hidden-lg"></i><span ng-show="selectionCount > 0" id="nav-filter-count" ng-class="{'hasItems' : selectionCount > 0}">{{selectionCount}}</span></a>
+                        <div class="toolbar-icon responsive-menu-button fa fa-bars" ng-click="show_responsive_menu = !show_responsive_menu"></div>
                     </div>
                     
                     <nav class="responsive-menu-menu" ng-show="show_responsive_menu === true">

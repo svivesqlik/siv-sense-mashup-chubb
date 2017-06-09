@@ -1,14 +1,17 @@
-"use strict";
+// DO NOT DELETE THIS LINE BELOW
+var current_environment, environments, chartDefaults; 
 
-var current_environment = 'LOCAL';
 
-var environments = {
+
+current_environment = 'LOCAL';
+
+environments = {
     'LOCAL_EXTENSION' : {
         host: window.location.host, 
-        port: 80,
-        protocol: 'http',
-        prefix: '/chubb/',
-        isSecure: (window.location.port == 443),
+        port: 443,
+        protocol: 'https',
+        prefix: '/',
+        isSecure: true,
         appName: '1496d010-bebb-4ae4-89cc-69de7c53bb9b'
     }, 
     'LOCAL' : {
@@ -18,27 +21,23 @@ var environments = {
         prefix: '/chubb/',
         isSecure: true,
         appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0',
-        //appName: '14bec530-1337-4974-99b8-22b2f622f6b2'
-        //'appName':'728f4f7c-a4eb-4028-a12e-14333497171f'
-    }, 
-    'BETA' : {
-        host: "beta.qliksensestudios.com",
-        port: 443,
-        protocol: "https",
-        prefix: '/chubb/',
-        isSecure: true,
-        appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0'
-        //appName: '693b54d1-6a7c-4625-8885-cfae3a8aee36'//'5b81e213-0a5e-4ab9-bc4c-34161eebedf9'
-    },
-    'PROD' : {
-        host: "srvsgsipro01.agbar.ga.local",
-        port: 443,
-        protocol: "https",
-        prefix: '/',
-        isSecure: true,
-        appName: 'c1d1a701-99fd-4587-b132-e3b4a4566fa4'
-    },
+    }
+};
 
+/*
+* Defaults for the dropdown options in the charts
+*/
+chartDefaults = {
+    // Options: "mode-geo","mode-broker","mode-class","mode-risk",
+    'segmentation-page': 'mode-geo',
+
+    // Options: 'mode-monthly', 'mode-cumulative'
+    'headlines-page-chart': 'mode-monthly',
+    // Options: "mode-view-plan","mode-view-forecast","mode-view-projection","mode-view-prior"
+    'headlines-analytical-view':'mode-view-plan',
+
+    // Options: 'mode-actual-absolute', 'mode-plan-absolute', 'mode-actual-vs-plan'
+    'roll-forward': 'mode-actual-absolute' 
 };
 
 
@@ -60,8 +59,31 @@ var environments = {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //
-// Load the connection depending on the environment
+// DO NOT DELETE THIS CODE BELOW
 //
 var senseConnection, baseURL;
 var basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));

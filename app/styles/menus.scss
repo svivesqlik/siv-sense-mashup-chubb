@@ -1,4 +1,4 @@
-.nav-light-wrapper,
+    .nav-light-wrapper,
 .nav-wrapper {
     nav {
         float: none;
@@ -8,7 +8,7 @@
         text-align: right;
     }
     .responsive-menu-menu {
-        text-align: left;
+        text-align: right;
         color: white;
         a {
             display: block;
@@ -16,23 +16,27 @@
         }
     }
     .responsive-menu-button {
-        color: white;
-        font-size: 2.5em;
+        color: white;        
         text-align: right;
         display: inline-block;
         vertical-align: middle;
+        font-size: 2em;
     }
     .responsive-menu-filters {
         position: relative;
         display: inline-block;
         text-align: right;
-        margin-right: 35px;
+        margin-right: 20px;
         #nav-filter-count {
             top: 0;
             right: -25px;
-            font-size: 1em;
+            font-size: 0.85em;
             height: 20px;
             width: 20px;
         }
     }
-} 
+}
+
+.nav-light-wrapper .responsive-menu-button {
+    display: block;
+}

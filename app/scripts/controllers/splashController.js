@@ -20,7 +20,14 @@ app.controller('splashController',
     ) {
         $scope.MaxSplashNum = 6;
         $scope.splashNum = 1;
-        $scope.bkgImage = "../images/splash/" + $scope.splashNum + ".jpg";
+        $scope.isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+        if ($scope.isMobile && $scope.isMobile.matches) {
+            $scope.bkgImage = "../images/splash/" + $scope.splashNum + "_mobile.jpg";
+        } else {
+            $scope.bkgImage = "../images/splash/" + $scope.splashNum + ".jpg";
+        }
+
         $scope.curVal = 1;
         $scope.maxVal = 100;
         $scope.i = null;
@@ -28,7 +35,7 @@ app.controller('splashController',
 
         $scope.init = function () {
             
-            $rootScope.inSplash = false;
+            $rootScope.inSplash = false;            
 
             $scope.i = $interval(function () {
                 $scope.curVal+=0.25;
@@ -47,6 +54,10 @@ app.controller('splashController',
         };
 
         $scope.getImage = function(num) {
+            if ($scope.isMobile && $scope.isMobile.matches) {
+                return $.get('images/splash/' + num + '_mobile.jpg');
+            }
+
             return $.get('images/splash/' + num + '.jpg');
         };
 

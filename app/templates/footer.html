@@ -1,39 +1,32 @@
 <div class="footer-wrapper">
 
     <footer class="container">
-        
-        <div class="row hidden-xs">
-            <div class="footer-header-title col-lg-8">
+
+        <div class="row">
+            <div class="col-xs-6 hidden-sm hidden-md hidden-lg">
+                <span class="footer-text copy-responsive">&copy; 2017 Chubb</span>
+            </div>
+            <div class="col-sm-6 footer-header-title hidden-xs">
                 <h1 class="pull-left">Chubb. Insured.</h1>
             </div>
-            <div class="footer-header-date col-lg-4">
-                <div class="footer-text pull-right"><span>Data last reloaded:</span><div class="qs-object block-60" id="GYZRSJ"></div></div>
+
+            <div class="col-xs-6">
+                <span class="data-last-reloaded">Data last reloaded:</span>
+                <div class="qs-object block-50" id="GYZRSJ"></div>
             </div>
+
         </div>
 
         <div class="row hidden-xs">
             <div class="col-lg-10">
                 <ul class="pull-left">
-                   <li ng-repeat="n in navLinks[defaultSection] track by $index"><a ng-class="{ 'active': section === '{{n.section}}' }" href="#{{n.title|urlConverter:defaultSection}}">{{n.title}}</a></li>
+                    <li ng-repeat="n in navLinks[defaultSection] track by $index"><a ng-class="{ 'active': section === '{{n.section}}' }" href="#{{n.title|urlConverter:defaultSection}}">{{n.title}}</a></li>
                 </ul>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-2 hidden-xs">
                 <span class="footer-text pull-right">&copy; 2017 Chubb</span>
             </div>
         </div>
-
-        <div class="row footer-responsive hidden-sm hidden-lg hidden-md">
-            <div class="footer-responsive-col">
-                <span class="footer-text ">&copy; 2017 Chubb</span>
-            </div>
-            <div class="footer-header-date footer-responsive-col">
-                <div class="footer-text"><span>Data last reloaded:</span>
-                    <div class="qs-object block-60" id="GYZRSJ"></div>
-                </div>
-            </div>
-        </div>
-
-
     </footer>
 
 </div>

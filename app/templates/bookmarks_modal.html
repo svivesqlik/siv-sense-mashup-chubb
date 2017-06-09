@@ -1,27 +1,37 @@
 <!-- Modal -->
-<div class="modal fade bs-mashup-modal-sm" id="bookmarksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+<div class="modal fade bs-mashup-modal-sm" id="bookmarksModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" ng-controller="bookmarksController">
+    <div class="modal-dialog small" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
+                <div class="close-button-wrapper">
+                    <button type="button" class="button short close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
                 <div id="modal-bookmarks">
-                    <form ng-submit="saveBookmark()">
-                        <div class="form-group">
-                        <label>Name:</label>
-                        <input class="form-control" type="text" ng-model="bookmarkName" />
-                        <label>Description:</label>
-                        <textarea class="form-control" type="text" ng-model="bookmarkDesc"></textarea>
-                        <input type="submit" class="btn btn-default"/>
-                    </form>
-                    <h3>Bookmarks</h3>
-                    <span ng-show="bookmarks.length == 0">There are no bookmarks</span>
-                    <ul id="bookmarksList" ng-hide="bookmarks.length == 0"><li ng-repeat="bookmark in bookmarks"><span ng-click="activateBookmark(bookmark)">{{bookmark.name}}</span><i class="btn-remove fa fa-trash-o" aria-hidden="true" ng-click="removeBookmark(bookmark)"></i></li>
+                    <div>
+                        <div class="col-sm-7">
+                                <h3>Previously saved Bookmarks</h3>
+                                <span ng-show="bookmarks.length == 0">There are no bookmarks</span>
+                                <ul id="bookmarksList" ng-hide="bookmarks.length == 0">
+                                    <li ng-repeat="bookmark in bookmarks"><span ng-click="activateBookmark(bookmark)">{{bookmark.name}}</span><i class="btn-remove fa fa-trash-o"
+                                            aria-hidden="true" ng-click="removeBookmark(bookmark)"></i></li>
+                                </ul>
+                        </div>
+                        <div class="col-sm-5">
+                            <h3>Save selection as new bookmark</h3>
+                            <form ng-submit="saveBookmark()">
+                                <div class="form-group">
+                                    <label>Name:</label>
+                                    <input class="form-control" type="text" ng-model="bookmarkName" />
+                                    <label>Description:</label>
+                                    <textarea class="form-control" type="text" ng-model="bookmarkDesc"></textarea>
+                                    <input type="submit" class="btn btn-default" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
         </div>
-    </div>
-</div>
