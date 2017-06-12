@@ -40,61 +40,67 @@ body {
 }
 
 .kpi-object {
-    .qv-object h1,
-    .qv-object h2,
-    .qv-object .ellips-text>span,
-    .qv-object .qv-object-title .qv-object-title-text,
-    .qv-object .qv-object-subtitle,
-    .qv-object .qv-object-footnote,
-    .qv-object .kpi-title {
-        color: white;
-        @media all and (max-width: 690px) {
-            color: black;
+    .qv-object {
+        h1,
+        h2,
+        .ellips-text>span,
+        .qv-object-title .qv-object-title-text,
+        .qv-object-subtitle,
+        .qv-object-footnote,
+        .kpi-title {
+            color: white;
+            @media all and (max-width: 690px) {
+                color: black;
+            }
         }
-    }
-    .qv-object .measure-title {
-        display: none;
-    }
-    .qv-object .qv-object-title,
-    .qv-object .qv-object-title .qv-object-title-text,
-    .qv-object .qv-object-title h1,
-    .qv-object .qv-object-title h1>div {
-        font-size: 1.3em;
-    }
-    .qv-object .qv-object-title {
-        padding-right: 0;
-        line-height: 1.5em;
-        display: block;
-        text-align: center;
+        .measure-title {
+            display: none;
+        }
+        .qv-object-title,
+        .qv-object-title .qv-object-title-text,
+        .qv-object-title h1,
+        .qv-object-title h1>div {
+            font-size: 1.3em;
+        }
+        .qv-object-title {
+            padding-right: 0;
+            line-height: 1.5em;
+            display: block;
+            text-align: center;
+        }
+        .secondary-wrapper {
+            padding-left: 10px;
+            display: block !important;
+            .kpi-value {
+                .ellips-text>span {
+                    font-size: 16px;
+                }
+            }
+            .kpi-title {
+                font-size: 1.25em !important;
+                line-height: 1em;
+            }
+        }
+        .kpi-value {
+            font-size: 200% !important;
+            .ellips-text>span {
+                font-size: 1.65em;
+            }
+        }
+        .measure-title.ellips-text>span {
+            font-size: 18px;
+        }
+        .qv-object-subtitle {
+            font-size: 1.5em;
+        }
     }
     .footer {
         margin-top: 0;
-    }
-    .qv-object .secondary-wrapper {
-        padding-left: 10px;
-        .kpi-value {
-            .ellips-text>span {
-                font-size: 16px;
-            }
-        }
-        .kpi-title {
-            font-size: 1.25em !important;
-            line-height: 1em;
-        }
-    }
-    .qv-object .kpi-value .ellips-text>span {
-        font-size: 1.2em;
-    }
-    .qv-object .measure-title.ellips-text>span {
-        font-size: 18px;
     }
     .qv-object-footnote {
         text-align: center;
         font-style: normal;
         margin-top: 0;
-    }
-    .qv-object .qv-object-subtitle {
-        font-size: 1.5em;
     }
 }
 
@@ -195,7 +201,7 @@ textarea {
 */
 
 .kpi-object .secondary-wrapper {
-    display: flex !important;
+    display: block !important;
 }
 
 

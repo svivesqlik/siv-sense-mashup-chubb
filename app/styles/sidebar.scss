@@ -36,6 +36,12 @@
         line-height: 1em;
         margin: 10px 0;
         text-align: left;
+        &.period-filter,
+        &.geo-filter {
+            @include ipad('landscape') {
+                display: none;
+            }
+        }
     }
     #time-selection {
         .time-selector {
@@ -45,6 +51,7 @@
             select {
                 height: 35px;
                 min-width: 80px;
+                border: 1px solid gray;
             }
         }
         label {
