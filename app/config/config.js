@@ -15,12 +15,12 @@ environments = {
         appName: '1496d010-bebb-4ae4-89cc-69de7c53bb9b'
     },
     'LOCAL' : {
-        host: "172.16.1.188",
-      port: 443,
-      protocol: "https",
-      prefix: '/chubb/',
-      isSecure: true,
-      appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0'
+       host: "uk01pqsp001",
+       port: 80,
+       protocol: "http",
+       prefix: '/prod/',
+       isSecure: false,
+       appName: '22836af1-2510-4088-a4e8-7a15138757bd'
     }
 };
 

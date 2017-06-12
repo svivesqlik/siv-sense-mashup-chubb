@@ -28,7 +28,7 @@
     <![endif]-->
 
     <div ng-controller="splashController" id="splashContainer" style="opacity: 0">
-        <div class="splash splash-{{splashNum}}" ng-show="inSplash">
+        <div class="splash splash-{{splashNum}}">
             <div id="index-splash-container">
                 <div ng-include="'templates/nav_light.html'"   ></div>
                 <div id="index-progress" >
@@ -49,7 +49,7 @@
                 <div class="container">
                     <div class="splash-welcome row table-display col-lg-12">
                         <div class="hidden-xs hidden-sm col-lg-1 cell-display">&nbsp;</div>
-                        <div class="col-xs-10 col-md-6 col-sm-8 cell-display">
+                        <div class="col-xs-10 col-md-6 col-sm-6 cell-display">
                             <img class="splash-logo" src="images/logo.svg" />
                             <div id="splash-welcome-text">
                                 <h1 class="splash-title fade-in">Welcome to the Revenue Dashboard</h1>
@@ -74,7 +74,7 @@
     </div>
 
     <div id="contentwrap" class="contentwrap">
-        <div id="contentBody" ng-hide="inSplash">
+        <div id="contentBody">
             <div id="container-cover" ng-click="disableSearch()"></div>
             <div ng-include="'templates/nav.html'"></div>
             <div id="containerMainView" class="main-view" ng-click="closeFilters();">
