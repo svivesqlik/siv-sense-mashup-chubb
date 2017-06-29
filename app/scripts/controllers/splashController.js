@@ -32,15 +32,21 @@ app.controller('splashController',
         $scope.maxVal = 100;
         $scope.i = null;
         $scope.skip = false;
+        $scope.cached = {};
+        $scope.loadingNext = false;
 
         $scope.init = function () {
             
+            $scope.getImage(2);
+
             $rootScope.inSplash = false;            
 
             $scope.i = $interval(function () {
-                $scope.curVal+=0.25;
+                $scope.curVal+=0.1;
                 if ($scope.curVal >= $scope.maxVal) {
-                    $scope.nextSplash();
+                    if (!$scope.loadingNext) {
+                        $scope.nextSplash();
+                    }
                 }
             }, 15, 0);
 
@@ -54,6 +60,10 @@ app.controller('splashController',
         };
 
         $scope.getImage = function(num) {
+            if ($scope.cached.hasOwnProperty(num)) {
+                return Promise.resolve();
+            }
+
             if ($scope.isMobile && $scope.isMobile.matches) {
                 return $.get('images/splash/' + num + '_mobile.jpg');
             }
@@ -77,18 +87,26 @@ app.controller('splashController',
                 return;
             }
 
+            $scope.loadingNext = true;
             
             var next = (($scope.splashNum + 1) > $scope.MaxSplashNum ? 1 :  $scope.splashNum + 1);
             var next_follows = (($scope.splashNum + 2) > $scope.MaxSplashNum ? 1 :  $scope.splashNum + 2);
 
             $scope.getImage(next)
             .then(function () {
+                    if (!$scope.cached.hasOwnProperty(next)) {
+                        $scope.cached[next] = true;
+                    }
+
                     $scope.curVal = 0;
+                    $scope.loadingNext = false;
                     $("#index-cover-fader").animate({"opacity":"0.85"}, 1000, function () {
-                        $scope.splashNum = next;
+                        $scope.splashNum = next;                        
                         $("#index-cover-fader").animate({"opacity":"0.0"}, 600);
                     });
-                    $scope.getImage(next_follows);
+                    $scope.getImage(next_follows).then(function () {
+                        $scope.cached[next_follows] = true;
+                    });
             });
         };
 

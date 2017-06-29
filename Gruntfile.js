@@ -93,7 +93,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          port: 9003,
+          port: 9010,
           open: true,
           middleware: function (connect) {
             return [

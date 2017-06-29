@@ -3,7 +3,7 @@ var current_environment, environments, chartDefaults;
 
 
 
-current_environment = 'LOCAL';
+current_environment = 'DEV';
 
 environments = {
     'LOCAL_EXTENSION' : {
@@ -21,7 +21,15 @@ environments = {
        prefix: '/prod/',
        isSecure: false,
        appName: '22836af1-2510-4088-a4e8-7a15138757bd'
-    }
+    },
+    'DEV' : {
+        host: "172.16.1.188",
+        port: 443,
+        protocol: 'https',
+        prefix: '/chubb/',
+        isSecure: true,
+        appName: '728f4f7c-a4eb-4028-a12e-14333497171f'
+    },
 };
 
 /*
