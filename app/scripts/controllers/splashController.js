@@ -42,7 +42,7 @@ app.controller('splashController',
             $rootScope.inSplash = false;            
 
             $scope.i = $interval(function () {
-                $scope.curVal+=0.1;
+                $scope.curVal+=0.35;
                 if ($scope.curVal >= $scope.maxVal) {
                     if (!$scope.loadingNext) {
                         $scope.nextSplash();

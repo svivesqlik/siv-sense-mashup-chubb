@@ -45,7 +45,24 @@ module.exports = function (grunt) {
             }
           ]
         }
-    },
+      },
+      
+      compress: {
+        main: {
+          options: {
+            archive: 'dist.zip'
+          },
+          files: [
+            {
+              expand: true, 
+              cwd: 'dist/',
+              src: ['**/*'], 
+              dest: '/' 
+            }
+          ]
+        }
+      },
+  
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {

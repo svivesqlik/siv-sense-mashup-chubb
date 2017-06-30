@@ -233,3 +233,11 @@ textarea {
     background: $scheme_turquoise;
     line-height: 22px;
 }
+
+/**
+* Increase the z-index so that the column
+* reordering pop-up appearing in the tables.
+*/
+.qui-immidiateContextual {
+    z-index: 1090;
+}
