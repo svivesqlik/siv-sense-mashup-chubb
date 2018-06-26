@@ -3,16 +3,16 @@ var current_environment, environments, chartDefaults;
 
 
 
-current_environment = 'LOCAL';
+current_environment = 'LOCAL_EXTENSION';
 
 environments = {
     'LOCAL_EXTENSION' : {
-        host: window.location.host,
+        host: '172.16.1.188',
         port: 443,
         protocol: 'https',
-        prefix: '/',
+        prefix: '/chubb/',
         isSecure: true,
-        appName: '1496d010-bebb-4ae4-89cc-69de7c53bb9b'
+        appName: '70e8f6b1-6193-4d0e-8838-5c49ba7276b0'
     },
     'LOCAL' : {
       host: "uk01pqsp001",
